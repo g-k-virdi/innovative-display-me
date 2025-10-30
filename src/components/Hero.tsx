@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
@@ -11,53 +11,47 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Text Content */}
-          <div className="animate-slide-in-left space-y-6">
-            <div className="inline-block">
-              <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                Welcome to my portfolio
-              </span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-              Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Your Name
-              </span>
+    <section id="home" className="h-screen flex items-center">
+      <div className="w-full h-full flex flex-col lg:flex-row">
+        {/* Left Side - Text Content */}
+        <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center bg-background p-8 lg:p-16">
+          <div className="max-w-xl animate-fade-in">
+            <h1 className="text-5xl lg:text-7xl font-light mb-6 tracking-tight">
+              Your Name
             </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground font-light">
+            <div className="w-20 h-1 bg-accent mb-6"></div>
+            <p className="text-xl lg:text-2xl text-muted-foreground font-light mb-8">
               Creative Developer & Designer
             </p>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl">
-              Crafting beautiful digital experiences with a blend of creativity and technical expertise. 
-              Passionate about turning ideas into reality through elegant code and innovative design.
+            <p className="text-base text-muted-foreground mb-12 leading-relaxed">
+              Crafting digital experiences with precision and elegance. 
+              Where creativity meets functionality.
             </p>
             
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex gap-4 mb-12">
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary"
+                className="bg-foreground text-background hover:bg-foreground/90 rounded-none px-8"
                 onClick={() => scrollToSection("projects")}
               >
-                View My Work
+                View Work
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
+                className="rounded-none px-8 border-foreground hover:bg-foreground hover:text-background"
                 onClick={() => scrollToSection("experience")}
               >
-                Learn More
+                About Me
               </Button>
             </div>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex gap-6">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="GitHub Profile"
               >
                 <Github className="w-5 h-5" />
@@ -66,44 +60,30 @@ const Hero = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="mailto:hello@example.com"
-                className="p-3 rounded-full bg-secondary hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Email Contact"
               >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
-
-          {/* Image Content */}
-          <div className="animate-slide-in-right">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-500" />
-              <img
-                src={heroImage}
-                alt="Professional workspace showcasing creativity and technical expertise"
-                className="relative rounded-2xl shadow-2xl w-full h-auto object-cover"
-              />
-            </div>
-          </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block animate-fade-in">
-          <button
-            onClick={() => scrollToSection("education")}
-            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors group"
-            aria-label="Scroll to Education section"
-          >
-            <span className="text-sm">Scroll to explore</span>
-            <ArrowDown className="w-5 h-5 animate-bounce" />
-          </button>
+        {/* Right Side - Image */}
+        <div className="w-full lg:w-1/2 h-1/2 lg:h-full relative overflow-hidden">
+          <img
+            src={heroImage}
+            alt="Professional workspace showcasing creativity and technical expertise"
+            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent"></div>
         </div>
       </div>
     </section>

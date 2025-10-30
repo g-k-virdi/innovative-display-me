@@ -44,7 +44,8 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20 hidden sm:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-border hidden sm:block" />
+
 
             <div className="space-y-12">
               {experienceData.map((exp, index) => (
@@ -54,18 +55,20 @@ const Experience = () => {
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-6 top-8 w-5 h-5 rounded-full bg-gradient-to-br from-primary to-accent border-4 border-background hidden sm:block" />
+                  <div className="absolute left-6 top-8 w-5 h-5 bg-foreground border-4 border-background hidden sm:block" />
 
-                  <Card className="sm:ml-20 overflow-hidden hover:shadow-lg transition-all duration-300 group">
+                  <Card className="sm:ml-20 overflow-hidden hover:shadow-lg transition-all duration-300 group rounded-none border-2">
+
                     <CardContent className="p-6 sm:p-8">
                       <div className="flex items-start gap-4 mb-4">
                         <div className="flex-shrink-0 sm:hidden">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                            <Briefcase className="w-6 h-6 text-primary-foreground" />
+                          <div className="w-12 h-12 bg-foreground flex items-center justify-center">
+
+                            <Briefcase className="w-6 h-6 text-background" />
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl sm:text-2xl font-bold mb-1 group-hover:text-primary transition-colors">
+                          <h3 className="text-xl sm:text-2xl font-bold mb-1 group-hover:text-accent transition-colors">
                             {exp.title}
                           </h3>
                           <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-muted-foreground mb-4">
@@ -84,8 +87,9 @@ const Experience = () => {
                         {exp.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
+                            className="px-3 py-1 bg-secondary text-secondary-foreground text-sm hover:bg-foreground hover:text-background transition-colors"
                           >
+
                             {tech}
                           </span>
                         ))}

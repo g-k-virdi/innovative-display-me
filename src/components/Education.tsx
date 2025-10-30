@@ -20,7 +20,7 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-20 lg:py-32 bg-gradient-to-b from-background to-secondary/20">
+    <section id="education" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -35,14 +35,15 @@ const Education = () => {
           {educationData.map((edu, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-scale-in border-l-4 border-l-primary"
+              className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-scale-in border-l-4 border-l-foreground rounded-none"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <CardContent className="p-6 sm:p-8">
                 <div className="flex flex-col sm:flex-row gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <GraduationCap className="w-8 h-8 text-primary-foreground" />
+                    <div className="w-16 h-16 bg-foreground flex items-center justify-center">
+                      <GraduationCap className="w-8 h-8 text-background" />
+
                     </div>
                   </div>
 
@@ -66,8 +67,9 @@ const Education = () => {
                       {edu.achievements.map((achievement, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                          className="px-3 py-1 bg-foreground text-background text-sm"
                         >
+
                           {achievement}
                         </span>
                       ))}

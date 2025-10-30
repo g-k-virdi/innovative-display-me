@@ -32,29 +32,22 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <button
-            onClick={() => scrollToSection("home")}
-            className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity"
-          >
-            Portfolio
-          </button>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+        <div className="flex items-center justify-center h-20">
+          {/* Centered Navigation */}
+          <div className="hidden md:flex items-center gap-2 bg-secondary/50 backdrop-blur-sm px-2 py-2 rounded-full border border-border">
             {navItems.map((item) => (
-              <button
+              <Button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground/80 hover:text-foreground font-medium transition-colors relative group"
+                variant="ghost"
+                className="rounded-full px-6 hover:bg-background transition-all"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300" />
-              </button>
+              </Button>
             ))}
           </div>
 
@@ -62,7 +55,7 @@ const Navigation = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="md:hidden"
+            className="md:hidden absolute right-4"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
@@ -72,15 +65,16 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 animate-fade-in">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <button
+                <Button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-foreground/80 hover:text-foreground font-medium transition-colors text-left py-2"
+                  variant="ghost"
+                  className="justify-start"
                 >
                   {item.label}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
