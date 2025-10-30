@@ -2,9 +2,15 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const Navigation = () => {
+interface NavigationProps {
+  activeSection: string;
+  onNavigate: (sectionId: string) => void;
+}
+
+const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,13 +20,11 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
+  const handleClick = (id: string) => {
+    onNavigate(id);
+    setIsMobileMenuOpen(false);
   };
+
 
   const navItems = [
     { label: "Home", id: "home" },
@@ -44,10 +48,13 @@ const Navigation = () => {
             {navItems.map((item) => (
               <Button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleClick(item.id)}
                 variant="ghost"
-                className="rounded-full px-6 hover:bg-background hover:text-foreground transition-all text-foreground"
+                className={`rounded-full px-6 hover:bg-background hover:text-foreground transition-all ${
+                  activeSection === item.id ? "bg-background text-foreground" : "text-foreground"
+                }`}
               >
+
 
                 {item.label}
               </Button>
@@ -72,10 +79,13 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <Button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleClick(item.id)}
                   variant="ghost"
-                  className="justify-start"
+                  className={`justify-start ${
+                    activeSection === item.id ? "bg-secondary" : ""
+                  }`}
                 >
+
                   {item.label}
                 </Button>
               ))}

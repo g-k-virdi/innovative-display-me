@@ -3,14 +3,8 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
+
     <section id="home" className="h-screen flex items-center pt-20">
       <div className="w-full h-full flex">
         {/* Left Side - Text Content - Always 50% */}
@@ -33,7 +27,6 @@ const Hero = () => {
               <Button 
                 size="lg"
                 className="bg-foreground text-background hover:bg-foreground/90 rounded-none px-8"
-                onClick={() => scrollToSection("projects")}
               >
                 View Work
               </Button>
@@ -41,8 +34,8 @@ const Hero = () => {
                 size="lg" 
                 variant="outline"
                 className="rounded-none px-8 border-foreground hover:bg-foreground hover:text-background"
-                onClick={() => scrollToSection("experience")}
               >
+
                 About Me
               </Button>
             </div>
