@@ -26,8 +26,10 @@ const Navigation = () => {
     { label: "Home", id: "home" },
     { label: "Education", id: "education" },
     { label: "Experience", id: "experience" },
+    { label: "Values", id: "values" },
     { label: "Projects", id: "projects" },
   ];
+
 
   return (
     <nav
@@ -44,8 +46,9 @@ const Navigation = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 variant="ghost"
-                className="rounded-full px-6 hover:bg-background transition-all"
+                className="rounded-full px-6 hover:bg-background hover:text-foreground transition-all text-foreground"
               >
+
                 {item.label}
               </Button>
             ))}

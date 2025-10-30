@@ -2,8 +2,10 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Education from "@/components/Education";
 import Experience from "@/components/Experience";
+import ValuesInterests from "@/components/ValuesInterests";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
+
 
 const Index = () => {
   return (
@@ -12,7 +14,9 @@ const Index = () => {
       <Hero />
       <Education />
       <Experience />
+      <ValuesInterests />
       <Projects />
+
       <Footer />
     </div>
   );

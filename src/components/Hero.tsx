@@ -11,10 +11,11 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="h-screen flex items-center">
-      <div className="w-full h-full flex flex-col lg:flex-row">
-        {/* Left Side - Text Content */}
-        <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center bg-background p-8 lg:p-16">
+    <section id="home" className="h-screen flex items-center pt-20">
+      <div className="w-full h-full flex">
+        {/* Left Side - Text Content - Always 50% */}
+        <div className="w-1/2 h-full flex items-center justify-center bg-background p-8 lg:p-16">
+
           <div className="max-w-xl animate-fade-in">
             <h1 className="text-5xl lg:text-7xl font-light mb-6 tracking-tight">
               Your Name
@@ -76,8 +77,9 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Side - Image */}
-        <div className="w-full lg:w-1/2 h-1/2 lg:h-full relative overflow-hidden">
+        {/* Right Side - Image - Always 50% */}
+        <div className="w-1/2 h-full relative overflow-hidden">
+
           <img
             src={heroImage}
             alt="Professional workspace showcasing creativity and technical expertise"
