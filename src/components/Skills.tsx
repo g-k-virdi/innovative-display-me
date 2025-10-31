@@ -1,7 +1,11 @@
+import { Palette, BarChart3, Users, Wrench, Code, Lightbulb } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+
 const Skills = () => {
   const skillCategories = [
     {
       title: "UX Design & Research",
+      icon: Palette,
       skills: [
         "Wireframing",
         "Prototyping",
@@ -20,6 +24,7 @@ const Skills = () => {
     },
     {
       title: "Data Analytics",
+      icon: BarChart3,
       skills: [
         "Exploratory Data Analysis",
         "Predictive Modelling",
@@ -29,7 +34,8 @@ const Skills = () => {
       ],
     },
     {
-      title: "Project & Product",
+      title: "Project & Product Management",
+      icon: Users,
       skills: [
         "Agile Workflow",
         "Team Collaboration",
@@ -38,6 +44,7 @@ const Skills = () => {
     },
     {
       title: "Tools",
+      icon: Wrench,
       skills: [
         "Figma",
         "Tableau",
@@ -50,7 +57,19 @@ const Skills = () => {
     },
     {
       title: "Programming Languages",
+      icon: Code,
       skills: ["Python", "R", "Java", "MATLAB"],
+    },
+    {
+      title: "Core Competencies",
+      icon: Lightbulb,
+      skills: [
+        "Team Work",
+        "Communication",
+        "Report Writing",
+        "Presentation",
+        "Critical Thinking",
+      ],
     },
   ];
 
@@ -64,28 +83,38 @@ const Skills = () => {
           <div className="w-20 h-1 bg-accent mx-auto"></div>
         </div>
 
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, index) => (
-            <div
-              key={index}
-              className="bg-card border-2 border-border p-6 animate-scale-in"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <h3 className="text-xl font-semibold mb-4 text-accent">
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 bg-secondary text-foreground text-sm border border-border"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, index) => {
+            const Icon = category.icon;
+            return (
+              <Card
+                key={index}
+                className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-accent/10 border-2 border-accent">
+                      <Icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-accent">
+                      {category.title}
+                    </h3>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 bg-secondary/50 text-foreground/90 text-sm border border-border hover:border-accent transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

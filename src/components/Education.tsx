@@ -37,15 +37,14 @@ const Education = () => {
           {educationData.map((edu, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-scale-in border-l-4 border-l-foreground rounded-none"
+              className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in border-l-4 border-l-accent bg-card"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <CardContent className="p-6 sm:p-8">
                 <div className="flex flex-col sm:flex-row gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-foreground flex items-center justify-center">
-                      <GraduationCap className="w-8 h-8 text-background" />
-
+                    <div className="w-16 h-16 bg-accent/10 border-2 border-accent flex items-center justify-center">
+                      <GraduationCap className="w-8 h-8 text-accent" />
                     </div>
                   </div>
 
@@ -54,25 +53,25 @@ const Education = () => {
                       <h3 className="text-xl sm:text-2xl font-bold mb-2">
                         {edu.degree}
                       </h3>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-muted-foreground">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-foreground/80">
                         <span className="font-medium">{edu.institution}</span>
                         <span className="hidden sm:inline">•</span>
                         <span className="text-sm">{edu.period}</span>
                       </div>
                     </div>
 
-                    <p className="text-foreground/80">
+                    <p className="text-foreground/90">
                       {edu.description}
                     </p>
 
-                    <p className="text-sm text-muted-foreground mb-4">
+                    <p className="text-sm text-foreground/80 mb-4">
                       Relevant Coursework:
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {edu.achievements.map((course, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-secondary text-foreground text-sm border border-border"
+                          className="px-3 py-1 bg-secondary/50 text-foreground/90 text-sm border border-border hover:border-accent transition-colors"
                         >
                           {course}
                         </span>
