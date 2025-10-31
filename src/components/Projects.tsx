@@ -1,43 +1,126 @@
-import { ExternalLink, Github } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
 
-const projectsData = [
+const uxProjectsData = [
   {
-    title: "E-Commerce Platform",
-    description:
-      "Full-stack e-commerce solution with payment integration, inventory management, and analytics dashboard.",
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Redesigning BIA tool for William Osler Health System",
+    team: "Team of 3 fourth-year students (in progress)",
+    description: [
+      "Collaborated on redesigning the hospital's Business Impact Analysis (BIA) system.",
+      "Conducted user research and problem definition to identify pain points.",
+      "Developed project requirements and ideated potential design solutions.",
+      "Working on building wireframes and high-fidelity prototypes for conceptual development.",
+    ],
+    links: [
+      { label: "Case Study available upon request", url: "#" },
+      { label: "Prototype in progress", url: "#" },
+    ],
   },
   {
-    title: "Task Management App",
-    description:
-      "Collaborative project management tool with real-time updates, team chat, and progress tracking features.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop",
-    technologies: ["React", "Firebase", "TypeScript", "Tailwind"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "UTESCA Portal Wireframe",
+    team: "UX Designer | Club Project",
+    description: [
+      "Wireframed and prototyped the UTESCA club portal for members to access events, resources, and contact information.",
+      "Designed the interface in Figma, emphasizing clarity, accessibility, and responsiveness.",
+      "Used information hierarchy and interaction design principles for intuitive navigation.",
+    ],
+    links: [{ label: "View Figma Wireframe", url: "#" }],
   },
   {
-    title: "AI Content Generator",
-    description:
-      "Smart content creation tool powered by AI that generates blog posts, social media content, and marketing copy.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-    technologies: ["Next.js", "OpenAI", "PostgreSQL", "Vercel"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Data Joins Website Design and Development",
+    team: "UX Designer & Developer | Internship Project",
+    description: [
+      "Designed the company's website.",
+      "Wireframed and prototyped layouts on Figma, applying HCI principles.",
+      "Collaborated with developers to implement the front-end structure.",
+    ],
+    links: [
+      { label: "Figma Wireframe", url: "#" },
+      { label: "Prototype", url: "#" },
+      { label: "Live Website", url: "#" },
+      { label: "GitHub Repo", url: "#" },
+    ],
   },
   {
-    title: "Fitness Tracking Dashboard",
-    description:
-      "Comprehensive fitness application with workout logging, nutrition tracking, and progress visualization.",
-    image: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop",
-    technologies: ["React Native", "Express", "MySQL", "Charts.js"],
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "TraceVitals (In progress)",
+    team: "UX Designer",
+    description: [
+      "Working on a healthcare visualization tool that helps users track and interpret blood vitals effectively.",
+      "Brainstormed features and site map.",
+      "Designed prototypes for both web and application interfaces.",
+      "Researched accessible color schemes and created visual hierarchy for data readability.",
+    ],
+    links: [
+      { label: "Web Prototype", url: "#" },
+      { label: "App Prototype", url: "#" },
+      { label: "Ongoing Project so website will be available soon", url: "#" },
+    ],
+  },
+  {
+    title: "65Square Calendar and Events Feature (In Progress)",
+    team: "UX Designer | Non-Profit Project",
+    description: [
+      "Wireframed a new feature for managing calendar and community events.",
+      "Conducted research on privacy policies and implementation costs to refine the design.",
+      "Designed in an iterative process, by implementing changes to earlier drafts upon feedback.",
+    ],
+    links: [{ label: "Private project — available upon request or when live", url: "#" }],
+  },
+  {
+    title: "Young Adults Seeking Urgent Care — UX Research & Prototype (In progress)",
+    team: "Individual + Team Project | University Course",
+    description: [
+      "Researched challenges faced by young adults seeking urgent healthcare in the GTA.",
+      "Defined the problem statement, brainstormed ideas, and conducted feasibility tests.",
+      "Created individual wireframes, then formed high-fidelity prototypes and performed usability testing as a group.",
+    ],
+    links: [
+      { label: "View Wireframe", url: "#" },
+      { label: "Prototype available soon", url: "#" },
+    ],
+  },
+  {
+    title: "Kritik Activity Creation Module Redesign",
+    team: "Team of 3",
+    description: [
+      "Conducted cognitive walkthroughs and heuristic evaluations to identify design issues.",
+      "Designed low-fidelity prototypes and performed usability testing.",
+      "Proposed actionable UX improvements using HCI and engineering design principles.",
+    ],
+    links: [{ label: "Case Study available upon request", url: "#" }],
+  },
+  {
+    title: "Electric Vehicle Recommendation System Design",
+    team: "Back-end Developer | Team of 5",
+    description: [
+      "Designed a user-centric web application for recommending electric vehicles.",
+      "Created UML diagrams, use cases, and state charts to model user behavior.",
+      "Collaborated on frontend and backend development with a focus on usability.",
+    ],
+    links: [{ label: "Case Study and code available upon request", url: "#" }],
+  },
+];
+
+const dataProjectsData = [
+  {
+    title: "Pollution Forecasting Using Time-Series Analysis",
+    description: [
+      "Developed and compared Holt-Winters and SARIMA models to predict pollution levels.",
+      "Analyzed seasonal patterns and historical data to improve accuracy.",
+      "Evaluated models using Mean Absolute Error (MAE); Holt-Winters achieved greater stability.",
+    ],
+    links: [{ label: "Notebook available upon request", url: "#" }],
+  },
+  {
+    title: "NHL Draft Prediction Using Machine Learning",
+    description: [
+      "Built regression and classification models to predict NHL standings and simulate draft outcomes.",
+      "Cleaned and engineered features to improve accuracy and performance.",
+      "Ridge regression achieved an R² greater than 0.85, providing robust predictive capability.",
+    ],
+    links: [{ label: "Notebook available upon request", url: "#" }],
   },
 ];
 
@@ -47,84 +130,97 @@ const Projects = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Featured Projects
+            Projects
           </h2>
+          <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work and creative solutions
+            Here's a selection of projects that showcase my work across UX Design, Human Factors, and Data Analytics.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projectsData.map((project, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden group hover:shadow-2xl transition-all duration-500 animate-scale-in rounded-none border-2"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="relative overflow-hidden aspect-video">
-                <img
-                  src={project.image}
-                  alt={`${project.title} project showcase`}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+        <Tabs defaultValue="ux" className="max-w-6xl mx-auto">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-12">
+            <TabsTrigger value="ux">Human Factors & UX Design</TabsTrigger>
+            <TabsTrigger value="data">Data Analytics & Machine Learning</TabsTrigger>
+          </TabsList>
 
-              <CardContent className="p-6">
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 group-hover:text-accent transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 line-clamp-2">
-                  {project.description}
-                </p>
+          <TabsContent value="ux" className="space-y-6">
+            {uxProjectsData.map((project, index) => (
+              <Card
+                key={index}
+                className="border-2 border-border hover:shadow-xl transition-all duration-300 animate-scale-in bg-card"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4">{project.team}</p>
+                  <ul className="space-y-2 mb-4">
+                    {project.description.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
+                        <span className="text-accent mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-3">
+                    {project.links.map((link, idx) => (
+                      <Button
+                        key={idx}
+                        variant="outline"
+                        size="sm"
+                        className="border-border hover:bg-accent hover:text-accent-foreground"
+                        asChild
+                      >
+                        <a href={link.url} className="flex items-center gap-2">
+                          <ExternalLink className="w-4 h-4" />
+                          {link.label}
+                        </a>
+                      </Button>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </TabsContent>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-foreground text-background text-sm"
-                    >
-
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-3">
-                  <Button
-                    variant="default"
-                    size="sm"
-                    className="flex-1 bg-foreground text-background hover:bg-accent rounded-none"
-                    asChild
-                  >
-
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="sm" className="rounded-none border-foreground hover:bg-foreground hover:text-background" asChild>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                      aria-label="View source code on GitHub"
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+          <TabsContent value="data" className="space-y-6">
+            {dataProjectsData.map((project, index) => (
+              <Card
+                key={index}
+                className="border-2 border-border hover:shadow-xl transition-all duration-300 animate-scale-in bg-card"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-4">{project.title}</h3>
+                  <ul className="space-y-2 mb-4">
+                    {project.description.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
+                        <span className="text-accent mt-1">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-3">
+                    {project.links.map((link, idx) => (
+                      <Button
+                        key={idx}
+                        variant="outline"
+                        size="sm"
+                        className="border-border hover:bg-accent hover:text-accent-foreground"
+                        asChild
+                      >
+                        <a href={link.url} className="flex items-center gap-2">
+                          <ExternalLink className="w-4 h-4" />
+                          {link.label}
+                        </a>
+                      </Button>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );

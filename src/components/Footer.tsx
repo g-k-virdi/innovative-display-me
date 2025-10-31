@@ -1,18 +1,24 @@
-import { Heart } from "lucide-react";
-
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <footer className="py-8 border-t border-border">
+    <footer className="py-8 border-t border-border bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
-          <p className="text-muted-foreground flex items-center gap-2">
-            Made with <Heart className="w-4 h-4 text-accent fill-accent" /> by Your Name
+          <p className="text-sm text-muted-foreground">
+            © 2025 Gurleen Kaur Virdi
           </p>
           <p className="text-sm text-muted-foreground">
-            © {currentYear} All rights reserved.
+            Human-Centered Engineer | UX · Research · Data-Driven Design
           </p>
+          <button
+            onClick={scrollToTop}
+            className="text-sm text-accent hover:underline transition-all"
+          >
+            [Back to Top]
+          </button>
         </div>
       </div>
     </footer>

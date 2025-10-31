@@ -3,18 +3,22 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const educationData = [
   {
-    degree: "Master of Computer Science",
-    institution: "University Name",
-    period: "2020 - 2022",
-    description: "Specialized in AI and Machine Learning with focus on practical applications.",
-    achievements: ["GPA: 3.9/4.0", "Research Assistant", "Dean's List"],
-  },
-  {
-    degree: "Bachelor of Software Engineering",
-    institution: "College Name",
-    period: "2016 - 2020",
-    description: "Foundation in software development, algorithms, and system design.",
-    achievements: ["Honors Graduate", "President of Tech Club", "Hackathon Winner"],
+    degree: "Bachelor of Applied Science, Industrial Engineering",
+    institution: "University of Toronto",
+    period: "September 2022 – June 2026",
+    description: "Focus: Human Factors",
+    achievements: [
+      "Human Factors Engineering",
+      "Engineering Psychology",
+      "Cognitive Psychology",
+      "Ergonomic Design of Information Systems",
+      "Workplace Ergonomics",
+      "Design & Analysis of Information Systems",
+      "Statistics",
+      "Probability",
+      "Data Science",
+      "Introduction to Machine Learning",
+    ],
   },
 ];
 
@@ -26,9 +30,7 @@ const Education = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Education
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            My academic journey and continuous learning path
-          </p>
+          <div className="w-20 h-1 bg-accent mx-auto"></div>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-8">
@@ -63,14 +65,16 @@ const Education = () => {
                       {edu.description}
                     </p>
 
+                    <p className="text-sm text-muted-foreground mb-4">
+                      Relevant Coursework:
+                    </p>
                     <div className="flex flex-wrap gap-2">
-                      {edu.achievements.map((achievement, idx) => (
+                      {edu.achievements.map((course, idx) => (
                         <span
                           key={idx}
-                          className="px-3 py-1 bg-foreground text-background text-sm"
+                          className="px-3 py-1 bg-secondary text-foreground text-sm border border-border"
                         >
-
-                          {achievement}
+                          {course}
                         </span>
                       ))}
                     </div>
