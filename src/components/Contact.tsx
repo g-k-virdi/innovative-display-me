@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,24 +21,24 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-background">
+    <section id="contact" className="py-16 lg:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in max-w-3xl mx-auto">
+        <div className="text-center mb-12 animate-fade-in max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Let's Connect
           </h2>
-          <div className="w-20 h-1 bg-accent mx-auto mb-6"></div>
-          <p className="text-lg text-foreground/90">
+          <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
+          <p className="text-lg text-foreground">
             I'm always open to connecting, collaborating, or just chatting about design and ideas.
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <Card className="border-2 border-border hover:shadow-xl transition-all duration-300 bg-card mb-8">
+          <Card className="border-2 border-border hover:shadow-xl transition-all duration-300 bg-card">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground/90 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Your Name
                   </label>
                   <Input
@@ -53,7 +53,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground/90 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                     Your Email
                   </label>
                   <Input
@@ -68,7 +68,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground/90 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
                   <Textarea
@@ -76,7 +76,7 @@ const Contact = () => {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full min-h-[150px] border-2 border-border focus:border-accent"
+                    className="w-full min-h-[120px] border-2 border-border focus:border-accent"
                     placeholder="Tell me about your project or just say hello..."
                   />
                 </div>
@@ -92,48 +92,6 @@ const Contact = () => {
               </form>
             </CardContent>
           </Card>
-
-          <div className="grid sm:grid-cols-3 gap-4">
-            <a
-              href="mailto:virdigurleenkaur3@gmail.com"
-              className="flex flex-col items-center gap-3 p-4 bg-card border-2 border-border hover:border-accent hover:shadow-lg transition-all duration-300 group"
-            >
-              <div className="p-3 bg-accent/10 border-2 border-accent">
-                <Mail className="w-6 h-6 text-accent" />
-              </div>
-              <span className="text-sm font-medium text-foreground/90 group-hover:text-accent transition-colors">
-                Email
-              </span>
-            </a>
-
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 p-4 bg-card border-2 border-border hover:border-accent hover:shadow-lg transition-all duration-300 group"
-            >
-              <div className="p-3 bg-accent/10 border-2 border-accent">
-                <Linkedin className="w-6 h-6 text-accent" />
-              </div>
-              <span className="text-sm font-medium text-foreground/90 group-hover:text-accent transition-colors">
-                LinkedIn
-              </span>
-            </a>
-
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-3 p-4 bg-card border-2 border-border hover:border-accent hover:shadow-lg transition-all duration-300 group"
-            >
-              <div className="p-3 bg-accent/10 border-2 border-accent">
-                <Github className="w-6 h-6 text-accent" />
-              </div>
-              <span className="text-sm font-medium text-foreground/90 group-hover:text-accent transition-colors">
-                GitHub
-              </span>
-            </a>
-          </div>
         </div>
       </div>
     </section>

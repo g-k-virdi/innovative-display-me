@@ -1,87 +1,94 @@
 import { GraduationCap } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const educationData = [
-  {
-    degree: "Bachelor of Applied Science, Industrial Engineering",
-    institution: "University of Toronto",
-    period: "September 2022 – June 2026",
-    description: "Focus: Human Factors",
-    achievements: [
-      "Human Factors Engineering",
-      "Engineering Psychology",
-      "Cognitive Psychology",
-      "Ergonomic Design of Information Systems",
-      "Workplace Ergonomics",
-      "Design & Analysis of Information Systems",
-      "Statistics",
-      "Probability",
-      "Data Science",
-      "Introduction to Machine Learning",
-    ],
-  },
-];
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Education = () => {
+  const coursework = [
+    "Human Factors Engineering",
+    "Engineering Psychology",
+    "Cognitive Psychology",
+    "Ergonomic Design of Information Systems",
+    "Workplace Ergonomics",
+    "Design & Analysis of Information Systems",
+    "Statistics",
+    "Probability",
+    "Data Science",
+    "Introduction to Machine Learning",
+  ];
+
   return (
-    <section id="education" className="py-20 lg:py-32 bg-background">
+    <section id="education" className="py-16 lg:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Education
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-8">
-          {educationData.map((edu, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-scale-in border-l-4 border-l-accent bg-card"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-accent/10 border-2 border-accent flex items-center justify-center">
-                      <GraduationCap className="w-8 h-8 text-accent" />
-                    </div>
-                  </div>
-
-                  <div className="flex-1 space-y-4">
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-bold mb-2">
-                        {edu.degree}
-                      </h3>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-foreground/80">
-                        <span className="font-medium">{edu.institution}</span>
-                        <span className="hidden sm:inline">•</span>
-                        <span className="text-sm">{edu.period}</span>
-                      </div>
-                    </div>
-
-                    <p className="text-foreground/90">
-                      {edu.description}
-                    </p>
-
-                    <p className="text-sm text-foreground/80 mb-4">
-                      Relevant Coursework:
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {edu.achievements.map((course, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-secondary/50 text-foreground/90 text-sm border border-border hover:border-accent transition-colors"
-                        >
-                          {course}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+        <div className="max-w-4xl mx-auto">
+          <Card className="border-2 border-border hover:shadow-xl transition-all duration-300 bg-card overflow-hidden">
+            <CardContent className="p-8">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-accent/10 border-2 border-accent rounded shrink-0">
+                  <GraduationCap className="w-6 h-6 text-accent" />
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-1">
+                    University of Toronto
+                  </h3>
+                  <p className="text-lg text-foreground mb-1">
+                    Bachelor of Applied Science, Industrial Engineering
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    Minor in Philosophy
+                  </p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    September 2022 – June 2026
+                  </p>
+                  <div className="mb-4">
+                    <p className="text-sm font-medium text-foreground mb-2">
+                      Focus: Human Factors
+                    </p>
+                  </div>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+                      >
+                        View Coursework
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-md">
+                      <DialogHeader>
+                        <DialogTitle>Relevant Coursework</DialogTitle>
+                        <DialogDescription>
+                          Key courses completed during my degree
+                        </DialogDescription>
+                      </DialogHeader>
+                      <ul className="space-y-2 mt-4">
+                        {coursework.map((course, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-foreground">
+                            <span className="text-accent mt-1">•</span>
+                            <span>{course}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </DialogContent>
+                  </Dialog>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>

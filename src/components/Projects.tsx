@@ -2,12 +2,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Loader2 } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 const uxProjectsData = [
   {
     title: "Redesigning BIA tool for William Osler Health System",
-    team: "Team of 3 fourth-year students (in progress)",
+    team: "Team of 4 fourth-year students",
     inProgress: true,
     description: [
       "Collaborated on redesigning the hospital's Business Impact Analysis (BIA) system.",
@@ -51,7 +52,7 @@ const uxProjectsData = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
   },
   {
-    title: "TraceVitals (In progress)",
+    title: "TraceVitals",
     team: "UX Designer",
     inProgress: true,
     description: [
@@ -68,7 +69,7 @@ const uxProjectsData = [
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
   },
   {
-    title: "65Square Calendar and Events Feature (In Progress)",
+    title: "65Square Calendar and Events Feature",
     team: "UX Designer | Non-Profit Project",
     inProgress: true,
     description: [
@@ -80,7 +81,7 @@ const uxProjectsData = [
     image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&auto=format&fit=crop&q=80",
   },
   {
-    title: "Young Adults Seeking Urgent Care — UX Research & Prototype (In progress)",
+    title: "Young Adults Seeking Urgent Care — UX Research & Prototype",
     team: "Individual + Team Project | University Course",
     inProgress: true,
     description: [
@@ -143,17 +144,83 @@ const dataProjectsData = [
   },
 ];
 
+const PROJECTS_PER_PAGE = 3;
+
+const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+  <Card
+    key={index}
+    className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card overflow-hidden"
+    style={{ animationDelay: `${index * 50}ms` }}
+  >
+    <div className="md:flex">
+      <div className="md:w-1/3 relative overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-48 md:h-full object-cover hover:scale-105 transition-transform duration-300"
+        />
+        {project.inProgress && (
+          <div className="absolute inset-0 bg-accent/20 flex items-center justify-center">
+            <Badge className="bg-accent text-accent-foreground border-2 border-background">
+              In Progress
+            </Badge>
+          </div>
+        )}
+      </div>
+      <CardContent className="md:w-2/3 p-6">
+        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+        <p className="text-sm text-muted-foreground mb-4">{project.team}</p>
+        <ul className="space-y-2 mb-4">
+          {project.description.map((item: string, idx: number) => (
+            <li key={idx} className="flex items-start gap-2 text-foreground text-sm">
+              <span className="text-accent mt-1">•</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="flex flex-wrap gap-3">
+          {project.links.map((link: any, idx: number) => (
+            <Button
+              key={idx}
+              variant="outline"
+              size="sm"
+              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+              asChild
+            >
+              <a href={link.url} className="flex items-center gap-2">
+                <ExternalLink className="w-4 h-4" />
+                {link.label}
+              </a>
+            </Button>
+          ))}
+        </div>
+      </CardContent>
+    </div>
+  </Card>
+);
+
 const Projects = () => {
+  const [uxPage, setUxPage] = useState(0);
+  const [dataPage, setDataPage] = useState(0);
+
+  const uxTotalPages = Math.ceil(uxProjectsData.length / PROJECTS_PER_PAGE);
+  const dataTotalPages = Math.ceil(dataProjectsData.length / PROJECTS_PER_PAGE);
+
+  const paginateProjects = (projects: any[], page: number) => {
+    const start = page * PROJECTS_PER_PAGE;
+    return projects.slice(start, start + PROJECTS_PER_PAGE);
+  };
+
   return (
-    <section id="projects" className="py-20 lg:py-32 bg-secondary/30">
+    <section id="projects" className="py-16 lg:py-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Projects
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
-          <p className="text-lg text-foreground/90 max-w-2xl mx-auto">
-            Here's a selection of projects that showcase my work across UX Design, Human Factors, and Data Analytics.
+          <p className="text-lg text-foreground max-w-2xl mx-auto">
+            A selection of projects that showcase my work across different disciplines
           </p>
         </div>
 
@@ -164,104 +231,71 @@ const Projects = () => {
           </TabsList>
 
           <TabsContent value="ux" className="space-y-6">
-            {uxProjectsData.map((project, index) => (
-              <Card
-                key={index}
-                className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card overflow-hidden"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <div className="md:flex">
-                  <div className="md:w-1/3 relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 md:h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                    {project.inProgress && (
-                      <Badge className="absolute top-4 left-4 bg-accent text-accent-foreground border-2 border-background">
-                        <Loader2 className="w-3 h-3 mr-1 animate-spin" />
-                        In Progress
-                      </Badge>
-                    )}
-                  </div>
-                  <CardContent className="md:w-2/3 p-6">
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-sm text-foreground/80 mb-4">{project.team}</p>
-                    <ul className="space-y-2 mb-4">
-                      {project.description.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
-                          <span className="text-accent mt-1">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-3">
-                      {project.links.map((link, idx) => (
-                        <Button
-                          key={idx}
-                          variant="outline"
-                          size="sm"
-                          className="border-border hover:bg-accent hover:text-accent-foreground hover:border-accent"
-                          asChild
-                        >
-                          <a href={link.url} className="flex items-center gap-2">
-                            <ExternalLink className="w-4 h-4" />
-                            {link.label}
-                          </a>
-                        </Button>
-                      ))}
-                    </div>
-                  </CardContent>
-                </div>
-              </Card>
+            {paginateProjects(uxProjectsData, uxPage).map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
             ))}
+            
+            {uxTotalPages > 1 && (
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setUxPage(Math.max(0, uxPage - 1))}
+                  disabled={uxPage === 0}
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                >
+                  <ChevronLeft className="w-5 h-5 mr-2" />
+                  Previous
+                </Button>
+                <span className="text-foreground font-medium px-4">
+                  Page {uxPage + 1} of {uxTotalPages}
+                </span>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setUxPage(Math.min(uxTotalPages - 1, uxPage + 1))}
+                  disabled={uxPage === uxTotalPages - 1}
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                >
+                  Next
+                  <ChevronRight className="w-5 h-5 ml-2" />
+                </Button>
+              </div>
+            )}
           </TabsContent>
 
           <TabsContent value="data" className="space-y-6">
-            {dataProjectsData.map((project, index) => (
-              <Card
-                key={index}
-                className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card overflow-hidden"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <div className="md:flex">
-                  <div className="md:w-1/3 relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 md:h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  <CardContent className="md:w-2/3 p-6">
-                    <h3 className="text-xl font-bold mb-4">{project.title}</h3>
-                    <ul className="space-y-2 mb-4">
-                      {project.description.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
-                          <span className="text-accent mt-1">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-3">
-                      {project.links.map((link, idx) => (
-                        <Button
-                          key={idx}
-                          variant="outline"
-                          size="sm"
-                          className="border-border hover:bg-accent hover:text-accent-foreground hover:border-accent"
-                          asChild
-                        >
-                          <a href={link.url} className="flex items-center gap-2">
-                            <ExternalLink className="w-4 h-4" />
-                            {link.label}
-                          </a>
-                        </Button>
-                      ))}
-                    </div>
-                  </CardContent>
-                </div>
-              </Card>
+            {paginateProjects(dataProjectsData, dataPage).map((project, index) => (
+              <ProjectCard key={index} project={project} index={index} />
             ))}
+            
+            {dataTotalPages > 1 && (
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setDataPage(Math.max(0, dataPage - 1))}
+                  disabled={dataPage === 0}
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                >
+                  <ChevronLeft className="w-5 h-5 mr-2" />
+                  Previous
+                </Button>
+                <span className="text-foreground font-medium px-4">
+                  Page {dataPage + 1} of {dataTotalPages}
+                </span>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() => setDataPage(Math.min(dataTotalPages - 1, dataPage + 1))}
+                  disabled={dataPage === dataTotalPages - 1}
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                >
+                  Next
+                  <ChevronRight className="w-5 h-5 ml-2" />
+                </Button>
+              </div>
+            )}
           </TabsContent>
         </Tabs>
       </div>

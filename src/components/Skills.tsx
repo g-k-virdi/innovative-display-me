@@ -1,5 +1,14 @@
 import { Palette, BarChart3, Users, Wrench, Code, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Skills = () => {
   const skillCategories = [
@@ -74,9 +83,9 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 lg:py-32 bg-secondary/30">
+    <section id="skills" className="py-16 lg:py-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Skills & Tools
           </h2>
@@ -89,28 +98,50 @@ const Skills = () => {
             return (
               <Card
                 key={index}
-                className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card"
+                className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-accent/10 border-2 border-accent">
-                      <Icon className="w-5 h-5 text-accent" />
+                    <div className="p-3 bg-accent/10 border-2 border-accent rounded">
+                      <Icon className="w-6 h-6 text-accent" />
                     </div>
-                    <h3 className="text-lg font-semibold text-accent">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {category.title}
                     </h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-secondary/50 text-foreground/90 text-sm border border-border hover:border-accent transition-colors"
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {category.skills.length} skills
+                  </p>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className="w-full border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
                       >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+                        View Skills
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-md">
+                      <DialogHeader>
+                        <DialogTitle className="flex items-center gap-3">
+                          <Icon className="w-5 h-5 text-accent" />
+                          {category.title}
+                        </DialogTitle>
+                        <DialogDescription>
+                          Complete list of skills in this category
+                        </DialogDescription>
+                      </DialogHeader>
+                      <ul className="space-y-2 mt-4">
+                        {category.skills.map((skill, idx) => (
+                          <li key={idx} className="flex items-start gap-2 text-foreground">
+                            <span className="text-accent mt-1">•</span>
+                            <span>{skill}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             );

@@ -25,7 +25,7 @@ const workExperienceData = [
   {
     title: "Director of Design & Marketing, UTESCA",
     company: "Toronto",
-    period: "2024 – Present",
+    period: "September 2024 – Present",
     responsibilities: [
       "Wireframe and design the UTESCA member portal using Figma and UX principles.",
       "Collaborate with a team to create visual content for events, including posters.",
@@ -38,12 +38,14 @@ const extracurricularsData = [
   {
     title: "Philosophy Discussion Group — General Member",
     organization: "University of Toronto",
+    period: "September 2025 – Present",
     description:
       "Take part in weekly discussions based on philosophical readings, where we explore objections and different perspectives together.",
   },
   {
-    title: "Digital Content Creator — Independent Project",
-    organization: "April 2023 – July 2024",
+    title: "Digital Content Creator",
+    organization: "Independent Project",
+    period: "April 2023 – July 2024",
     description:
       "Created and translated poetry and quotes paired with visual storytelling. Built an online audience of over 15K followers.",
   },
@@ -51,9 +53,9 @@ const extracurricularsData = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 lg:py-32 bg-background">
+    <section id="experience" className="py-16 lg:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Experience
           </h2>
@@ -80,12 +82,12 @@ const Experience = () => {
                   <Card className="md:ml-20 border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 bg-card">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
-                        <div className="p-3 bg-accent/10 border-2 border-accent flex-shrink-0">
+                        <div className="p-3 bg-accent/10 border-2 border-accent rounded flex-shrink-0">
                           <Briefcase className="w-6 h-6 text-accent" />
                         </div>
                         <div className="flex-1">
                           <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                          <p className="text-foreground/80 text-sm mb-1">
+                          <p className="text-muted-foreground text-sm mb-1">
                             {item.company}
                           </p>
                           <p className="text-xs text-accent mb-4 font-medium">
@@ -95,7 +97,7 @@ const Experience = () => {
                             {item.responsibilities.map((resp, idx) => (
                               <li
                                 key={idx}
-                                className="flex items-start gap-2 text-foreground/90 text-sm"
+                                className="flex items-start gap-2 text-foreground text-sm"
                               >
                                 <Circle className="w-1.5 h-1.5 fill-accent text-accent mt-1.5 flex-shrink-0" />
                                 <span>{resp}</span>
@@ -115,7 +117,7 @@ const Experience = () => {
         {/* Extracurriculars */}
         <div className="max-w-4xl mx-auto">
           <h3 className="text-2xl font-semibold mb-8 text-accent">Extracurriculars</h3>
-          <div className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
             {extracurricularsData.map((item, index) => (
               <Card
                 key={index}
@@ -124,10 +126,13 @@ const Experience = () => {
               >
                 <CardContent className="p-6">
                   <h3 className="text-lg font-bold mb-1">{item.title}</h3>
-                  <p className="text-foreground/80 text-sm mb-3">
+                  <p className="text-muted-foreground text-sm mb-1">
                     {item.organization}
                   </p>
-                  <p className="text-foreground/90 text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm mb-3">
+                    {item.period}
+                  </p>
+                  <p className="text-foreground text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </CardContent>
