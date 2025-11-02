@@ -180,32 +180,32 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
           ))}
         </ul>
         <div className="flex flex-wrap gap-3">
-          {project.links.map((link: any, idx: number) => (
-            <Button
-              key={idx}
-              variant="outline"
-              size="sm"
-              className={`border-2 ${
-                link.locked
-                  ? "border-muted text-muted-foreground cursor-not-allowed opacity-60"
-                  : "border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-              }`}
-              asChild={!link.locked}
-              disabled={link.locked}
-            >
-              {link.locked ? (
-                <span className="flex items-center gap-2">
-                  <ExternalLink className="w-4 h-4" />
-                  {link.label}
-                </span>
-              ) : (
-                <a href={link.url} className="flex items-center gap-2">
-                  <ExternalLink className="w-4 h-4" />
+          {project.links.map((link: any, idx: number) =>
+            link.locked ? (
+              <Button
+                key={idx}
+                variant="outline"
+                size="sm"
+                className="border-2 border-border/50 text-muted-foreground cursor-not-allowed opacity-60"
+                disabled
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                {link.label}
+              </Button>
+            ) : (
+              <Button
+                key={idx}
+                asChild
+                size="sm"
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
+                <a href={link.url}>
+                  <ExternalLink className="w-4 h-4 mr-2" />
                   {link.label}
                 </a>
-              )}
-            </Button>
-          ))}
+              </Button>
+            )
+          )}
         </div>
       </CardContent>
     </div>

@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,19 +16,11 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
   const navItems = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Projects", id: "projects" },
-    { label: "Contact", id: "contact" },
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Projects", path: "/projects" },
+    { label: "Contact", path: "/contact" },
   ];
 
   return (
@@ -40,12 +34,16 @@ const Navigation = () => {
           <div className="hidden md:flex items-center gap-2 bg-secondary/50 backdrop-blur-sm px-2 py-2 rounded-full border border-border">
             {navItems.map((item) => (
               <Button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                key={item.path}
+                asChild
                 variant="ghost"
-                className="rounded-full px-6 hover:bg-accent hover:text-accent-foreground transition-all"
+                className={`rounded-full px-6 hover:bg-accent hover:text-accent-foreground transition-all ${
+                  location.pathname === item.path ? "bg-accent text-accent-foreground" : ""
+                }`}
               >
-                {item.label}
+                <Link to={item.path} onClick={() => setIsMobileMenuOpen(false)}>
+                  {item.label}
+                </Link>
               </Button>
             ))}
           </div>
@@ -65,12 +63,14 @@ const Navigation = () => {
             <div className="flex flex-col gap-2">
               {navItems.map((item) => (
                 <Button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  key={item.path}
+                  asChild
                   variant="ghost"
                   className="justify-start hover:bg-secondary"
                 >
-                  {item.label}
+                  <Link to={item.path} onClick={() => setIsMobileMenuOpen(false)}>
+                    {item.label}
+                  </Link>
                 </Button>
               ))}
             </div>

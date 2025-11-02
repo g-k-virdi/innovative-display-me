@@ -100,35 +100,46 @@ const Skills = () => {
                 alt={category.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-background/20"></div>
+              <div className="absolute inset-0 bg-background/60"></div>
               <h3 className="absolute bottom-3 left-4 text-lg font-semibold text-foreground z-10">
                 {category.title}
               </h3>
             </div>
             <CardContent className="p-6 relative">
               <div className="transition-all duration-500">
-                <ul className="space-y-2 group-hover:hidden">
-                  {category.preview.map((skill, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
-                      <span className="text-accent mt-1">•</span>
-                      <span>{skill}</span>
-                    </li>
-                  ))}
-                  {category.allSkills.length > category.preview.length && (
-                    <li className="text-muted-foreground text-sm italic mt-3">
-                      Hover to see all {category.allSkills.length} skills
-                    </li>
-                  )}
-                </ul>
-                
-                <ul className="space-y-2 hidden group-hover:block">
-                  {category.allSkills.map((skill, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
-                      <span className="text-accent mt-1">•</span>
-                      <span>{skill}</span>
-                    </li>
-                  ))}
-                </ul>
+                {category.allSkills.length <= 5 ? (
+                  <ul className="space-y-2">
+                    {category.allSkills.map((skill, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
+                        <span className="text-accent mt-1">•</span>
+                        <span>{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <>
+                    <ul className="space-y-2 group-hover:hidden">
+                      {category.preview.map((skill, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
+                          <span className="text-accent mt-1">•</span>
+                          <span>{skill}</span>
+                        </li>
+                      ))}
+                      <li className="text-foreground/65 text-sm italic mt-3">
+                        Hover to see all {category.allSkills.length} skills
+                      </li>
+                    </ul>
+                    
+                    <ul className="space-y-2 hidden group-hover:block">
+                      {category.allSkills.map((skill, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
+                          <span className="text-accent mt-1">•</span>
+                          <span>{skill}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
               </div>
             </CardContent>
           </Card>

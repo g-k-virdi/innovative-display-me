@@ -44,7 +44,38 @@ const About = () => {
             </p>
           </div>
 
-          <div className="flex justify-center pt-6">
+          {/* Navigation Buttons */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8 max-w-4xl mx-auto">
+            <Button
+              onClick={() => scrollToSection("skills")}
+              variant="outline"
+              size="lg"
+              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground h-auto py-6 flex flex-col gap-2"
+            >
+              <Wrench className="w-8 h-8" />
+              <span className="font-semibold">View Skills & Tools</span>
+            </Button>
+            <Button
+              onClick={() => scrollToSection("experience")}
+              variant="outline"
+              size="lg"
+              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground h-auto py-6 flex flex-col gap-2"
+            >
+              <Briefcase className="w-8 h-8" />
+              <span className="font-semibold">View Experience</span>
+            </Button>
+            <Button
+              onClick={() => scrollToSection("education")}
+              variant="outline"
+              size="lg"
+              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground h-auto py-6 flex flex-col gap-2"
+            >
+              <GraduationCap className="w-8 h-8" />
+              <span className="font-semibold">View Education</span>
+            </Button>
+          </div>
+
+          <div className="flex justify-center pt-2">
             <Button 
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent/90 px-8"
@@ -53,37 +84,6 @@ const About = () => {
               Download Resume
             </Button>
           </div>
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto">
-          <Button
-            onClick={() => scrollToSection("skills")}
-            variant="outline"
-            size="lg"
-            className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground h-auto py-6 flex flex-col gap-2"
-          >
-            <Wrench className="w-8 h-8" />
-            <span className="font-semibold">Skills & Tools</span>
-          </Button>
-          <Button
-            onClick={() => scrollToSection("experience")}
-            variant="outline"
-            size="lg"
-            className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground h-auto py-6 flex flex-col gap-2"
-          >
-            <Briefcase className="w-8 h-8" />
-            <span className="font-semibold">Experience</span>
-          </Button>
-          <Button
-            onClick={() => scrollToSection("education")}
-            variant="outline"
-            size="lg"
-            className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground h-auto py-6 flex flex-col gap-2"
-          >
-            <GraduationCap className="w-8 h-8" />
-            <span className="font-semibold">Education</span>
-          </Button>
         </div>
 
         {/* Include Skills, Experience, and Education sections */}
