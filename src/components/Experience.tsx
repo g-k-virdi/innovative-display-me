@@ -7,10 +7,9 @@ const workExperienceData = [
     company: "Remote",
     period: "June 2025 – Present",
     responsibilities: [
-      "Perform data cleaning, exploratory analysis, and visualization for client datasets.",
+      "Perform data cleaning, exploratory analysis, and visualization on datasets.",
       "Wireframe and prototype web and app applications using Figma, following HCI and UX principles.",
-      "Develop interactive dashboards that help communicate insights clearly.",
-      "Use data storytelling to make findings accessible for non-technical audiences.",
+      "Collaborate on front-end web and app development.",
     ],
   },
   {
@@ -53,8 +52,8 @@ const extracurricularsData = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 lg:py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div id="experience" className="py-16 lg:py-20">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Experience
@@ -141,7 +140,7 @@ const Experience = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

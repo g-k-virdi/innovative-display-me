@@ -8,17 +8,17 @@ import { useState } from "react";
 const uxProjectsData = [
   {
     title: "Redesigning BIA tool for William Osler Health System",
-    team: "Team of 4 fourth-year students",
+    team: "Team of 4 | Capstone Project",
     inProgress: true,
     description: [
-      "Collaborated on redesigning the hospital's Business Impact Analysis (BIA) system.",
-      "Conducted user research and problem definition to identify pain points.",
-      "Developed project requirements and ideated potential design solutions.",
-      "Working on building wireframes and high-fidelity prototypes for conceptual development.",
+      "Collaborated on redesigning a Business Impact Analysis (BIA) system.",
+      "Developed problem statement and project requirements based on user research.",
+      "Ideated concepts and performed feasibility check.",
+      "Working on building wireframes and high-fidelity prototypes for conceptual development using HCI principles.",
     ],
     links: [
-      { label: "Case Study available upon request", url: "#" },
-      { label: "Prototype in progress", url: "#" },
+      { label: "Case Study available upon request", url: "#", locked: true },
+      { label: "Prototype in progress", url: "#", locked: true },
     ],
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
   },
@@ -27,11 +27,10 @@ const uxProjectsData = [
     team: "UX Designer | Club Project",
     inProgress: false,
     description: [
-      "Wireframed and prototyped the UTESCA club portal for members to access events, resources, and contact information.",
-      "Designed the interface in Figma, emphasizing clarity, accessibility, and responsiveness.",
-      "Used information hierarchy and interaction design principles for intuitive navigation.",
+      "Wireframed the UTESCA club portal on Figma for members to access events, resources, and contact information.",
+      "Used information hierarchy and HCI principles for intuitive navigation.",
     ],
-    links: [{ label: "View Figma Wireframe", url: "#" }],
+    links: [{ label: "View Figma Wireframe", url: "#", locked: false }],
     image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&auto=format&fit=crop&q=80",
   },
   {
@@ -40,31 +39,29 @@ const uxProjectsData = [
     inProgress: false,
     description: [
       "Designed the company's website.",
-      "Wireframed and prototyped layouts on Figma, applying HCI principles.",
-      "Collaborated with developers to implement the front-end structure.",
+      "Wireframed and prototyped layouts on Figma while applying HCI principles.",
+      "Collaborated to implement the front-end structure.",
     ],
     links: [
-      { label: "Figma Wireframe", url: "#" },
-      { label: "Prototype", url: "#" },
-      { label: "Live Website", url: "#" },
-      { label: "GitHub Repo", url: "#" },
+      { label: "Figma Wireframe", url: "#", locked: false },
+      { label: "Prototype", url: "#", locked: false },
+      { label: "Live Website", url: "#", locked: false },
     ],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "TraceVitals",
-    team: "UX Designer",
+    team: "UX Designer | Internship Project",
     inProgress: true,
     description: [
       "Working on a healthcare visualization tool that helps users track and interpret blood vitals effectively.",
-      "Brainstormed features and site map.",
+      "Brainstormed features to construct a site map.",
       "Designed prototypes for both web and application interfaces.",
-      "Researched accessible color schemes and created visual hierarchy for data readability.",
     ],
     links: [
-      { label: "Web Prototype", url: "#" },
-      { label: "App Prototype", url: "#" },
-      { label: "Ongoing Project so website will be available soon", url: "#" },
+      { label: "Web Prototype", url: "#", locked: false },
+      { label: "App Prototype", url: "#", locked: false },
+      { label: "Website in progress", url: "#", locked: true },
     ],
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
   },
@@ -77,46 +74,46 @@ const uxProjectsData = [
       "Conducted research on privacy policies and implementation costs to refine the design.",
       "Designed in an iterative process, by implementing changes to earlier drafts upon feedback.",
     ],
-    links: [{ label: "Private project — available upon request or when live", url: "#" }],
+    links: [{ label: "Private project — available upon request", url: "#", locked: true }],
     image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Young Adults Seeking Urgent Care — UX Research & Prototype",
-    team: "Individual + Team Project | University Course",
+    team: "Individual + Team Project | University Project",
     inProgress: true,
     description: [
       "Researched challenges faced by young adults seeking urgent healthcare in the GTA.",
-      "Defined the problem statement, brainstormed ideas, and conducted feasibility tests.",
+      "Defined the problem statement, brainstormed ideas, and conducted feasibility test.",
       "Created individual wireframes, then formed high-fidelity prototypes and performed usability testing as a group.",
     ],
     links: [
-      { label: "View Wireframe", url: "#" },
-      { label: "Prototype available soon", url: "#" },
+      { label: "View Wireframe", url: "#", locked: false },
+      { label: "Prototype in progress", url: "#", locked: true },
     ],
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
+    image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Kritik Activity Creation Module Redesign",
-    team: "Team of 3",
+    team: "Team of 3 | University Project",
     inProgress: false,
     description: [
       "Conducted cognitive walkthroughs and heuristic evaluations to identify design issues.",
       "Designed low-fidelity prototypes and performed usability testing.",
       "Proposed actionable UX improvements using HCI and engineering design principles.",
     ],
-    links: [{ label: "Case Study available upon request", url: "#" }],
+    links: [{ label: "Case Study available upon request", url: "#", locked: true }],
     image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Electric Vehicle Recommendation System Design",
-    team: "Back-end Developer | Team of 5",
+    team: "Back-end Developer | Team of 5 | University Project",
     inProgress: false,
     description: [
       "Designed a user-centric web application for recommending electric vehicles.",
       "Created UML diagrams, use cases, and state charts to model user behavior.",
       "Collaborated on frontend and backend development with a focus on usability.",
     ],
-    links: [{ label: "Case Study and code available upon request", url: "#" }],
+    links: [{ label: "Case Study and code available upon request", url: "#", locked: true }],
     image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&auto=format&fit=crop&q=80",
   },
 ];
@@ -124,22 +121,26 @@ const uxProjectsData = [
 const dataProjectsData = [
   {
     title: "Pollution Forecasting Using Time-Series Analysis",
+    team: "",
+    inProgress: false,
     description: [
       "Developed and compared Holt-Winters and SARIMA models to predict pollution levels.",
       "Analyzed seasonal patterns and historical data to improve accuracy.",
       "Evaluated models using Mean Absolute Error (MAE); Holt-Winters achieved greater stability.",
     ],
-    links: [{ label: "Notebook available upon request", url: "#" }],
-    image: "https://images.unsplash.com/photo-1569163139394-de4798aa62b4?w=800&auto=format&fit=crop&q=80",
+    links: [{ label: "Notebook available upon request", url: "#", locked: true }],
+    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "NHL Draft Prediction Using Machine Learning",
+    team: "",
+    inProgress: false,
     description: [
       "Built regression and classification models to predict NHL standings and simulate draft outcomes.",
       "Cleaned and engineered features to improve accuracy and performance.",
       "Ridge regression achieved an R² greater than 0.85, providing robust predictive capability.",
     ],
-    links: [{ label: "Notebook available upon request", url: "#" }],
+    links: [{ label: "Notebook available upon request", url: "#", locked: true }],
     image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&auto=format&fit=crop&q=80",
   },
 ];
@@ -160,8 +161,8 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
           className="w-full h-48 md:h-full object-cover hover:scale-105 transition-transform duration-300"
         />
         {project.inProgress && (
-          <div className="absolute inset-0 bg-accent/20 flex items-center justify-center">
-            <Badge className="bg-accent text-accent-foreground border-2 border-background">
+          <div className="absolute inset-0 bg-accent/30 flex items-center justify-center backdrop-blur-[1px]">
+            <Badge className="bg-accent text-accent-foreground border-2 border-background text-base px-4 py-2 font-semibold">
               In Progress
             </Badge>
           </div>
@@ -169,7 +170,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
       </div>
       <CardContent className="md:w-2/3 p-6">
         <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-        <p className="text-sm text-muted-foreground mb-4">{project.team}</p>
+        {project.team && <p className="text-sm text-muted-foreground mb-4">{project.team}</p>}
         <ul className="space-y-2 mb-4">
           {project.description.map((item: string, idx: number) => (
             <li key={idx} className="flex items-start gap-2 text-foreground text-sm">
@@ -184,13 +185,25 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
               key={idx}
               variant="outline"
               size="sm"
-              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-              asChild
+              className={`border-2 ${
+                link.locked
+                  ? "border-muted text-muted-foreground cursor-not-allowed opacity-60"
+                  : "border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+              }`}
+              asChild={!link.locked}
+              disabled={link.locked}
             >
-              <a href={link.url} className="flex items-center gap-2">
-                <ExternalLink className="w-4 h-4" />
-                {link.label}
-              </a>
+              {link.locked ? (
+                <span className="flex items-center gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  {link.label}
+                </span>
+              ) : (
+                <a href={link.url} className="flex items-center gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  {link.label}
+                </a>
+              )}
             </Button>
           ))}
         </div>
@@ -236,18 +249,18 @@ const Projects = () => {
             ))}
             
             {uxTotalPages > 1 && (
-              <div className="flex items-center justify-center gap-4 mt-8">
+              <div className="flex items-center justify-center gap-6 mt-12 bg-secondary/50 p-6 rounded-lg border-2 border-accent">
                 <Button
                   variant="outline"
                   size="lg"
                   onClick={() => setUxPage(Math.max(0, uxPage - 1))}
                   disabled={uxPage === 0}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <ChevronLeft className="w-5 h-5 mr-2" />
                   Previous
                 </Button>
-                <span className="text-foreground font-medium px-4">
+                <span className="text-foreground font-semibold text-lg px-6 py-2 bg-accent/20 rounded-lg border border-accent">
                   Page {uxPage + 1} of {uxTotalPages}
                 </span>
                 <Button
@@ -255,7 +268,7 @@ const Projects = () => {
                   size="lg"
                   onClick={() => setUxPage(Math.min(uxTotalPages - 1, uxPage + 1))}
                   disabled={uxPage === uxTotalPages - 1}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next
                   <ChevronRight className="w-5 h-5 ml-2" />
@@ -270,18 +283,18 @@ const Projects = () => {
             ))}
             
             {dataTotalPages > 1 && (
-              <div className="flex items-center justify-center gap-4 mt-8">
+              <div className="flex items-center justify-center gap-6 mt-12 bg-secondary/50 p-6 rounded-lg border-2 border-accent">
                 <Button
                   variant="outline"
                   size="lg"
                   onClick={() => setDataPage(Math.max(0, dataPage - 1))}
                   disabled={dataPage === 0}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <ChevronLeft className="w-5 h-5 mr-2" />
                   Previous
                 </Button>
-                <span className="text-foreground font-medium px-4">
+                <span className="text-foreground font-semibold text-lg px-6 py-2 bg-accent/20 rounded-lg border border-accent">
                   Page {dataPage + 1} of {dataTotalPages}
                 </span>
                 <Button
@@ -289,7 +302,7 @@ const Projects = () => {
                   size="lg"
                   onClick={() => setDataPage(Math.min(dataTotalPages - 1, dataPage + 1))}
                   disabled={dataPage === dataTotalPages - 1}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50"
+                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next
                   <ChevronRight className="w-5 h-5 ml-2" />

@@ -1,21 +1,12 @@
-import { Palette, BarChart3, Users, Wrench, Code, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 
 const Skills = () => {
   const skillCategories = [
     {
       title: "UX Design & Research",
-      icon: Palette,
-      skills: [
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&auto=format&fit=crop&q=80",
+      preview: ["Wireframing", "Prototyping", "UX Research", "Journey Mapping"],
+      allSkills: [
         "Wireframing",
         "Prototyping",
         "UX Research",
@@ -33,8 +24,9 @@ const Skills = () => {
     },
     {
       title: "Data Analytics",
-      icon: BarChart3,
-      skills: [
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80",
+      preview: ["Exploratory Data Analysis", "Predictive Modelling"],
+      allSkills: [
         "Exploratory Data Analysis",
         "Predictive Modelling",
         "Time-Series Forecasting",
@@ -44,8 +36,9 @@ const Skills = () => {
     },
     {
       title: "Project & Product Management",
-      icon: Users,
-      skills: [
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&auto=format&fit=crop&q=80",
+      preview: ["Agile Workflow", "Team Collaboration"],
+      allSkills: [
         "Agile Workflow",
         "Team Collaboration",
         "Stakeholder Communication",
@@ -53,8 +46,9 @@ const Skills = () => {
     },
     {
       title: "Tools",
-      icon: Wrench,
-      skills: [
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=80",
+      preview: ["Figma", "Tableau", "Jupyter Notebook", "GitHub"],
+      allSkills: [
         "Figma",
         "Tableau",
         "Jupyter Notebook",
@@ -66,13 +60,15 @@ const Skills = () => {
     },
     {
       title: "Programming Languages",
-      icon: Code,
-      skills: ["Python", "R", "Java", "MATLAB"],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&auto=format&fit=crop&q=80",
+      preview: ["Python", "R", "Java", "MATLAB"],
+      allSkills: ["Python", "R", "Java", "MATLAB"],
     },
     {
       title: "Core Competencies",
-      icon: Lightbulb,
-      skills: [
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80",
+      preview: ["Team Work", "Communication", "Report Writing"],
+      allSkills: [
         "Team Work",
         "Communication",
         "Report Writing",
@@ -83,72 +79,62 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 lg:py-20 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Skills & Tools
-          </h2>
-          <div className="w-20 h-1 bg-accent mx-auto"></div>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <Card
-                key={index}
-                className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card overflow-hidden"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 bg-accent/10 border-2 border-accent rounded">
-                      <Icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {category.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {category.skills.length} skills
-                  </p>
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className="w-full border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                      >
-                        View Skills
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-md">
-                      <DialogHeader>
-                        <DialogTitle className="flex items-center gap-3">
-                          <Icon className="w-5 h-5 text-accent" />
-                          {category.title}
-                        </DialogTitle>
-                        <DialogDescription>
-                          Complete list of skills in this category
-                        </DialogDescription>
-                      </DialogHeader>
-                      <ul className="space-y-2 mt-4">
-                        {category.skills.map((skill, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-foreground">
-                            <span className="text-accent mt-1">•</span>
-                            <span>{skill}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </DialogContent>
-                  </Dialog>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+    <div id="skills" className="py-16 lg:py-20">
+      <div className="text-center mb-12 animate-fade-in">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          Skills & Tools
+        </h2>
+        <div className="w-20 h-1 bg-accent mx-auto"></div>
       </div>
-    </section>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skillCategories.map((category, index) => (
+          <Card
+            key={index}
+            className="group border-2 border-border hover:border-accent transition-all duration-500 bg-card overflow-hidden hover:shadow-2xl cursor-pointer animate-scale-in"
+            style={{ animationDelay: `${index * 100}ms` }}
+          >
+            <div className="relative h-32 overflow-hidden">
+              <img
+                src={category.image}
+                alt={category.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/95 to-background/20"></div>
+              <h3 className="absolute bottom-3 left-4 text-lg font-semibold text-foreground z-10">
+                {category.title}
+              </h3>
+            </div>
+            <CardContent className="p-6 relative">
+              <div className="transition-all duration-500">
+                <ul className="space-y-2 group-hover:hidden">
+                  {category.preview.map((skill, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
+                      <span className="text-accent mt-1">•</span>
+                      <span>{skill}</span>
+                    </li>
+                  ))}
+                  {category.allSkills.length > category.preview.length && (
+                    <li className="text-muted-foreground text-sm italic mt-3">
+                      Hover to see all {category.allSkills.length} skills
+                    </li>
+                  )}
+                </ul>
+                
+                <ul className="space-y-2 hidden group-hover:block">
+                  {category.allSkills.map((skill, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-foreground/90 text-sm">
+                      <span className="text-accent mt-1">•</span>
+                      <span>{skill}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
   );
 };
 
