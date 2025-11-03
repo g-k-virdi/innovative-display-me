@@ -24,7 +24,7 @@ const workExperienceData = [
   {
     title: "Director of Design & Marketing, UTESCA",
     company: "Toronto",
-    period: "September 2024 – Present",
+    period: "September 2025 – Present",
     responsibilities: [
       "Wireframe and design the UTESCA member portal using Figma and UX principles.",
       "Collaborate with a team to create visual content for events, including posters.",
