@@ -1,14 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section id="home" className="h-screen flex items-center">
@@ -31,7 +27,7 @@ const Hero = () => {
             <div className="flex gap-4 mb-12">
               <Button 
                 size="lg"
-                onClick={() => scrollToSection("projects")}
+                onClick={() => navigate("/projects")}
                 className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-none px-8"
               >
                 View My Work
@@ -39,7 +35,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={() => scrollToSection("about")}
+                onClick={() => navigate("/about")}
                 className="rounded-none px-8 border-border hover:bg-accent hover:text-accent-foreground"
               >
                 About Me

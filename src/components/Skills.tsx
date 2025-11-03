@@ -94,18 +94,17 @@ const Skills = () => {
             className="group border-2 border-border hover:border-accent transition-all duration-500 bg-card overflow-hidden hover:shadow-2xl cursor-pointer animate-scale-in"
             style={{ animationDelay: `${index * 100}ms` }}
           >
-            <div className="relative h-32 overflow-hidden">
+            <div className="relative h-40 overflow-hidden">
               <img
                 src={category.image}
                 alt={category.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-background/60"></div>
-              <h3 className="absolute bottom-3 left-4 text-lg font-semibold text-foreground z-10">
+            </div>
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4">
                 {category.title}
               </h3>
-            </div>
-            <CardContent className="p-6 relative">
               <div className="transition-all duration-500">
                 {category.allSkills.length <= 5 ? (
                   <ul className="space-y-2">
@@ -125,7 +124,7 @@ const Skills = () => {
                           <span>{skill}</span>
                         </li>
                       ))}
-                      <li className="text-foreground/65 text-sm italic mt-3">
+                      <li className="text-foreground/70 text-sm italic mt-3">
                         Hover to see all {category.allSkills.length} skills
                       </li>
                     </ul>

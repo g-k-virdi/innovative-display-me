@@ -225,7 +225,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-16 lg:py-20 bg-secondary/30">
+    <section id="projects" className="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -249,26 +249,36 @@ const Projects = () => {
             ))}
             
             {uxTotalPages > 1 && (
-              <div className="flex items-center justify-center gap-6 mt-12 bg-secondary/50 p-6 rounded-lg border-2 border-accent">
+              <div className="flex justify-center items-center gap-6 mt-12">
                 <Button
-                  variant="outline"
-                  size="lg"
                   onClick={() => setUxPage(Math.max(0, uxPage - 1))}
                   disabled={uxPage === 0}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                  size="lg"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
                 >
                   <ChevronLeft className="w-5 h-5 mr-2" />
                   Previous
                 </Button>
-                <span className="text-foreground font-semibold text-lg px-6 py-2 bg-accent/20 rounded-lg border border-accent">
-                  Page {uxPage + 1} of {uxTotalPages}
-                </span>
+                <div className="flex items-center gap-2">
+                  {Array.from({ length: uxTotalPages }, (_, i) => i).map((page) => (
+                    <button
+                      key={page}
+                      onClick={() => setUxPage(page)}
+                      className={`w-10 h-10 rounded-md transition-all ${
+                        uxPage === page
+                          ? "bg-accent text-accent-foreground font-semibold"
+                          : "bg-secondary text-secondary-foreground hover:bg-accent/20"
+                      }`}
+                    >
+                      {page + 1}
+                    </button>
+                  ))}
+                </div>
                 <Button
-                  variant="outline"
-                  size="lg"
                   onClick={() => setUxPage(Math.min(uxTotalPages - 1, uxPage + 1))}
                   disabled={uxPage === uxTotalPages - 1}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                  size="lg"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
                 >
                   Next
                   <ChevronRight className="w-5 h-5 ml-2" />
@@ -283,26 +293,36 @@ const Projects = () => {
             ))}
             
             {dataTotalPages > 1 && (
-              <div className="flex items-center justify-center gap-6 mt-12 bg-secondary/50 p-6 rounded-lg border-2 border-accent">
+              <div className="flex justify-center items-center gap-6 mt-12">
                 <Button
-                  variant="outline"
-                  size="lg"
                   onClick={() => setDataPage(Math.max(0, dataPage - 1))}
                   disabled={dataPage === 0}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                  size="lg"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
                 >
                   <ChevronLeft className="w-5 h-5 mr-2" />
                   Previous
                 </Button>
-                <span className="text-foreground font-semibold text-lg px-6 py-2 bg-accent/20 rounded-lg border border-accent">
-                  Page {dataPage + 1} of {dataTotalPages}
-                </span>
+                <div className="flex items-center gap-2">
+                  {Array.from({ length: dataTotalPages }, (_, i) => i).map((page) => (
+                    <button
+                      key={page}
+                      onClick={() => setDataPage(page)}
+                      className={`w-10 h-10 rounded-md transition-all ${
+                        dataPage === page
+                          ? "bg-accent text-accent-foreground font-semibold"
+                          : "bg-secondary text-secondary-foreground hover:bg-accent/20"
+                      }`}
+                    >
+                      {page + 1}
+                    </button>
+                  ))}
+                </div>
                 <Button
-                  variant="outline"
-                  size="lg"
                   onClick={() => setDataPage(Math.min(dataTotalPages - 1, dataPage + 1))}
                   disabled={dataPage === dataTotalPages - 1}
-                  className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                  size="lg"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
                 >
                   Next
                   <ChevronRight className="w-5 h-5 ml-2" />
