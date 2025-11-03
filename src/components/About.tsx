@@ -8,7 +8,7 @@ const About = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -110; // Slightly less scroll
+      const yOffset = -80; // Reduced to match desired scroll position
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
