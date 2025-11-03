@@ -225,8 +225,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="bg-secondary/30">
-      <div className="pt-24 pb-16 lg:pt-28 lg:pb-20">
+    <section id="projects" className="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -332,7 +331,6 @@ const Projects = () => {
             )}
           </TabsContent>
         </Tabs>
-      </div>
       </div>
     </section>
   );
