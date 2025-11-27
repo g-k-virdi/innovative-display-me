@@ -218,6 +218,7 @@ const Projects = () => {
   const [activeTab, setActiveTab] = useState("ux");
   const projectsListRef = useRef<HTMLDivElement>(null);
   const previousTabRef = useRef(activeTab);
+  const hasPaginatedRef = useRef(false);
 
   const uxTotalPages = Math.ceil(uxProjectsData.length / PROJECTS_PER_PAGE);
   const dataTotalPages = Math.ceil(dataProjectsData.length / PROJECTS_PER_PAGE);
@@ -228,7 +229,7 @@ const Projects = () => {
   };
 
   useEffect(() => {
-    // Only scroll when tab changes (not on initial mount or pagination)
+    // Scroll to first project when tab changes
     if (previousTabRef.current !== activeTab && projectsListRef.current) {
       const yOffset = -100;
       const y = projectsListRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -238,7 +239,13 @@ const Projects = () => {
   }, [activeTab]);
 
   useEffect(() => {
-    // Scroll to projects list when pagination changes
+    // Avoid scrolling on initial mount (when arriving from navbar)
+    if (!hasPaginatedRef.current) {
+      hasPaginatedRef.current = true;
+      return;
+    }
+
+    // Scroll when changing pages within a tab
     if (projectsListRef.current) {
       const yOffset = -100;
       const y = projectsListRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
