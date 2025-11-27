@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const uxProjectsData = [
   {
@@ -145,7 +145,7 @@ const dataProjectsData = [
   },
 ];
 
-const PROJECTS_PER_PAGE = 3;
+const PROJECTS_PER_PAGE = 4;
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => (
   <Card
@@ -215,6 +215,8 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
 const Projects = () => {
   const [uxPage, setUxPage] = useState(0);
   const [dataPage, setDataPage] = useState(0);
+  const [activeTab, setActiveTab] = useState("ux");
+  const projectsRef = useRef<HTMLDivElement>(null);
 
   const uxTotalPages = Math.ceil(uxProjectsData.length / PROJECTS_PER_PAGE);
   const dataTotalPages = Math.ceil(dataProjectsData.length / PROJECTS_PER_PAGE);
@@ -223,6 +225,14 @@ const Projects = () => {
     const start = page * PROJECTS_PER_PAGE;
     return projects.slice(start, start + PROJECTS_PER_PAGE);
   };
+
+  useEffect(() => {
+    if (projectsRef.current) {
+      const yOffset = -100;
+      const y = projectsRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  }, [activeTab]);
 
   return (
     <section id="projects" className="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
@@ -237,13 +247,13 @@ const Projects = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="ux" className="max-w-6xl mx-auto">
+        <Tabs defaultValue="ux" className="max-w-6xl mx-auto" onValueChange={setActiveTab}>
           <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-12">
             <TabsTrigger value="ux">Human Factors & UX Design</TabsTrigger>
             <TabsTrigger value="data">Data Analytics & Machine Learning</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="ux" className="space-y-6">
+          <TabsContent value="ux" className="space-y-6" ref={projectsRef}>
             {paginateProjects(uxProjectsData, uxPage).map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
