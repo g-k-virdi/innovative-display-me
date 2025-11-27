@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
+import { Github, Linkedin } from "lucide-react";
+import heroImage from "@/assets/hero-image-new.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -60,13 +60,6 @@ const Hero = () => {
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:virdigurleenkaur3@gmail.com"
-                className="text-muted-foreground hover:text-accent transition-colors"
-                aria-label="Email Contact"
-              >
-                <Mail className="w-5 h-5" />
               </a>
             </div>
           </div>
