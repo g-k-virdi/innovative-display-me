@@ -216,7 +216,8 @@ const Projects = () => {
   const [uxPage, setUxPage] = useState(0);
   const [dataPage, setDataPage] = useState(0);
   const [activeTab, setActiveTab] = useState("ux");
-  const projectsRef = useRef<HTMLDivElement>(null);
+  const projectsListRef = useRef<HTMLDivElement>(null);
+  const previousTabRef = useRef(activeTab);
 
   const uxTotalPages = Math.ceil(uxProjectsData.length / PROJECTS_PER_PAGE);
   const dataTotalPages = Math.ceil(dataProjectsData.length / PROJECTS_PER_PAGE);
@@ -227,17 +228,28 @@ const Projects = () => {
   };
 
   useEffect(() => {
-    if (projectsRef.current) {
+    // Only scroll when tab changes (not on initial mount or pagination)
+    if (previousTabRef.current !== activeTab && projectsListRef.current) {
       const yOffset = -100;
-      const y = projectsRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y = projectsListRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      previousTabRef.current = activeTab;
+    }
+  }, [activeTab]);
+
+  useEffect(() => {
+    // Scroll to projects list when pagination changes
+    if (projectsListRef.current) {
+      const yOffset = -100;
+      const y = projectsListRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-  }, [activeTab, uxPage, dataPage]);
+  }, [uxPage, dataPage]);
 
   return (
     <section id="projects" className="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={projectsRef} className="text-center mb-12 animate-fade-in">
+        <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Projects
           </h2>
@@ -253,7 +265,7 @@ const Projects = () => {
             <TabsTrigger value="data">Data Analytics & Machine Learning</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="ux" className="space-y-6">
+          <TabsContent value="ux" className="space-y-6" ref={projectsListRef}>
             {paginateProjects(uxProjectsData, uxPage).map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
