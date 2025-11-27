@@ -145,7 +145,7 @@ const dataProjectsData = [
   },
 ];
 
-const PROJECTS_PER_PAGE = 4;
+const PROJECTS_PER_PAGE = 3;
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => (
   <Card
@@ -232,12 +232,12 @@ const Projects = () => {
       const y = projectsRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-  }, [activeTab]);
+  }, [activeTab, uxPage, dataPage]);
 
   return (
     <section id="projects" className="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-fade-in">
+        <div ref={projectsRef} className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Projects
           </h2>
@@ -253,7 +253,7 @@ const Projects = () => {
             <TabsTrigger value="data">Data Analytics & Machine Learning</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="ux" className="space-y-6" ref={projectsRef}>
+          <TabsContent value="ux" className="space-y-6">
             {paginateProjects(uxProjectsData, uxPage).map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
