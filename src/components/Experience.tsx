@@ -7,8 +7,8 @@ const workExperienceData = [
     company: "Remote",
     period: "June 2025 – Present",
     responsibilities: [
-      "Perform data cleaning, exploratory analysis, and visualization on datasets.",
-      "Wireframe and prototype web and app applications using Figma, following HCI and UX principles.",
+      "Perform data cleaning, exploratory analysis, and dashboard design on datasets.",
+      "Wireframe and prototype web and app experiences in Figma, applying HCI and UX principles to improve usability.",
       "Collaborate on front-end web and app development.",
     ],
   },
@@ -35,11 +35,11 @@ const workExperienceData = [
 
 const extracurricularsData = [
   {
-    title: "Philosophy Discussion Group — General Member",
+    title: "Philosophical Literature Reading Group (PLRG) — General Member",
     organization: "University of Toronto",
-    period: "September 2025 – Present",
+    period: "November 2025 — Present",
     description:
-      "Take part in weekly discussions based on philosophical readings, where we explore objections and different perspectives together.",
+      "Participate in weekly group discussions on philosophical fiction and literature, exploring objections, ideas, and different perspectives together.",
   },
   {
     title: "Digital Content Creator",

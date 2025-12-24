@@ -28,14 +28,14 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-accent">Design Approach</h3>
             <p className="text-foreground/90 leading-relaxed">
-              Empathy and evidence guide my design. My process begins by understanding people — their motivations, needs, and contexts — and evolves through ideation, iteration, and testing. My background in Industrial Engineering helps me combine psychology, design principles, and data-driven insights to create human-centered experiences.
+              Empathy and evidence guide my design. I start by understanding people — their motivations, needs, and contexts — then iterate through ideation, prototyping, and testing. My background in Industrial Engineering helps me combine psychology, design principles, and data-driven insights to create human-centered experiences.
             </p>
           </div>
 
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-accent">Design Philosophy</h3>
             <p className="text-foreground/90 leading-relaxed">
-              I believe accessibility, clarity, and context-awareness aren't add-ons, but core responsibilities of any product — because a product is only as good as it can be used. Good design isn't just about appearance — it's about functionality that respects how people think, feel, and interact.
+              I believe accessibility, clarity, and context-awareness aren't add-ons, but core responsibilities of any product — because a product is only as good as it can be used.
             </p>
           </div>
 
