@@ -4,117 +4,64 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import FeaturedCaseStudy from "./FeaturedCaseStudy";
 
+// Other UX projects (simplified display)
 const uxProjectsData = [
   {
     title: "Redesigning BIA tool for William Osler Health System",
     team: "Team of 4 | Capstone Project",
     inProgress: true,
-    description: [
-      "Collaborated on redesigning a Business Impact Analysis (BIA) system.",
-      "Developed problem statement and project requirements based on user research.",
-      "Ideated concepts and performed feasibility check.",
-      "Working on building wireframes and high-fidelity prototypes for conceptual development using HCI principles.",
-    ],
+    description: "Collaborated on redesigning a Business Impact Analysis (BIA) system using HCI principles.",
     links: [
       { label: "Case Study available upon request", url: "#", locked: true },
-      { label: "Prototype in progress", url: "#", locked: true },
     ],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "UTESCA Portal Wireframe",
     team: "UX Designer | Club Project",
     inProgress: false,
-    description: [
-      "Wireframed the UTESCA club portal on Figma for members to access events, resources, and contact information.",
-      "Used information hierarchy and HCI principles for intuitive navigation.",
-    ],
+    description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information.",
     links: [{ label: "View Figma Wireframe", url: "#", locked: false }],
-    image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Data Joins Website Design and Development",
     team: "UX Designer & Developer | Internship Project",
     inProgress: false,
-    description: [
-      "Designed the company's website.",
-      "Wireframed and prototyped layouts on Figma while applying HCI principles.",
-      "Collaborated to implement the front-end structure.",
-    ],
+    description: "Designed and developed the company's website using Figma prototyping and front-end implementation.",
     links: [
-      { label: "Figma Wireframe", url: "#", locked: false },
-      { label: "Prototype", url: "#", locked: false },
-      { label: "Live Website", url: "#", locked: false },
+      { label: "View Prototype", url: "#", locked: false },
     ],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "TraceVitals",
     team: "UX Designer | Internship Project",
     inProgress: true,
-    description: [
-      "Working on a healthcare visualization tool that helps users track and interpret blood vitals effectively.",
-      "Brainstormed features to construct a site map.",
-      "Designed prototypes for both web and application interfaces.",
-    ],
+    description: "Working on a healthcare visualization tool for tracking and interpreting blood vitals.",
     links: [
-      { label: "Web Prototype", url: "#", locked: false },
-      { label: "App Prototype", url: "#", locked: false },
-      { label: "Website in progress", url: "#", locked: true },
+      { label: "View Prototype", url: "#", locked: false },
     ],
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "65Square Calendar and Events Feature",
     team: "UX Designer | Non-Profit Project",
     inProgress: true,
-    description: [
-      "Wireframed a new feature for managing calendar and community events.",
-      "Conducted research on privacy policies and implementation costs to refine the design.",
-      "Designed in an iterative process, by implementing changes to earlier drafts upon feedback.",
-    ],
+    description: "Wireframed a new feature for managing calendar and community events with iterative design.",
     links: [{ label: "Private project — available upon request", url: "#", locked: true }],
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&auto=format&fit=crop&q=80",
-  },
-  {
-    title: "Young Adults Seeking Urgent Care — UX Research & Prototype",
-    team: "Individual + Team Project | University Project",
-    inProgress: true,
-    description: [
-      "Researched challenges faced by young adults seeking urgent healthcare in the GTA.",
-      "Defined the problem statement, brainstormed ideas, and conducted feasibility test.",
-      "Created individual wireframes, then formed high-fidelity prototypes and performed usability testing as a group.",
-    ],
-    links: [
-      { label: "View Wireframe", url: "#", locked: false },
-      { label: "Prototype in progress", url: "#", locked: true },
-    ],
-    image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Kritik Activity Creation Module Redesign",
     team: "Team of 3 | University Project",
     inProgress: false,
-    description: [
-      "Conducted cognitive walkthroughs and heuristic evaluations to identify design issues.",
-      "Designed low-fidelity prototypes and performed usability testing.",
-      "Proposed actionable UX improvements using HCI and engineering design principles.",
-    ],
+    description: "Conducted cognitive walkthroughs and heuristic evaluations to propose actionable UX improvements.",
     links: [{ label: "Case Study available upon request", url: "#", locked: true }],
-    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "Electric Vehicle Recommendation System Design",
     team: "Back-end Developer | Team of 5 | University Project",
     inProgress: false,
-    description: [
-      "Designed a user-centric web application for recommending electric vehicles.",
-      "Created UML diagrams, use cases, and state charts to model user behavior.",
-      "Collaborated on frontend and backend development with a focus on usability.",
-    ],
+    description: "Designed a user-centric web application for recommending electric vehicles with UML diagrams and use cases.",
     links: [{ label: "Case Study and code available upon request", url: "#", locked: true }],
-    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=800&auto=format&fit=crop&q=80",
   },
 ];
 
@@ -123,92 +70,74 @@ const dataProjectsData = [
     title: "Pollution Forecasting Using Time-Series Analysis",
     team: "",
     inProgress: false,
-    description: [
-      "Developed and compared Holt-Winters and SARIMA models to predict pollution levels.",
-      "Analyzed seasonal patterns and historical data to improve accuracy.",
-      "Evaluated models using Mean Absolute Error (MAE); Holt-Winters achieved greater stability.",
-    ],
+    description: "Developed and compared Holt-Winters and SARIMA models to predict pollution levels with seasonal analysis.",
     links: [{ label: "Notebook available upon request", url: "#", locked: true }],
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=800&auto=format&fit=crop&q=80",
   },
   {
     title: "NHL Draft Prediction Using Machine Learning",
     team: "",
     inProgress: false,
-    description: [
-      "Built regression and classification models to predict NHL standings and simulate draft outcomes.",
-      "Cleaned and engineered features to improve accuracy and performance.",
-      "Ridge regression achieved an R² greater than 0.85, providing robust predictive capability.",
-    ],
+    description: "Built regression and classification models to predict NHL standings and simulate draft outcomes.",
     links: [{ label: "Notebook available upon request", url: "#", locked: true }],
-    image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&auto=format&fit=crop&q=80",
   },
 ];
 
-const PROJECTS_PER_PAGE = 3;
+const PROJECTS_PER_PAGE = 4;
 
-const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+// Simplified project card for non-featured projects
+const SimpleProjectCard = ({ project, index }: { project: any; index: number }) => (
   <Card
     key={index}
-    className="border-2 border-border hover:shadow-xl hover:border-accent transition-all duration-300 animate-scale-in bg-card overflow-hidden"
+    className="border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50"
     style={{ animationDelay: `${index * 50}ms` }}
   >
-    <div className="md:flex">
-      <div className="md:w-1/3 relative overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-48 md:h-full object-cover hover:scale-105 transition-transform duration-300"
-        />
-        {project.inProgress && (
-          <div className="absolute inset-0 bg-accent/30 flex items-center justify-center backdrop-blur-[1px]">
-            <Badge className="bg-accent text-accent-foreground border-2 border-background text-base px-4 py-2 font-semibold">
-              In Progress
-            </Badge>
+    <CardContent className="p-5">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-2">
+            <h3 className="text-lg font-semibold">{project.title}</h3>
+            {project.inProgress && (
+              <Badge variant="secondary" className="text-xs">
+                In Progress
+              </Badge>
+            )}
           </div>
-        )}
-      </div>
-      <CardContent className="md:w-2/3 p-6">
-        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-        {project.team && <p className="text-sm text-muted-foreground mb-4">{project.team}</p>}
-        <ul className="space-y-2 mb-4">
-          {project.description.map((item: string, idx: number) => (
-            <li key={idx} className="flex items-start gap-2 text-foreground text-sm">
-              <span className="text-accent mt-1">•</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="flex flex-wrap gap-3">
-          {project.links.map((link: any, idx: number) =>
-            link.locked ? (
-              <Button
-                key={idx}
-                variant="outline"
-                size="sm"
-                className="border-2 border-border/50 text-muted-foreground cursor-not-allowed opacity-60"
-                disabled
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                {link.label}
-              </Button>
-            ) : (
-              <Button
-                key={idx}
-                asChild
-                size="sm"
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
-              >
-                <a href={link.url}>
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  {link.label}
-                </a>
-              </Button>
-            )
+          {project.team && (
+            <p className="text-xs text-muted-foreground mb-2">{project.team}</p>
           )}
+          <p className="text-sm text-foreground/80 mb-3">{project.description}</p>
+          <div className="flex flex-wrap gap-2">
+            {project.links.map((link: any, idx: number) =>
+              link.locked ? (
+                <Button
+                  key={idx}
+                  variant="ghost"
+                  size="sm"
+                  className="h-7 text-xs text-muted-foreground cursor-not-allowed opacity-60 px-2"
+                  disabled
+                >
+                  <ExternalLink className="w-3 h-3 mr-1" />
+                  {link.label}
+                </Button>
+              ) : (
+                <Button
+                  key={idx}
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="h-7 text-xs px-2 hover:bg-accent hover:text-accent-foreground"
+                >
+                  <a href={link.url}>
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    {link.label}
+                  </a>
+                </Button>
+              )
+            )}
+          </div>
         </div>
-      </CardContent>
-    </div>
+      </div>
+    </CardContent>
   </Card>
 );
 
@@ -272,64 +201,84 @@ const Projects = () => {
             <TabsTrigger value="data">Data Analytics & Machine Learning</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="ux" className="space-y-6" ref={projectsListRef}>
-            {paginateProjects(uxProjectsData, uxPage).map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
-            ))}
+          <TabsContent value="ux" ref={projectsListRef}>
+            {/* Featured Case Study */}
+            <FeaturedCaseStudy />
             
-            {uxTotalPages > 1 && (
-              <div className="flex justify-center items-center gap-6 mt-12">
-                <Button
-                  onClick={() => setUxPage(Math.max(0, uxPage - 1))}
-                  disabled={uxPage === 0}
-                  size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
-                >
-                  <ChevronLeft className="w-5 h-5 mr-2" />
-                  Previous
-                </Button>
-                <div className="flex items-center gap-2">
-                  {Array.from({ length: uxTotalPages }, (_, i) => i).map((page) => (
-                    <button
-                      key={page}
-                      onClick={() => setUxPage(page)}
-                      className={`w-10 h-10 rounded-md transition-all ${
-                        uxPage === page
-                          ? "bg-accent text-accent-foreground font-semibold"
-                          : "bg-secondary text-secondary-foreground hover:bg-accent/20"
-                      }`}
-                    >
-                      {page + 1}
-                    </button>
-                  ))}
-                </div>
-                <Button
-                  onClick={() => setUxPage(Math.min(uxTotalPages - 1, uxPage + 1))}
-                  disabled={uxPage === uxTotalPages - 1}
-                  size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
-                >
-                  Next
-                  <ChevronRight className="w-5 h-5 ml-2" />
-                </Button>
+            {/* Other Projects Section */}
+            <div className="mt-12">
+              <div className="text-center mb-6">
+                <h3 className="text-xl font-semibold text-foreground/80">Other Projects</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Additional work demonstrating breadth of experience
+                </p>
               </div>
-            )}
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {paginateProjects(uxProjectsData, uxPage).map((project, index) => (
+                  <SimpleProjectCard key={index} project={project} index={index} />
+                ))}
+              </div>
+              
+              {uxTotalPages > 1 && (
+                <div className="flex justify-center items-center gap-6 mt-8">
+                  <Button
+                    onClick={() => setUxPage(Math.max(0, uxPage - 1))}
+                    disabled={uxPage === 0}
+                    variant="outline"
+                    size="sm"
+                    className="disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <ChevronLeft className="w-4 h-4 mr-1" />
+                    Previous
+                  </Button>
+                  <div className="flex items-center gap-2">
+                    {Array.from({ length: uxTotalPages }, (_, i) => i).map((page) => (
+                      <button
+                        key={page}
+                        onClick={() => setUxPage(page)}
+                        className={`w-8 h-8 rounded-md text-sm transition-all ${
+                          uxPage === page
+                            ? "bg-accent text-accent-foreground font-semibold"
+                            : "bg-secondary text-secondary-foreground hover:bg-accent/20"
+                        }`}
+                      >
+                        {page + 1}
+                      </button>
+                    ))}
+                  </div>
+                  <Button
+                    onClick={() => setUxPage(Math.min(uxTotalPages - 1, uxPage + 1))}
+                    disabled={uxPage === uxTotalPages - 1}
+                    variant="outline"
+                    size="sm"
+                    className="disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
+                </div>
+              )}
+            </div>
           </TabsContent>
 
-          <TabsContent value="data" className="space-y-6">
-            {paginateProjects(dataProjectsData, dataPage).map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
-            ))}
+          <TabsContent value="data" className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-4">
+              {paginateProjects(dataProjectsData, dataPage).map((project, index) => (
+                <SimpleProjectCard key={index} project={project} index={index} />
+              ))}
+            </div>
             
             {dataTotalPages > 1 && (
-              <div className="flex justify-center items-center gap-6 mt-12">
+              <div className="flex justify-center items-center gap-6 mt-8">
                 <Button
                   onClick={() => setDataPage(Math.max(0, dataPage - 1))}
                   disabled={dataPage === 0}
-                  size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
+                  variant="outline"
+                  size="sm"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <ChevronLeft className="w-5 h-5 mr-2" />
+                  <ChevronLeft className="w-4 h-4 mr-1" />
                   Previous
                 </Button>
                 <div className="flex items-center gap-2">
@@ -337,7 +286,7 @@ const Projects = () => {
                     <button
                       key={page}
                       onClick={() => setDataPage(page)}
-                      className={`w-10 h-10 rounded-md transition-all ${
+                      className={`w-8 h-8 rounded-md text-sm transition-all ${
                         dataPage === page
                           ? "bg-accent text-accent-foreground font-semibold"
                           : "bg-secondary text-secondary-foreground hover:bg-accent/20"
@@ -350,11 +299,12 @@ const Projects = () => {
                 <Button
                   onClick={() => setDataPage(Math.min(dataTotalPages - 1, dataPage + 1))}
                   disabled={dataPage === dataTotalPages - 1}
-                  size="lg"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed px-8"
+                  variant="outline"
+                  size="sm"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next
-                  <ChevronRight className="w-5 h-5 ml-2" />
+                  <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>
             )}
