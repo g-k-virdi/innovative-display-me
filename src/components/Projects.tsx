@@ -55,7 +55,7 @@ const uxProjectsData = [
     team: "UX Designer | Non-Profit Project",
     inProgress: true,
     description: "Wireframed a new feature for managing calendar and community events with iterative design.",
-    links: [{ label: "Private project under NDA", url: "#", locked: true }],
+    links: [{ label: "Private project", url: "#", locked: true }],
   },
   {
     title: "Kritik Activity Creation Module Redesign",
