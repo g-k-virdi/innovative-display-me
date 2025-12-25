@@ -42,7 +42,7 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-accent">Beyond Design</h3>
             <p className="text-foreground/90 leading-relaxed">
-              Curiosity drives me. I love learning for its own sake — from psychology and language to physics and philosophy. Exploring things just out of love for learning helps me stay creative and grounded. Philosophy, in particular, has shaped how I think — it teaches me to question assumptions and look deeper into multiple perspectives. I also enjoy sketching in my free time.
+              Curiosity drives me. I love learning for its own sake — from psychology and language to physics and philosophy. It helps me stay creative and grounded. Philosophy, in particular, has shaped how I think — it teaches me to question assumptions and look deeper into multiple perspectives. I also enjoy sketching in my free time.
             </p>
           </div>
 
