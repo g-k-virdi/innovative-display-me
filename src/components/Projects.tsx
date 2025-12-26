@@ -144,7 +144,7 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
               <Button
                 asChild
                 variant="outline"
-                className="border-accent text-accent-foreground hover:bg-accent hover:text-accent-foreground"
+                size="sm"
               >
                 <a href={project.wireframeUrl} target="_blank" rel="noopener noreferrer">
                   <FileText className="w-4 h-4 mr-2" />
@@ -154,7 +154,7 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
               <Button
                 asChild
                 variant="outline"
-                className="border-accent text-accent-foreground hover:bg-accent hover:text-accent-foreground"
+                size="sm"
               >
                 <a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">
                   <Play className="w-4 h-4 mr-2" />
