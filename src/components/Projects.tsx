@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, ChevronLeft, ChevronRight, Star, ArrowRight } from "lucide-react";
+import { ExternalLink, ChevronLeft, ChevronRight, Star, ArrowRight, FileText, Play } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +12,8 @@ const featuredProject = {
   subtitle: "Helping Young Adults Find the Right Care Faster",
   team: "UX Researcher & Designer | Team of 5 | University Project",
   description: "Designed a digital tool to help young adults navigate urgent healthcare decisions with clarity and confidence. Through user research, iterative prototyping, and usability testing, created a guided experience that reduces stress and confusion.",
+  wireframeUrl: "https://www.figma.com/design/YDNN9bCQ4mKcTRRnUTyHhU/MIE344-Team-5?node-id=0-1&t=LkfLqrb0zTcChom2-1",
+  prototypeUrl: "https://www.figma.com/proto/YDNN9bCQ4mKcTRRnUTyHhU/MIE344-Team-5?node-id=165-3652&p=f&t=XhOuio46aK9t00bR-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=165%3A3652",
 };
 
 // Other UX projects
@@ -21,6 +23,7 @@ const uxProjectsData = [
     team: "Team of 4 | Capstone Project",
     inProgress: true,
     description: "Collaborated on redesigning a Business Impact Analysis (BIA) system using HCI principles.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop",
     links: [
       { label: "Case Study available upon request", url: "#", locked: true },
     ],
@@ -30,6 +33,7 @@ const uxProjectsData = [
     team: "UX Designer | Club Project",
     inProgress: false,
     description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information. Wireframed for full-access view.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
     links: [{ label: "View Figma Wireframe", url: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1", locked: false }],
   },
   {
@@ -37,6 +41,7 @@ const uxProjectsData = [
     team: "UX Designer & Developer | Internship Project",
     inProgress: false,
     description: "Designed and developed the company's website using Figma prototyping and front-end implementation.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
     links: [
       { label: "View Figma Wireframe", url: "#", locked: false },
     ],
@@ -46,6 +51,7 @@ const uxProjectsData = [
     team: "UX Designer | Internship Project",
     inProgress: true,
     description: "Working on a healthcare visualization tool for tracking and interpreting blood vitals.",
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop",
     links: [
       { label: "View Figma Wireframe", url: "#", locked: false },
     ],
@@ -55,6 +61,7 @@ const uxProjectsData = [
     team: "UX Designer | Non-Profit Project",
     inProgress: true,
     description: "Wireframed a new feature for managing calendar and community events with iterative design.",
+    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=250&fit=crop",
     links: [{ label: "Private project", url: "#", locked: true }],
   },
   {
@@ -62,6 +69,7 @@ const uxProjectsData = [
     team: "Team of 3 | University Project",
     inProgress: false,
     description: "Conducted cognitive walkthroughs and heuristic evaluations to propose actionable UX improvements.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop",
     links: [{ label: "Project Report and Design available upon request", url: "#", locked: true }],
   },
   {
@@ -69,6 +77,7 @@ const uxProjectsData = [
     team: "Back-end Developer | Team of 5 | University Project",
     inProgress: false,
     description: "Designed a user-centric web application for recommending electric vehicles with UML diagrams and use cases.",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&h=250&fit=crop",
     links: [{ label: "Project Report and code available upon request", url: "#", locked: true }],
   },
 ];
@@ -79,6 +88,7 @@ const dataProjectsData = [
     team: "",
     inProgress: false,
     description: "Developed and compared Holt-Winters and SARIMA models to predict pollution levels with seasonal analysis.",
+    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=250&fit=crop",
     links: [{ label: "Notebook available upon request", url: "#", locked: true }],
   },
   {
@@ -86,6 +96,7 @@ const dataProjectsData = [
     team: "",
     inProgress: false,
     description: "Built regression and classification models to predict NHL standings and simulate draft outcomes.",
+    image: "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=400&h=250&fit=crop",
     links: [{ label: "Notebook available upon request", url: "#", locked: true }],
   },
 ];
@@ -94,10 +105,11 @@ const PROJECTS_PER_PAGE = 6;
 
 // Featured project card with hover effect
 const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredProject; onClick: () => void }) => {
+  const navigate = useNavigate();
+  
   return (
     <Card
-      onClick={onClick}
-      className="group relative border-2 border-accent/30 hover:border-accent bg-gradient-to-br from-accent/5 to-transparent hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden animate-scale-in"
+      className="group relative border-2 border-accent/30 hover:border-accent bg-gradient-to-br from-accent/5 to-transparent hover:shadow-xl transition-all duration-500 overflow-hidden animate-scale-in"
     >
       {/* Featured Badge */}
       <div className="absolute top-4 right-4 z-10">
@@ -111,28 +123,62 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Left: Content */}
           <div className="flex-1">
-            <h3 className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors">
+            <h3 
+              onClick={onClick}
+              className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors cursor-pointer"
+            >
               {project.title}
             </h3>
             <p className="text-lg text-foreground/80 mb-3">{project.subtitle}</p>
             <p className="text-sm text-muted-foreground mb-4">{project.team}</p>
             <p className="text-foreground/80 leading-relaxed mb-6">{project.description}</p>
             
-            <Button
-              className="bg-accent text-accent-foreground hover:bg-accent/90 group-hover:translate-x-1 transition-transform"
-            >
-              View Case Study
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                onClick={onClick}
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
+                View Case Study
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="border-accent/50 hover:bg-accent/10"
+              >
+                <a href={project.wireframeUrl} target="_blank" rel="noopener noreferrer">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Wireframes
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="border-accent/50 hover:bg-accent/10"
+              >
+                <a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">
+                  <Play className="w-4 h-4 mr-2" />
+                  Prototype
+                </a>
+              </Button>
+            </div>
           </div>
 
           {/* Right: Hover Preview */}
-          <div className="hidden lg:flex items-center justify-center w-64 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <div className="text-center text-muted-foreground text-sm space-y-2">
-              <div className="w-32 h-20 bg-secondary/50 rounded-lg mx-auto mb-2 flex items-center justify-center border border-border">
-                Preview
+          <div 
+            onClick={onClick}
+            className="hidden lg:flex items-center justify-center w-64 cursor-pointer"
+          >
+            <div className="relative w-full h-40 bg-secondary/30 rounded-lg overflow-hidden border border-border group-hover:border-accent/50 transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-2 group-hover:bg-accent/30 transition-colors">
+                    <ArrowRight className="w-5 h-5 text-accent" />
+                  </div>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Click to explore</p>
+                </div>
               </div>
-              <p>Click to explore</p>
             </div>
           </div>
         </div>
@@ -148,9 +194,19 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
 const ProjectCard = ({ project, index }: { project: any; index: number }) => (
   <Card
     key={index}
-    className="border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50"
+    className="border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50 overflow-hidden"
     style={{ animationDelay: `${index * 50}ms` }}
   >
+    {/* Project Image */}
+    {project.image && (
+      <div className="h-36 overflow-hidden">
+        <img 
+          src={project.image} 
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+      </div>
+    )}
     <CardContent className="p-5">
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1">
