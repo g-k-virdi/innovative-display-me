@@ -37,13 +37,13 @@ const uxProjectsData = [
     links: [{ label: "View Figma Wireframe", url: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1", locked: false }],
   },
   {
-    title: "Data Joins Website Design and Development",
+    title: "Datajoins Website Design and Development",
     team: "UX Designer & Developer | Internship Project",
     inProgress: false,
     description: "Designed and developed the company's website using Figma prototyping and front-end implementation.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
     links: [
-      { label: "View Figma Wireframe", url: "#", locked: false },
+      { label: "View Website", url: "https://datajoins.com/", locked: false },
     ],
   },
   {
