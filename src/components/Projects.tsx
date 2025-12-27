@@ -43,7 +43,7 @@ const uxProjectsData = [
     description: "Designed and developed the company's website using Figma prototyping and front-end implementation.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
     links: [
-      { label: "View Website", url: "https://datajoins.com/", locked: false },
+      { label: "View Website", url: "https://www.datajoins.com", locked: false },
     ],
   },
   {
