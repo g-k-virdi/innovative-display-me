@@ -112,42 +112,44 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
       className="group relative border-2 border-accent/30 hover:border-accent bg-gradient-to-br from-accent/5 to-transparent hover:shadow-xl transition-all duration-500 overflow-hidden animate-scale-in"
     >
       {/* Featured Badge */}
-      <div className="absolute top-4 right-4 z-10">
-        <Badge className="bg-accent text-accent-foreground gap-1 px-3 py-1">
+      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
+        <Badge className="bg-accent text-accent-foreground gap-1 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm">
           <Star className="w-3 h-3 fill-current" />
-          Featured Case Study
+          <span className="hidden xs:inline">Featured</span> Case Study
         </Badge>
       </div>
 
-      <CardContent className="p-6 lg:p-8">
-        <div className="flex flex-col lg:flex-row gap-6">
+      <CardContent className="p-4 pt-12 sm:p-6 sm:pt-14 md:p-6 lg:p-8">
+        <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
           {/* Left: Content */}
           <div className="flex-1">
             <h3 
               onClick={onClick}
-              className="text-2xl font-bold mb-2 group-hover:text-accent transition-colors cursor-pointer"
+              className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-accent transition-colors cursor-pointer"
             >
               {project.title}
             </h3>
-            <p className="text-lg text-foreground/80 mb-3">{project.subtitle}</p>
-            <p className="text-sm text-muted-foreground mb-4">{project.team}</p>
-            <p className="text-foreground/80 leading-relaxed mb-6">{project.description}</p>
+            <p className="text-base sm:text-lg text-foreground/80 mb-2 sm:mb-3">{project.subtitle}</p>
+            <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{project.team}</p>
+            <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-4 sm:mb-6">{project.description}</p>
             
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               <Button
                 onClick={onClick}
-                className="bg-accent text-accent-foreground hover:bg-accent/90"
+                size="sm"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
               >
                 View Case Study
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="sm"
+                className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
               >
                 <a href={project.wireframeUrl} target="_blank" rel="noopener noreferrer">
-                  <FileText className="w-4 h-4 mr-2" />
+                  <FileText className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                   Wireframes
                 </a>
               </Button>
@@ -155,9 +157,10 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
                 asChild
                 variant="outline"
                 size="sm"
+                className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
               >
                 <a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">
-                  <Play className="w-4 h-4 mr-2" />
+                  <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                   Prototype
                 </a>
               </Button>
@@ -199,7 +202,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
   >
     {/* Project Image */}
     {project.image && (
-      <div className="h-36 overflow-hidden">
+      <div className="h-32 sm:h-36 overflow-hidden">
         <img 
           src={project.image} 
           alt={project.title}
@@ -207,29 +210,29 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
         />
       </div>
     )}
-    <CardContent className="p-5">
-      <div className="flex items-start justify-between gap-4">
+    <CardContent className="p-4 sm:p-5">
+      <div className="flex items-start justify-between gap-3 sm:gap-4">
         <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2 flex-wrap">
-            <h3 className="text-lg font-semibold">{project.title}</h3>
+          <div className="flex items-start gap-2 mb-2 flex-wrap">
+            <h3 className="text-base sm:text-lg font-semibold leading-tight">{project.title}</h3>
             {project.inProgress && (
-              <Badge variant="secondary" className="text-xs">
+              <Badge variant="secondary" className="text-[10px] sm:text-xs shrink-0">
                 In Progress
               </Badge>
             )}
           </div>
           {project.team && (
-            <p className="text-xs text-muted-foreground mb-2">{project.team}</p>
+            <p className="text-[11px] sm:text-xs text-muted-foreground mb-2">{project.team}</p>
           )}
-          <p className="text-sm text-foreground/80 mb-3">{project.description}</p>
-          <div className="flex flex-wrap gap-2">
+          <p className="text-xs sm:text-sm text-foreground/80 mb-3">{project.description}</p>
+          <div className="flex flex-wrap gap-1.5 sm:gap-2">
             {project.links.map((link: any, idx: number) =>
               link.locked ? (
                 <Button
                   key={idx}
                   variant="ghost"
                   size="sm"
-                  className="h-7 text-xs text-muted-foreground cursor-not-allowed opacity-60 px-2"
+                  className="h-8 sm:h-7 text-[10px] sm:text-xs text-muted-foreground cursor-not-allowed opacity-60 px-2"
                   disabled
                 >
                   {link.label}
@@ -240,7 +243,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => (
                   asChild
                   variant="outline"
                   size="sm"
-                  className="h-7 text-xs px-2 hover:bg-accent hover:text-accent-foreground"
+                  className="h-8 sm:h-7 text-[10px] sm:text-xs px-2 sm:px-3 hover:bg-accent hover:text-accent-foreground"
                 >
                   <a href={link.url} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-3 h-3 mr-1" />
@@ -296,22 +299,26 @@ const Projects = () => {
   }, [uxPage, dataPage]);
 
   return (
-    <section id="projects" className="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
+    <section id="projects" className="pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+        <div className="text-center mb-8 sm:mb-12 animate-fade-in">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
             Projects
           </h2>
-          <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
-          <p className="text-lg text-foreground max-w-2xl mx-auto">
+          <div className="w-16 sm:w-20 h-1 bg-accent mx-auto mb-3 sm:mb-4"></div>
+          <p className="text-base sm:text-lg text-foreground max-w-2xl mx-auto px-2">
             A selection of projects that showcase my work across different disciplines
           </p>
         </div>
 
         <Tabs defaultValue="ux" className="max-w-6xl mx-auto" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-12">
-            <TabsTrigger value="ux">Human Factors & UX Design</TabsTrigger>
-            <TabsTrigger value="data">Data Analytics & Machine Learning</TabsTrigger>
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-6 sm:mb-8 md:mb-12 h-auto">
+            <TabsTrigger value="ux" className="text-xs sm:text-sm py-2.5 sm:py-2 px-2 sm:px-4 leading-tight">
+              Human Factors & UX Design
+            </TabsTrigger>
+            <TabsTrigger value="data" className="text-xs sm:text-sm py-2.5 sm:py-2 px-2 sm:px-4 leading-tight">
+              Data Analytics & Machine Learning
+            </TabsTrigger>
           </TabsList>
 
           <TabsContent value="ux" ref={projectsListRef} className="space-y-8">
@@ -322,30 +329,30 @@ const Projects = () => {
             />
 
             {/* Other Projects Grid */}
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {paginateProjects(uxProjectsData, uxPage).map((project, index) => (
                 <ProjectCard key={index} project={project} index={index} />
               ))}
             </div>
 
             {uxTotalPages > 1 && (
-              <div className="flex justify-center items-center gap-6 mt-8">
+              <div className="flex justify-center items-center gap-3 sm:gap-6 mt-6 sm:mt-8">
                 <Button
                   onClick={() => setUxPage(Math.max(0, uxPage - 1))}
                   disabled={uxPage === 0}
                   variant="outline"
                   size="sm"
-                  className="disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed h-9 sm:h-10 px-2 sm:px-4 text-xs sm:text-sm"
                 >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
+                  <ChevronLeft className="w-4 h-4 sm:mr-1" />
+                  <span className="hidden sm:inline">Previous</span>
                 </Button>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   {Array.from({ length: uxTotalPages }, (_, i) => i).map((page) => (
                     <button
                       key={page}
                       onClick={() => setUxPage(page)}
-                      className={`w-8 h-8 rounded-md text-sm transition-all ${
+                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-md text-xs sm:text-sm transition-all ${
                         uxPage === page
                           ? "bg-accent text-accent-foreground font-semibold"
                           : "bg-secondary text-secondary-foreground hover:bg-accent/20"
@@ -360,40 +367,40 @@ const Projects = () => {
                   disabled={uxPage === uxTotalPages - 1}
                   variant="outline"
                   size="sm"
-                  className="disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed h-9 sm:h-10 px-2 sm:px-4 text-xs sm:text-sm"
                 >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="w-4 h-4 sm:ml-1" />
                 </Button>
               </div>
             )}
           </TabsContent>
 
           <TabsContent value="data" className="space-y-4">
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {paginateProjects(dataProjectsData, dataPage).map((project, index) => (
                 <ProjectCard key={index} project={project} index={index} />
               ))}
             </div>
 
             {dataTotalPages > 1 && (
-              <div className="flex justify-center items-center gap-6 mt-8">
+              <div className="flex justify-center items-center gap-3 sm:gap-6 mt-6 sm:mt-8">
                 <Button
                   onClick={() => setDataPage(Math.max(0, dataPage - 1))}
                   disabled={dataPage === 0}
                   variant="outline"
                   size="sm"
-                  className="disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed h-9 sm:h-10 px-2 sm:px-4 text-xs sm:text-sm"
                 >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
+                  <ChevronLeft className="w-4 h-4 sm:mr-1" />
+                  <span className="hidden sm:inline">Previous</span>
                 </Button>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 sm:gap-2">
                   {Array.from({ length: dataTotalPages }, (_, i) => i).map((page) => (
                     <button
                       key={page}
                       onClick={() => setDataPage(page)}
-                      className={`w-8 h-8 rounded-md text-sm transition-all ${
+                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-md text-xs sm:text-sm transition-all ${
                         dataPage === page
                           ? "bg-accent text-accent-foreground font-semibold"
                           : "bg-secondary text-secondary-foreground hover:bg-accent/20"
@@ -408,10 +415,10 @@ const Projects = () => {
                   disabled={dataPage === dataTotalPages - 1}
                   variant="outline"
                   size="sm"
-                  className="disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed h-9 sm:h-10 px-2 sm:px-4 text-xs sm:text-sm"
                 >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="w-4 h-4 sm:ml-1" />
                 </Button>
               </div>
             )}
