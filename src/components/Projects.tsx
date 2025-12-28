@@ -35,6 +35,8 @@ const uxProjectsData = [
     description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information. Wireframed for full-access view.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
     links: [{ label: "View Figma Wireframe", url: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1", locked: false }],
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/utesca-portal",
   },
   {
     title: "Datajoins Website Design and Development",
@@ -53,11 +55,12 @@ const uxProjectsData = [
     description: "Working on a healthcare visualization tool for tracking and interpreting blood vitals.",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop",
     links: [
-      { label: "View Figma Wireframe", url: "#", locked: false },
+      { label: "App Prototype", url: "https://www.figma.com/make/E40MoJRV6fTp7JLWyHvNuB/TraceVitals-App-Prototype?fullscreen=1&t=4TvqwFpykU51hxgr-1", locked: false },
+      { label: "Web Prototype", url: "https://www.figma.com/make/LUqBZwezp2c7CmpUKBUnlF/TraceVitals-Web-Prototype?fullscreen=1&t=WHCn4Yq3IYPnfuS0-1", locked: false },
     ],
   },
   {
-    title: "65Square Calendar and Events Feature",
+    title: "65square Calendar and Events Feature",
     team: "UX Designer | Non-Profit Project",
     inProgress: true,
     description: "Wireframed a new feature for managing calendar and community events with iterative design.",
@@ -194,70 +197,84 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
 };
 
 // Regular project card
-const ProjectCard = ({ project, index }: { project: any; index: number }) => (
-  <Card
-    key={index}
-    className="border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50 overflow-hidden"
-    style={{ animationDelay: `${index * 50}ms` }}
-  >
-    {/* Project Image */}
-    {project.image && (
-      <div className="h-32 sm:h-36 overflow-hidden">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-        />
-      </div>
-    )}
-    <CardContent className="p-4 sm:p-5">
-      <div className="flex items-start justify-between gap-3 sm:gap-4">
-        <div className="flex-1">
-          <div className="flex items-start gap-2 mb-2 flex-wrap">
-            <h3 className="text-base sm:text-lg font-semibold leading-tight">{project.title}</h3>
-            {project.inProgress && (
-              <Badge variant="secondary" className="text-[10px] sm:text-xs shrink-0">
-                In Progress
-              </Badge>
+const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+  const navigate = useNavigate();
+  
+  return (
+    <Card
+      key={index}
+      className="border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50 overflow-hidden"
+      style={{ animationDelay: `${index * 50}ms` }}
+    >
+      {/* Project Image */}
+      {project.image && (
+        <div className="h-32 sm:h-36 overflow-hidden">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          />
+        </div>
+      )}
+      <CardContent className="p-4 sm:p-5">
+        <div className="flex items-start justify-between gap-3 sm:gap-4">
+          <div className="flex-1">
+            <div className="flex items-start gap-2 mb-2 flex-wrap">
+              <h3 className="text-base sm:text-lg font-semibold leading-tight">{project.title}</h3>
+              {project.inProgress && (
+                <Badge variant="secondary" className="text-[10px] sm:text-xs shrink-0">
+                  In Progress
+                </Badge>
+              )}
+            </div>
+            {project.team && (
+              <p className="text-[11px] sm:text-xs text-muted-foreground mb-2">{project.team}</p>
             )}
-          </div>
-          {project.team && (
-            <p className="text-[11px] sm:text-xs text-muted-foreground mb-2">{project.team}</p>
-          )}
-          <p className="text-xs sm:text-sm text-foreground/80 mb-3">{project.description}</p>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            {project.links.map((link: any, idx: number) =>
-              link.locked ? (
+            <p className="text-xs sm:text-sm text-foreground/80 mb-3">{project.description}</p>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+              {project.hasCaseStudy && (
                 <Button
-                  key={idx}
-                  variant="ghost"
+                  onClick={() => navigate(project.caseStudyUrl)}
                   size="sm"
-                  className="h-8 sm:h-7 text-[10px] sm:text-xs text-muted-foreground cursor-not-allowed opacity-60 px-2"
-                  disabled
+                  className="h-8 sm:h-7 text-[10px] sm:text-xs px-2 sm:px-3 bg-accent text-accent-foreground hover:bg-accent/90"
                 >
-                  {link.label}
+                  <ArrowRight className="w-3 h-3 mr-1" />
+                  View Case Study
                 </Button>
-              ) : (
-                <Button
-                  key={idx}
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className="h-8 sm:h-7 text-[10px] sm:text-xs px-2 sm:px-3 hover:bg-accent hover:text-accent-foreground"
-                >
-                  <a href={link.url} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-3 h-3 mr-1" />
+              )}
+              {project.links.map((link: any, idx: number) =>
+                link.locked ? (
+                  <Button
+                    key={idx}
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 sm:h-7 text-[10px] sm:text-xs text-muted-foreground cursor-not-allowed opacity-60 px-2"
+                    disabled
+                  >
                     {link.label}
-                  </a>
-                </Button>
-              )
-            )}
+                  </Button>
+                ) : (
+                  <Button
+                    key={idx}
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="h-8 sm:h-7 text-[10px] sm:text-xs px-2 sm:px-3 hover:bg-accent hover:text-accent-foreground"
+                  >
+                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-3 h-3 mr-1" />
+                      {link.label}
+                    </a>
+                  </Button>
+                )
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </CardContent>
-  </Card>
-);
+      </CardContent>
+    </Card>
+  );
+};
 
 const Projects = () => {
   const navigate = useNavigate();
