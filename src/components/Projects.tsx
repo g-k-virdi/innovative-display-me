@@ -6,15 +6,26 @@ import { ExternalLink, ChevronLeft, ChevronRight, Star, ArrowRight, FileText, Pl
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Featured UX project
-const featuredProject = {
-  title: "Urgent Care Pal",
-  subtitle: "Helping Young Adults Find the Right Care Faster",
-  team: "UX Researcher & Designer | Team of 5 | University Project",
-  description: "Designed a digital tool to help young adults navigate urgent healthcare decisions with clarity and confidence. Through user research, iterative prototyping, and usability testing, created a guided experience that reduces stress and confusion.",
-  wireframeUrl: "https://www.figma.com/design/YDNN9bCQ4mKcTRRnUTyHhU/MIE344-Team-5?node-id=0-1&t=LkfLqrb0zTcChom2-1",
-  prototypeUrl: "https://www.figma.com/proto/YDNN9bCQ4mKcTRRnUTyHhU/MIE344-Team-5?node-id=165-3652&p=f&t=XhOuio46aK9t00bR-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=165%3A3652",
-};
+// Featured UX projects (case studies)
+const featuredProjects = [
+  {
+    title: "Urgent Care Pal",
+    subtitle: "Helping Young Adults Find the Right Care Faster",
+    team: "UX Researcher & Designer | Team of 5 | University Project",
+    description: "Designed a digital tool to help young adults navigate urgent healthcare decisions with clarity and confidence. Through user research, iterative prototyping, and usability testing, created a guided experience that reduces stress and confusion.",
+    wireframeUrl: "https://www.figma.com/design/YDNN9bCQ4mKcTRRnUTyHhU/MIE344-Team-5?node-id=0-1&t=LkfLqrb0zTcChom2-1",
+    prototypeUrl: "https://www.figma.com/proto/YDNN9bCQ4mKcTRRnUTyHhU/MIE344-Team-5?node-id=165-3652&p=f&t=XhOuio46aK9t00bR-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=165%3A3652",
+    caseStudyUrl: "/case-study/urgent-care-pal",
+  },
+  {
+    title: "UTESCA Portal Wireframe",
+    subtitle: "Streamlining Club Member Access",
+    team: "UX Designer | Club Project",
+    description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information. Wireframed for full-access view.",
+    wireframeUrl: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1",
+    caseStudyUrl: "/case-study/utesca-portal",
+  },
+];
 
 // Other UX projects
 const uxProjectsData = [
@@ -27,16 +38,6 @@ const uxProjectsData = [
     links: [
       { label: "Case Study available upon request", url: "#", locked: true },
     ],
-  },
-  {
-    title: "UTESCA Portal Wireframe",
-    team: "UX Designer | Club Project",
-    inProgress: false,
-    description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information. Wireframed for full-access view.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
-    links: [{ label: "View Figma Wireframe", url: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1", locked: false }],
-    hasCaseStudy: true,
-    caseStudyUrl: "/case-study/utesca-portal",
   },
   {
     title: "Datajoins Website Design and Development",
@@ -107,7 +108,7 @@ const dataProjectsData = [
 const PROJECTS_PER_PAGE = 6;
 
 // Featured project card with hover effect
-const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredProject; onClick: () => void }) => {
+const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredProjects[0]; onClick: () => void }) => {
   const navigate = useNavigate();
   
   return (
@@ -145,28 +146,32 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
                 View Case Study
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="sm"
-                className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
-              >
-                <a href={project.wireframeUrl} target="_blank" rel="noopener noreferrer">
-                  <FileText className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                  Wireframes
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="sm"
-                className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
-              >
-                <a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">
-                  <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                  Prototype
-                </a>
-              </Button>
+              {project.wireframeUrl && (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
+                >
+                  <a href={project.wireframeUrl} target="_blank" rel="noopener noreferrer">
+                    <FileText className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                    Wireframes
+                  </a>
+                </Button>
+              )}
+              {project.prototypeUrl && (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
+                >
+                  <a href={project.prototypeUrl} target="_blank" rel="noopener noreferrer">
+                    <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                    Prototype
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
 
@@ -339,11 +344,16 @@ const Projects = () => {
           </TabsList>
 
           <TabsContent value="ux" ref={projectsListRef} className="space-y-8">
-            {/* Featured Project */}
-            <FeaturedProjectCard
-              project={featuredProject}
-              onClick={() => navigate("/case-study/urgent-care-pal")}
-            />
+            {/* Featured Case Studies */}
+            <div className="space-y-6">
+              {featuredProjects.map((project, index) => (
+                <FeaturedProjectCard
+                  key={index}
+                  project={project}
+                  onClick={() => navigate(project.caseStudyUrl)}
+                />
+              ))}
+            </div>
 
             {/* Other Projects Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
