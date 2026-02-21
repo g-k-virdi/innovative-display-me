@@ -6,6 +6,13 @@ import researchInterviewImg from "@/assets/research-interview.png";
 import conceptEvaluationImg from "@/assets/concept-evaluation.png";
 import feasibilityMatrixImg from "@/assets/feasibility-matrix.png";
 import siteMapImg from "@/assets/site-map.png";
+import round1Img1 from "@/assets/round1-1.png";
+import round1Img2 from "@/assets/round1-2.png";
+import round1Img3 from "@/assets/round1-3.png";
+import round1Img4 from "@/assets/round1-4.png";
+import round1Img5 from "@/assets/round1-5.png";
+import round1Img6 from "@/assets/round1-6.png";
+import TestingCarousel from "@/components/TestingCarousel";
 import { useNavigate } from "react-router-dom";
 
 const CaseStudy = () => {
@@ -200,14 +207,20 @@ const CaseStudy = () => {
                   <p className="text-sm text-foreground/80 mb-3">
                     Testing identified challenges with navigation clarity, instructions, and hesitation.
                   </p>
-                  <p className="text-sm text-accent font-medium">
+                  <p className="text-sm text-accent font-medium mb-4">
                     → Improvements: clearer structure, improved instructions, and better visibility.
                   </p>
                   
-                  {/* Visual Placeholder */}
-                  <div className="bg-secondary/50 rounded-lg p-6 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[120px] mt-4">
-                    Before vs After (Round 1)
-                  </div>
+                  <TestingCarousel
+                    slides={[
+                      { image: round1Img1, label: "Before → After: Search bar clarity & instructional text" },
+                      { image: round1Img2, label: "Before → After: Quiz navigation & restart button" },
+                      { image: round1Img3, label: "Before → After: Clinic listing with icons & more info" },
+                      { image: round1Img4, label: "New: Clinic detail, waitlist sign-up & queue confirmation" },
+                      { image: round1Img5, label: "New: Filter panels with location, hours & wait time" },
+                      { image: round1Img6, label: "New: Home, services, and results page improvements" },
+                    ]}
+                  />
                 </div>
 
                 {/* Round 2 */}
@@ -220,9 +233,9 @@ const CaseStudy = () => {
                     → Improvements: clearer explanations, rationale text, and stronger information visibility.
                   </p>
                   
-                  {/* Visual Placeholder */}
+                  {/* Placeholder until Round 2 images are re-uploaded */}
                   <div className="bg-secondary/50 rounded-lg p-6 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[120px] mt-4">
-                    Before vs After (Round 2)
+                    Round 2 images — please re-upload with simple filenames
                   </div>
                 </div>
               </div>
