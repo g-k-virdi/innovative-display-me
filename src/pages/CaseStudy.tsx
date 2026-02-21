@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import researchInterviewImg from "@/assets/research-interview.png";
 import { useNavigate } from "react-router-dom";
 
 const CaseStudy = () => {
@@ -95,13 +96,12 @@ const CaseStudy = () => {
               </p>
               
               {/* Visual Placeholder */}
-              <div className="grid md:grid-cols-2 gap-4 mt-6">
-                <div className="bg-secondary/30 rounded-lg p-8 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[160px]">
-                  Survey Summary / Research Graphic
-                </div>
-                <div className="bg-secondary/30 rounded-lg p-8 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[160px]">
-                  Experience Map Snapshot
-                </div>
+              <div className="mt-6">
+                <img 
+                  src={researchInterviewImg} 
+                  alt="Excerpt from an interview showing a question about ER vs walk-in clinic usage" 
+                  className="rounded-lg w-full"
+                />
               </div>
             </section>
 
