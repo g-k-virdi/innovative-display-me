@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import researchInterviewImg from "@/assets/research-interview.png";
 import conceptEvaluationImg from "@/assets/concept-evaluation.png";
 import feasibilityMatrixImg from "@/assets/feasibility-matrix.png";
+import siteMapImg from "@/assets/site-map.png";
 import { useNavigate } from "react-router-dom";
 
 const CaseStudy = () => {
@@ -164,14 +165,24 @@ const CaseStudy = () => {
                 Site maps and low-fidelity wireframes were created in Miro and Figma to define structure, flow, and clarity before visual design.
               </p>
               
-              {/* Visual Placeholder */}
-              <div className="grid md:grid-cols-2 gap-4 mt-6">
-                <div className="bg-secondary/30 rounded-lg p-8 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[160px]">
-                  Site Map
-                </div>
-                <div className="bg-secondary/30 rounded-lg p-8 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[160px]">
-                  Low-Fidelity Wireframes
-                </div>
+              <div className="mt-6">
+                <img 
+                  src={siteMapImg} 
+                  alt="Site map showing Urgent Care Website structure with Home, About, Urgent Care Matching Tool, and Find a Clinic sections" 
+                  className="rounded-lg w-full"
+                />
+              </div>
+              <div className="mt-4">
+                <Button asChild variant="outline" className="hover:bg-accent hover:text-accent-foreground">
+                  <a
+                    href="https://www.figma.com/design/VVToicjVhtkuclk15zx8Ui/Urgent-Care-Pal-Prototype?node-id=0-1&p=f&t=KgUbE62HGRI80FMA-0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    View Low-Fidelity Wireframes
+                  </a>
+                </Button>
               </div>
             </section>
 
