@@ -12,6 +12,9 @@ import round1Img3 from "@/assets/round1-3.png";
 import round1Img4 from "@/assets/round1-4.png";
 import round1Img5 from "@/assets/round1-5.png";
 import round1Img6 from "@/assets/round1-6.png";
+import round2Img1 from "@/assets/round2-1.png";
+import round2Img2 from "@/assets/round2-2.png";
+import round2Img3 from "@/assets/round2-3.png";
 import TestingCarousel from "@/components/TestingCarousel";
 import { useNavigate } from "react-router-dom";
 
@@ -229,14 +232,17 @@ const CaseStudy = () => {
                   <p className="text-sm text-foreground/80 mb-3">
                     Testing confirmed improvements but highlighted the need for stronger trust and transparency.
                   </p>
-                  <p className="text-sm text-accent font-medium">
+                  <p className="text-sm text-accent font-medium mb-4">
                     → Improvements: clearer explanations, rationale text, and stronger information visibility.
                   </p>
                   
-                  {/* Placeholder until Round 2 images are re-uploaded */}
-                  <div className="bg-secondary/50 rounded-lg p-6 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[120px] mt-4">
-                    Round 2 images — please re-upload with simple filenames
-                  </div>
+                  <TestingCarousel
+                    slides={[
+                      { image: round2Img1, label: "Waitlist form with validation & queue confirmation" },
+                      { image: round2Img2, label: "Clinic search results & detailed clinic information" },
+                      { image: round2Img3, label: "Matching tool results with rationale & nearby clinics" },
+                    ]}
+                  />
                 </div>
               </div>
             </section>
