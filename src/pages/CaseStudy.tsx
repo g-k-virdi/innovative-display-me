@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import researchInterviewImg from "@/assets/research-interview.png";
 import conceptEvaluationImg from "@/assets/concept-evaluation.png";
+import feasibilityMatrixImg from "@/assets/feasibility-matrix.png";
 import { useNavigate } from "react-router-dom";
 
 const CaseStudy = () => {
@@ -146,6 +147,11 @@ const CaseStudy = () => {
                 <img 
                   src={conceptEvaluationImg} 
                   alt="Concept evaluation matrix scoring ideas on real-time information, audience reach, ease of use, effective decision making, and timely decision-making" 
+                  className="rounded-lg w-full"
+                />
+                <img 
+                  src={feasibilityMatrixImg} 
+                  alt="Feasibility matrix evaluating ideas on policy dependency, implementation cost, technical viability, and feasibility pass" 
                   className="rounded-lg w-full"
                 />
               </div>
