@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import researchInterviewImg from "@/assets/research-interview.png";
+import conceptEvaluationImg from "@/assets/concept-evaluation.png";
 import { useNavigate } from "react-router-dom";
 
 const CaseStudy = () => {
@@ -141,13 +142,12 @@ const CaseStudy = () => {
               </p>
               
               {/* Visual Placeholder */}
-              <div className="grid md:grid-cols-2 gap-4 mt-6">
-                <div className="bg-secondary/30 rounded-lg p-8 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[160px]">
-                  Concept Evaluation Matrix
-                </div>
-                <div className="bg-secondary/30 rounded-lg p-8 border-2 border-dashed border-border flex items-center justify-center text-muted-foreground text-sm min-h-[160px]">
-                  Shortlisted Idea Visual
-                </div>
+              <div className="space-y-4 mt-6">
+                <img 
+                  src={conceptEvaluationImg} 
+                  alt="Concept evaluation matrix scoring ideas on real-time information, audience reach, ease of use, effective decision making, and timely decision-making" 
+                  className="rounded-lg w-full"
+                />
               </div>
             </section>
 
