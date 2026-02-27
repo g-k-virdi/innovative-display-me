@@ -1,4 +1,4 @@
-import { Send, Mail } from "lucide-react";
+import { Send } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,23 +23,23 @@ const Contact = () => {
   return (
     <section id="contact" className="pt-24 pb-16 lg:pt-28 lg:pb-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-fade-in max-w-2xl mx-auto">
+        <div className="text-center mb-12 animate-fade-in max-w-3xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
             Let's Connect
           </h2>
-          <div className="w-20 h-1 bg-accent mx-auto mb-4" />
-          <p className="text-base sm:text-lg text-muted-foreground">
+          <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
+          <p className="text-lg text-foreground">
             I'm always open to connecting, collaborating, or just chatting about design and ideas.
           </p>
         </div>
 
-        <div className="max-w-lg mx-auto">
-          <Card className="border border-border hover:shadow-lg transition-all duration-300 bg-card">
-            <CardContent className="p-6 sm:p-8">
-              <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="max-w-2xl mx-auto">
+          <Card className="border-2 border-border hover:shadow-xl transition-all duration-300 bg-card">
+            <CardContent className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1.5">
-                    Name
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Your Name
                   </label>
                   <Input
                     id="name"
@@ -47,14 +47,14 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full"
-                    placeholder="Your name"
+                    className="w-full border-2 border-border focus:border-accent"
+                    placeholder="Enter your name"
                   />
                 </div>
-
+                
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1.5">
-                    Email
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    Your Email
                   </label>
                   <Input
                     id="email"
@@ -62,13 +62,13 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full"
+                    className="w-full border-2 border-border focus:border-accent"
                     placeholder="your.email@example.com"
                   />
                 </div>
-
+                
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1.5">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
                   <Textarea
@@ -76,7 +76,7 @@ const Contact = () => {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full min-h-[120px]"
+                    className="w-full min-h-[120px] border-2 border-border focus:border-accent"
                     placeholder="Tell me about your project or just say hello..."
                   />
                 </div>
@@ -84,9 +84,9 @@ const Contact = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
+                  className="w-full bg-accent text-accent-foreground hover:bg-accent/90 border-2 border-accent"
                 >
-                  <Send className="w-4 h-4 mr-2" />
+                  <Send className="w-5 h-5 mr-2" />
                   Send Message
                 </Button>
               </form>

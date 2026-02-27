@@ -9,51 +9,46 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-3xl animate-fade-in">
-          <p className="text-sm tracking-widest uppercase text-accent mb-4 font-medium">
-            Portfolio
-          </p>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light mb-4 tracking-tight">
+          <h1 className="text-5xl lg:text-7xl font-light mb-6 tracking-tight">
             Gurleen Kaur Virdi
           </h1>
-          <div className="w-16 h-0.5 bg-accent mb-6" />
-          <p className="text-xl lg:text-2xl text-muted-foreground font-light mb-4">
+          <div className="w-20 h-1 bg-accent mb-6"></div>
+          <p className="text-xl lg:text-2xl text-muted-foreground font-light mb-8">
             Human-Centered Engineer
           </p>
-          <p className="text-base text-muted-foreground mb-10 leading-relaxed max-w-xl">
-            Blending user research, design, and data analytics to craft intuitive,
+          <p className="text-base text-muted-foreground mb-12 leading-relaxed max-w-xl">
+            Blending user research, design, and data analytics to craft intuitive, 
             evidence-based experiences that put people first.
           </p>
-
-          <div className="flex flex-wrap gap-3 mb-6">
-            <Button
+          
+          <div className="flex flex-wrap gap-4 mb-8">
+            <Button 
               size="lg"
               onClick={() => navigate("/projects")}
-              className="bg-accent text-accent-foreground hover:bg-accent/90 px-8"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-none px-8"
             >
               View My Work
             </Button>
-            <Button
-              size="lg"
+            <Button 
+              size="lg" 
               variant="outline"
               onClick={() => navigate("/about")}
-              className="px-8 border-border hover:bg-accent hover:text-accent-foreground"
+              className="rounded-none px-8 border-border hover:bg-accent hover:text-accent-foreground"
             >
               About Me
             </Button>
           </div>
 
-          {/* Featured */}
+          {/* Featured Case Study Link */}
           <button
             onClick={() => navigate("/case-study/urgent-care-pal")}
-            className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-10"
+            className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-12"
           >
-            <span className="underline underline-offset-4 decoration-border group-hover:decoration-accent transition-colors">
-              Featured: Urgent Care Pal Case Study
-            </span>
-            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            <span>Featured: Urgent Care Pal Case Study</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
-          <div className="flex gap-5">
+          <div className="flex gap-6">
             <a
               href="https://github.com"
               target="_blank"
