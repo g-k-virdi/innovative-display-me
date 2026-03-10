@@ -156,21 +156,27 @@ const CaseStudy = () => {
               <p className="text-foreground/80 leading-relaxed mb-4">
                 Multiple solution concepts were generated and evaluated using a concept evaluation matrix and a feasibility matrix. A <strong>digital guidance and decision-support tool</strong> was selected as the most practical, accessible, and impactful direction.
               </p>
-              <div className="space-y-3">
-                <div className="overflow-hidden rounded-lg border border-border">
-                  <img
-                    src={conceptEvaluationImg}
-                    alt="Concept evaluation matrix comparing solution ideas across five criteria"
-                    className="w-full"
-                  />
-                </div>
-                <div className="overflow-hidden rounded-lg border border-border">
-                  <img
-                    src={feasibilityMatrixImg}
-                    alt="Feasibility matrix evaluating technical viability and implementation cost"
-                    className="w-full"
-                  />
-                </div>
+              <div className="space-y-5">
+                <figure>
+                  <div className="overflow-hidden rounded-lg border border-border">
+                    <img
+                      src={conceptEvaluationImg}
+                      alt="Concept evaluation matrix comparing solution ideas across five criteria"
+                      className="w-full"
+                    />
+                  </div>
+                  <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 2 — Concept evaluation matrix comparing solution ideas across key criteria</figcaption>
+                </figure>
+                <figure>
+                  <div className="overflow-hidden rounded-lg border border-border">
+                    <img
+                      src={feasibilityMatrixImg}
+                      alt="Feasibility matrix evaluating technical viability and implementation cost"
+                      className="w-full"
+                    />
+                  </div>
+                  <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 3 — Feasibility matrix evaluating viability and implementation cost</figcaption>
+                </figure>
               </div>
             </Section>
 
