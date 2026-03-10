@@ -122,13 +122,16 @@ const CaseStudy = () => {
               <p className="text-foreground/80 leading-relaxed mb-4">
                 Research was conducted with young adults in the GTA through secondary research, a survey (n = 30+), semi-structured interviews, and an experience map to understand pain points and decision-making patterns.
               </p>
-              <div className="overflow-hidden rounded-lg border border-border">
-                <img
-                  src={researchInterviewImg}
-                  alt="Excerpt from a user interview about ER vs walk-in clinic decisions"
-                  className="w-full"
-                />
-              </div>
+              <figure>
+                <div className="overflow-hidden rounded-lg border border-border">
+                  <img
+                    src={researchInterviewImg}
+                    alt="Excerpt from a user interview about ER vs walk-in clinic decisions"
+                    className="w-full"
+                  />
+                </div>
+                <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 1 — Excerpt from a semi-structured user interview on urgent care decision-making</figcaption>
+              </figure>
             </Section>
 
             {/* Key Findings */}
