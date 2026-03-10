@@ -185,13 +185,16 @@ const CaseStudy = () => {
               <p className="text-foreground/80 leading-relaxed mb-4">
                 Information architecture (site maps) and low-fidelity wireframes were created in Miro and Figma to define structure, user flow, and content hierarchy before moving into visual design.
               </p>
-              <div className="overflow-hidden rounded-lg border border-border">
-                <img
-                  src={siteMapImg}
-                  alt="Site map showing Urgent Care Website structure"
-                  className="w-full"
-                />
-              </div>
+              <figure>
+                <div className="overflow-hidden rounded-lg border border-border">
+                  <img
+                    src={siteMapImg}
+                    alt="Site map showing Urgent Care Website structure"
+                    className="w-full"
+                  />
+                </div>
+                <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 4 — Information architecture and site map for Urgent Care Pal</figcaption>
+              </figure>
               <div className="mt-4">
                 <Button asChild variant="outline" size="sm" className="hover:bg-accent hover:text-accent-foreground">
                   <a
