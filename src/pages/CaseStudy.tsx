@@ -259,9 +259,20 @@ const CaseStudy = () => {
 
             {/* High-Fidelity */}
             <Section title="High-Fidelity Testing (Team Phase)">
-              <p className="text-foreground/80 leading-relaxed">
+              <p className="text-foreground/80 leading-relaxed mb-5">
                 Structured scenario-based testing was conducted on the final high-fidelity prototype, focusing on navigation, clarity, task success, and user confidence. Results showed stronger usability and better alignment with user needs compared to earlier rounds.
               </p>
+              <figure>
+                <div className="overflow-hidden rounded-lg border border-border">
+                  <video
+                    src="/videos/urgentpalprototypehifi.mov"
+                    controls
+                    className="w-full"
+                    preload="metadata"
+                  />
+                </div>
+                <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 5 — High-fidelity prototype walkthrough</figcaption>
+              </figure>
             </Section>
 
             {/* Final Solution */}
