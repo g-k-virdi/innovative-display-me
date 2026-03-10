@@ -51,8 +51,11 @@ const Education = () => {
                   <p className="text-sm text-muted-foreground mb-2">
                     Minor in Philosophy
                   </p>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <p className="text-sm text-muted-foreground mb-2">
                     September 2022 – June 2026
+                  </p>
+                  <p className="text-sm font-medium text-accent mb-4">
+                    🏅 Fall 2025 Dean's Honour List
                   </p>
                   <div className="mb-4">
                     <p className="text-sm font-medium text-foreground mb-2">
