@@ -1,4 +1,4 @@
-import { ArrowUp, Linkedin, Github } from "lucide-react";
+import { ArrowUp, Linkedin, Github, Mail } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -29,6 +29,14 @@ const Footer = () => {
             >
               <Github className="w-4 h-4" />
               GitHub
+            </a>
+            <a
+              href="mailto:gurleen.ux@gmail.com"
+              className="flex items-center gap-2 text-sm hover:text-accent transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-4 h-4" />
+              Email
             </a>
           </div>
 

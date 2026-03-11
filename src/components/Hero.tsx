@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, ArrowRight } from "lucide-react";
+import { Github, Linkedin, ArrowRight, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -66,6 +66,13 @@ const Hero = () => {
               aria-label="LinkedIn Profile"
             >
               <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="mailto:gurleen.ux@gmail.com"
+              className="text-muted-foreground hover:text-accent transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-5 h-5" />
             </a>
           </div>
         </div>
