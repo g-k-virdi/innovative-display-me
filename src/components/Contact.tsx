@@ -1,4 +1,4 @@
-import { Send } from "lucide-react";
+import { Send, Mail } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,7 +14,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:virdigurleenkaur3@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:gurleen.ux@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
     window.location.href = mailtoLink;
@@ -31,6 +31,13 @@ const Contact = () => {
           <p className="text-lg text-foreground">
             I'm always open to connecting, collaborating, or just chatting about design and ideas.
           </p>
+          <a
+            href="mailto:gurleen.ux@gmail.com"
+            className="inline-flex items-center gap-2 mt-4 text-accent hover:text-accent/80 transition-colors font-medium"
+          >
+            <Mail className="w-5 h-5" />
+            gurleen.ux@gmail.com
+          </a>
         </div>
 
         <div className="max-w-2xl mx-auto">
