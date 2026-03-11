@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, ArrowRight } from "lucide-react";
+import { Github, Linkedin, ArrowRight, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
