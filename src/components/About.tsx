@@ -78,13 +78,15 @@ const About = () => {
           </div>
 
           <div className="flex justify-center pt-2">
-            <Button 
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 px-8"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download Resume
-            </Button>
+            <a href="/resume.pdf" download="Gurleen_Virdi_Resume.pdf">
+              <Button 
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 px-8"
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Download Resume
+              </Button>
+            </a>
           </div>
         </div>
 
