@@ -31,13 +31,6 @@ const Contact = () => {
           <p className="text-lg text-foreground">
             I'm always open to connecting, collaborating, or just chatting about design and ideas.
           </p>
-          <a
-            href="mailto:gurleen.ux@gmail.com"
-            className="inline-flex items-center gap-2 mt-4 text-accent hover:text-accent/80 transition-colors font-medium"
-          >
-            <Mail className="w-5 h-5" />
-            gurleen.ux@gmail.com
-          </a>
         </div>
 
         <div className="max-w-2xl mx-auto">
