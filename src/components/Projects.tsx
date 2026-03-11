@@ -111,6 +111,7 @@ const PROJECTS_PER_PAGE = 6;
 // Featured project card with hover effect
 const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredProjects[0]; onClick: () => void }) => {
   const navigate = useNavigate();
+  const isComingSoon = project.comingSoon;
   
   return (
     <Card
@@ -129,8 +130,8 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
           {/* Left: Content */}
           <div className="flex-1">
             <h3 
-              onClick={onClick}
-              className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-accent transition-colors cursor-pointer"
+              onClick={isComingSoon ? undefined : onClick}
+              className={`text-xl sm:text-2xl font-bold mb-2 group-hover:text-accent transition-colors ${isComingSoon ? '' : 'cursor-pointer'}`}
             >
               {project.title}
             </h3>
@@ -139,14 +140,21 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
             <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-4 sm:mb-6">{project.description}</p>
             
             <div className="flex flex-wrap gap-2 sm:gap-3">
-              <Button
-                onClick={onClick}
-                size="sm"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
-              >
-                View Case Study
-                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
-              </Button>
+              {isComingSoon ? (
+                <Badge variant="secondary" className="gap-1 px-3 py-1.5 text-xs sm:text-sm">
+                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
+                  Case Study Coming Soon
+                </Badge>
+              ) : (
+                <Button
+                  onClick={onClick}
+                  size="sm"
+                  className="bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
+                >
+                  View Case Study
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
+                </Button>
+              )}
               {project.wireframeUrl && (
                 <Button
                   asChild
