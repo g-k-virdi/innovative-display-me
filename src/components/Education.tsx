@@ -36,10 +36,10 @@ const Education = () => {
 
         <div className="max-w-4xl mx-auto">
           <Card className="border-2 border-border hover:shadow-xl transition-all duration-300 bg-card overflow-hidden">
-            <CardContent className="p-8">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-accent/10 border-2 border-accent rounded shrink-0">
-                  <GraduationCap className="w-6 h-6 text-accent" />
+            <CardContent className="p-5 sm:p-8">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-accent/10 border-2 border-accent rounded shrink-0">
+                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-1">
