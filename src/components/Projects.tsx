@@ -24,6 +24,7 @@ const featuredProjects = [
     description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information. Wireframed for full-access view.",
     wireframeUrl: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1",
     caseStudyUrl: "/case-study/utesca-portal",
+    comingSoon: true,
   },
 ];
 
