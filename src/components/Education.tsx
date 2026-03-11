@@ -55,7 +55,7 @@ const Education = () => {
                     September 2022 – June 2026
                   </p>
                   <p className="text-sm font-medium text-accent mb-4">
-                    🏅 Fall 2025 Dean's Honour List
+                    Fall 2025 Dean's Honour List
                   </p>
                   <div className="mb-4">
                     <p className="text-sm font-medium text-foreground mb-2">
