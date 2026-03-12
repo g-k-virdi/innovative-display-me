@@ -352,10 +352,12 @@ const Projects = () => {
         <Tabs defaultValue="ux" className="max-w-6xl mx-auto" onValueChange={setActiveTab}>
           <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-6 sm:mb-8 md:mb-12 h-auto">
             <TabsTrigger value="ux" className="text-xs sm:text-sm py-2.5 sm:py-2 px-2 sm:px-4 leading-tight">
-              Human Factors & UX Design
+              <span className="sm:hidden">UX Design</span>
+              <span className="hidden sm:inline">Human Factors & UX Design</span>
             </TabsTrigger>
             <TabsTrigger value="data" className="text-xs sm:text-sm py-2.5 sm:py-2 px-2 sm:px-4 leading-tight">
-              Data Analytics & Machine Learning
+              <span className="sm:hidden">Data & ML</span>
+              <span className="hidden sm:inline">Data Analytics & Machine Learning</span>
             </TabsTrigger>
           </TabsList>
 
