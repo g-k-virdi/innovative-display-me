@@ -56,7 +56,7 @@ const Navigation = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
-            ? "bg-background/95 backdrop-blur-xl border-b border-border"
+            ? "bg-background border-b border-border"
             : "bg-transparent"
         }`}
         ref={menuRef}
@@ -106,7 +106,7 @@ const Navigation = () => {
 
       {/* Mobile menu panel */}
       <div
-        className={`fixed top-16 left-0 right-0 z-45 bg-background border-b border-border md:hidden transition-all duration-300 ease-out ${
+        className={`fixed top-16 left-0 right-0 z-[45] bg-background border-b border-border shadow-lg md:hidden transition-all duration-300 ease-out ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-2 pointer-events-none"
