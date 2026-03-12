@@ -117,12 +117,19 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
     <Card
       className="group relative border-2 border-accent/30 hover:border-accent bg-gradient-to-br from-accent/5 to-transparent hover:shadow-xl transition-all duration-500 overflow-hidden animate-scale-in"
     >
-      {/* Featured Badge */}
+      {/* Badge */}
       <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
-        <Badge className="bg-accent text-accent-foreground gap-1 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm">
-          <Star className="w-3 h-3 fill-current" />
-          <span className="hidden xs:inline">Featured</span> Case Study
-        </Badge>
+        {isComingSoon ? (
+          <Badge variant="outline" className="border-muted-foreground/40 text-muted-foreground gap-1 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm">
+            <Clock className="w-3 h-3" />
+            Case Study Coming Soon
+          </Badge>
+        ) : (
+          <Badge className="bg-accent text-accent-foreground gap-1 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm">
+            <Star className="w-3 h-3 fill-current" />
+            <span className="hidden xs:inline">Featured</span> Case Study
+          </Badge>
+        )}
       </div>
 
       <CardContent className="p-4 pt-12 sm:p-6 sm:pt-14 md:p-6 lg:p-8">
