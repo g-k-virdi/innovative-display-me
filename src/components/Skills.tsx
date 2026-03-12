@@ -35,7 +35,7 @@ const Skills = () => {
       title: "Tools",
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=80",
       preview: ["Figma", "Tableau", "Jupyter Notebook", "GitHub"],
-      allSkills: ["Figma", "Tableau", "Jupyter Notebook", "GitHub", "Excel", "Jira", "Google Suite"],
+      allSkills: ["Figma", "Miro", "Tableau", "Jupyter Notebook", "GitHub", "Excel", "Jira", "Google Suite"],
     },
     {
       title: "Programming Languages",

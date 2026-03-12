@@ -12,7 +12,7 @@ const workExperienceData = [
     ],
   },
   {
-    title: "Volunteer UX Designer, 65square",
+    title: "UX Designer, 65square",
     company: "Remote",
     period: "August 2025 – Present",
     responsibilities: [
