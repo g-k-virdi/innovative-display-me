@@ -4,7 +4,7 @@ const workExperienceData = [
   {
     title: "Intern, Data Joins",
     company: "Remote",
-    period: "June 2025 – Present",
+    period: "June 2025 – December 2025",
     responsibilities: [
       "Perform data cleaning, exploratory analysis, and dashboard design on datasets.",
       "Wireframe and prototype web and app experiences in Figma, applying HCI and UX principles to improve usability.",
@@ -12,7 +12,7 @@ const workExperienceData = [
     ],
   },
   {
-    title: "Volunteer UX Designer, 65square",
+    title: "UX Designer, 65square",
     company: "Remote",
     period: "August 2025 – Present",
     responsibilities: [
