@@ -138,7 +138,7 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
           <div className="flex-1">
             <h3 
               onClick={isComingSoon ? undefined : onClick}
-              className={`text-xl sm:text-2xl font-bold mb-2 group-hover:text-accent transition-colors ${isComingSoon ? '' : 'cursor-pointer'}`}
+              className={`text-xl sm:text-2xl font-bold mb-2 transition-colors ${isComingSoon ? '' : 'cursor-pointer group-hover:text-accent'}`}
             >
               {project.title}
             </h3>
