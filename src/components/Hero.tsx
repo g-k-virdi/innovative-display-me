@@ -50,7 +50,7 @@ const Hero = () => {
 
           <div className="flex gap-6">
             <a
-              href="https://github.com"
+              href="https://github.com/g-k-virdi"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors"

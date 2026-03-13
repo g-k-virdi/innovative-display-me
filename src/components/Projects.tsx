@@ -314,13 +314,17 @@ const Projects = () => {
     return projects.slice(start, start + PROJECTS_PER_PAGE);
   };
 
+  // Scroll only on tab change — not on initial render
+  const isInitialTabRef = useRef(true);
+
   useEffect(() => {
-    if (previousTabRef.current !== activeTab && projectsListRef.current) {
-      const yOffset = -100;
-      const y = projectsListRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+    if (isInitialTabRef.current) {
+      isInitialTabRef.current = false;
       previousTabRef.current = activeTab;
+      return;
     }
+    // Don't scroll on tab change — keep position stable like data tab
+    previousTabRef.current = activeTab;
   }, [activeTab]);
 
   useEffect(() => {
