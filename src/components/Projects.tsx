@@ -367,7 +367,7 @@ const Projects = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="ux" ref={projectsListRef} className="space-y-8">
+          <TabsContent value="ux" ref={projectsListRef} className="space-y-8 min-h-[600px]">
             {/* Featured Case Studies */}
             <div className="space-y-6">
               {featuredProjects.map((project, index) => (
