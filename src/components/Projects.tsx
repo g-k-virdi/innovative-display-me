@@ -367,7 +367,7 @@ const Projects = () => {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="ux" ref={projectsListRef} className="space-y-8">
+          <TabsContent value="ux" ref={projectsListRef} className="space-y-8 min-h-[600px]">
             {/* Featured Case Studies */}
             <div className="space-y-6">
               {featuredProjects.map((project, index) => (
@@ -427,7 +427,7 @@ const Projects = () => {
             )}
           </TabsContent>
 
-          <TabsContent value="data" className="space-y-4">
+          <TabsContent value="data" className="space-y-4 min-h-[600px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {paginateProjects(dataProjectsData, dataPage).map((project, index) => (
                 <ProjectCard key={index} project={project} index={index} />

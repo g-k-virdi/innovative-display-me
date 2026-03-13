@@ -2,6 +2,15 @@ import { Circle, MapPin, Calendar, Building2 } from "lucide-react";
 
 const workExperienceData = [
   {
+    title: "UX Designer, 65square",
+    company: "Remote",
+    period: "August 2025 – Present",
+    responsibilities: [
+      "Research and wireframe app features for a non-profit organization using Figma.",
+      "Participate in weekly design reviews and present progress updates.",
+    ],
+  },
+  {
     title: "Director of Design & Marketing, UTESCA",
     company: "Toronto",
     period: "September 2025 – Present",
@@ -9,15 +18,6 @@ const workExperienceData = [
       "Wireframe and design the UTESCA member portal using Figma and UX principles.",
       "Collaborate with a team to create visual content for events, including posters.",
       "Design short video content to enhance engagement and reach on social media.",
-    ],
-  },
-  {
-    title: "UX Designer, 65square",
-    company: "Remote",
-    period: "August 2025 – Present",
-    responsibilities: [
-      "Research and wireframe app features for a non-profit organization using Figma.",
-      "Participate in weekly design reviews and present progress updates.",
     ],
   },
   {
