@@ -192,22 +192,24 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
           </div>
 
           {/* Right: Hover Preview */}
-          <div 
-            onClick={onClick}
-            className="hidden lg:flex items-center justify-center w-64 cursor-pointer"
-          >
-            <div className="relative w-full h-40 bg-secondary/30 rounded-lg overflow-hidden border border-border group-hover:border-accent/50 transition-all">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-2 group-hover:bg-accent/30 transition-colors">
-                    <ArrowRight className="w-5 h-5 text-accent" />
+          {!isComingSoon && (
+            <div 
+              onClick={onClick}
+              className="hidden lg:flex items-center justify-center w-64 cursor-pointer"
+            >
+              <div className="relative w-full h-40 bg-secondary/30 rounded-lg overflow-hidden border border-border group-hover:border-accent/50 transition-all">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-2 group-hover:bg-accent/30 transition-colors">
+                      <ArrowRight className="w-5 h-5 text-accent" />
+                    </div>
+                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Click to explore</p>
                   </div>
-                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Click to explore</p>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </CardContent>
 
