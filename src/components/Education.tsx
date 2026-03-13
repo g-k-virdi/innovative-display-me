@@ -49,10 +49,10 @@ const Education = () => {
                     Bachelor of Applied Science, Industrial Engineering
                   </p>
                   <p className="text-sm text-muted-foreground mb-2">
-                    Minor in Philosophy
+                    September 2022 – June 2026
                   </p>
                   <p className="text-sm text-muted-foreground mb-2">
-                    September 2022 – June 2026
+                    Minor in Philosophy
                   </p>
                   <p className="text-sm text-muted-foreground mb-4">
                     Dean’s Honour List (Fall 2025)
