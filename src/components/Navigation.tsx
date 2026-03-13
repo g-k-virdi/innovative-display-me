@@ -52,14 +52,13 @@ const Navigation = () => {
   ];
 
   return (
-    <>
+    <div ref={menuRef}>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled || isMobileMenuOpen
             ? "bg-background border-b border-border"
             : "bg-transparent"
         }`}
-        ref={menuRef}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-center h-16 sm:h-20">
@@ -83,7 +82,7 @@ const Navigation = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden absolute right-4 z-50"
+              className="md:hidden absolute right-4 z-[60]"
               onClick={() => setIsMobileMenuOpen((prev) => !prev)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
@@ -98,20 +97,20 @@ const Navigation = () => {
 
       {/* Mobile menu overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden transition-opacity duration-200 ${
+        className={`fixed inset-0 z-[51] bg-background/60 backdrop-blur-sm md:hidden transition-opacity duration-200 ${
           isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
+        onClick={() => setIsMobileMenuOpen(false)}
         aria-hidden={!isMobileMenuOpen}
       />
 
       {/* Mobile menu panel */}
       <div
-        className={`fixed top-16 left-0 right-0 z-[45] bg-background border-b border-border shadow-lg md:hidden transition-all duration-300 ease-out ${
+        className={`fixed top-16 left-0 right-0 z-[52] bg-background border-b border-border shadow-lg md:hidden transition-all duration-300 ease-out ${
           isMobileMenuOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
-        style={{ zIndex: 45 }}
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col gap-1">
@@ -133,7 +132,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
