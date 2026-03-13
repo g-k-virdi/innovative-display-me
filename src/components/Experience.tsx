@@ -2,13 +2,13 @@ import { Circle, MapPin, Calendar, Building2 } from "lucide-react";
 
 const workExperienceData = [
   {
-    title: "Intern, Data Joins",
-    company: "Remote",
-    period: "June 2025 – December 2025",
+    title: "Director of Design & Marketing, UTESCA",
+    company: "Toronto",
+    period: "September 2025 – Present",
     responsibilities: [
-      "Perform data cleaning, exploratory analysis, and dashboard design on datasets.",
-      "Wireframe and prototype web and app experiences in Figma, applying HCI and UX principles to improve usability.",
-      "Collaborate on front-end web and app development.",
+      "Wireframe and design the UTESCA member portal using Figma and UX principles.",
+      "Collaborate with a team to create visual content for events, including posters.",
+      "Design short video content to enhance engagement and reach on social media.",
     ],
   },
   {
@@ -21,13 +21,13 @@ const workExperienceData = [
     ],
   },
   {
-    title: "Director of Design & Marketing, UTESCA",
-    company: "Toronto",
-    period: "September 2025 – Present",
+    title: "Intern, Data Joins",
+    company: "Remote",
+    period: "June 2025 – December 2025",
     responsibilities: [
-      "Wireframe and design the UTESCA member portal using Figma and UX principles.",
-      "Collaborate with a team to create visual content for events, including posters.",
-      "Design short video content to enhance engagement and reach on social media.",
+      "Perform data cleaning, exploratory analysis, and dashboard design on datasets.",
+      "Wireframe and prototype web and app experiences in Figma, applying HCI and UX principles to improve usability.",
+      "Collaborate on front-end web and app development.",
     ],
   },
 ];

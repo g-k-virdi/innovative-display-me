@@ -22,6 +22,8 @@ const Education = () => {
     "Probability",
     "Data Science",
     "Introduction to Machine Learning",
+    "Case Studies in Human Factors",
+    "Case Studies in Healthcare",
   ];
 
   return (

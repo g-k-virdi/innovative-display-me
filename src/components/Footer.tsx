@@ -21,7 +21,7 @@ const Footer = () => {
               LinkedIn
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/g-k-virdi"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm hover:text-accent transition-colors"
