@@ -160,22 +160,22 @@ const CaseStudy = () => {
                 <figure>
                   <div className="overflow-hidden rounded-lg border border-border">
                     <img
-                      src={conceptEvaluationImg}
-                      alt="Concept evaluation matrix comparing solution ideas across five criteria"
-                      className="w-full"
-                    />
-                  </div>
-                  <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 2 — Concept evaluation matrix comparing solution ideas across key criteria</figcaption>
-                </figure>
-                <figure>
-                  <div className="overflow-hidden rounded-lg border border-border">
-                    <img
                       src={feasibilityMatrixImg}
                       alt="Feasibility matrix evaluating technical viability and implementation cost"
                       className="w-full"
                     />
                   </div>
-                  <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 3 — Feasibility matrix evaluating viability and implementation cost</figcaption>
+                  <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 2 — Feasibility matrix evaluating viability and implementation cost</figcaption>
+                </figure>
+                <figure>
+                  <div className="overflow-hidden rounded-lg border border-border">
+                    <img
+                      src={conceptEvaluationImg}
+                      alt="Concept evaluation matrix comparing solution ideas across five criteria"
+                      className="w-full"
+                    />
+                  </div>
+                  <figcaption className="text-xs text-muted-foreground mt-2 text-center">Fig 3 — Concept evaluation matrix comparing solution ideas across key criteria</figcaption>
                 </figure>
               </div>
             </Section>
