@@ -18,26 +18,41 @@ const featuredProjects = [
     caseStudyUrl: "/case-study/urgent-care-pal",
   },
   {
-    title: "UTESCA Portal Wireframe",
-    subtitle: "Streamlining Club Member Access",
-    team: "UX Designer | Club Project",
-    description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information. Wireframed for full-access view.",
-    wireframeUrl: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1",
-    caseStudyUrl: "/case-study/utesca-portal",
-    comingSoon: true,
+    title: "UHN Inventory Optimization",
+    subtitle: "Streamlining Clinical Inventory for Interventional Radiology",
+    team: "Industrial Engineering Student | Team of 4 | University Project",
+    description: "Analyzed and redesigned inventory tracking workflows for UHN's Interventional Radiology department. Through root cause analysis and structured evaluation, recommended an RFID-based system to eliminate manual errors and improve real-time accuracy.",
+    caseStudyUrl: "/case-study/uhn-inventory",
+  },
+  {
+    title: "Wayfinding Optimization",
+    subtitle: "Improving Transit Navigation at Cedarvale Station",
+    team: "Human Factors Engineer | Team of 4 | University Project",
+    description: "Conducted field research and human error analysis to identify systematic wayfinding failures at a TTC station. Proposed system-level signage and navigation improvements to reduce user errors and cognitive load.",
+    caseStudyUrl: "/case-study/wayfinding",
   },
 ];
 
 // Other UX projects
 const uxProjectsData = [
   {
-    title: "Redesigning BIA tool for William Osler Health System",
+    title: "BIA Tool Redesign for William Osler Health System",
     team: "Team of 4 | Capstone Project",
-    inProgress: true,
+    inProgress: false,
     description: "Collaborated on redesigning a Business Impact Analysis (BIA) system using HCI principles.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop",
     links: [
       { label: "Case Study available upon request", url: "#", locked: true },
+    ],
+  },
+  {
+    title: "UTESCA Portal Wireframe",
+    team: "UX Designer | Club Project",
+    inProgress: false,
+    description: "Wireframed the UTESCA club portal for members to access events, resources, and contact information. Wireframed for full-access view.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+    links: [
+      { label: "Wireframes", url: "https://www.figma.com/design/KgNOeTITykawA93s9M4qpa/UTESCA-Portal?node-id=0-1&t=a6QzEm5TWUhAXwVc-1", locked: false },
     ],
   },
   {
@@ -53,8 +68,8 @@ const uxProjectsData = [
   {
     title: "TraceVitals",
     team: "UX Designer | Internship Project",
-    inProgress: true,
-    description: "Working on a healthcare visualization tool for tracking and interpreting blood vitals.",
+    inProgress: false,
+    description: "Designed a healthcare visualization tool by translating user needs into a structured site map and first-iteration web and app prototypes for tracking and interpreting blood vitals.",
     image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop",
     links: [
       { label: "App Prototype", url: "https://www.figma.com/make/E40MoJRV6fTp7JLWyHvNuB/TraceVitals-App-Prototype?fullscreen=1&t=4TvqwFpykU51hxgr-1", locked: false },
