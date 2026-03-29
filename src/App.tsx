@@ -10,6 +10,8 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import CaseStudy from "./pages/CaseStudy";
 import UTESCACaseStudy from "./pages/UTESCACaseStudy";
+import UHNCaseStudy from "./pages/UHNCaseStudy";
+import WayfindingCaseStudy from "./pages/WayfindingCaseStudy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +40,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/case-study/urgent-care-pal" element={<CaseStudy />} />
           <Route path="/case-study/utesca-portal" element={<UTESCACaseStudy />} />
+          <Route path="/case-study/uhn-inventory" element={<UHNCaseStudy />} />
+          <Route path="/case-study/wayfinding" element={<WayfindingCaseStudy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

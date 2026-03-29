@@ -125,26 +125,16 @@ const PROJECTS_PER_PAGE = 6;
 
 // Featured project card with hover effect
 const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredProjects[0]; onClick: () => void }) => {
-  const navigate = useNavigate();
-  const isComingSoon = project.comingSoon;
-  
   return (
     <Card
       className="group relative border-2 border-accent/30 hover:border-accent bg-gradient-to-br from-accent/5 to-transparent hover:shadow-xl transition-all duration-500 overflow-hidden animate-scale-in"
     >
       {/* Badge */}
       <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10">
-        {isComingSoon ? (
-          <Badge variant="outline" className="border-muted-foreground/40 text-muted-foreground gap-1 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm">
-            <Clock className="w-3 h-3" />
-            Case Study Coming Soon
-          </Badge>
-        ) : (
-          <Badge className="bg-accent text-accent-foreground gap-1 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm">
-            <Star className="w-3 h-3 fill-current" />
-            <span className="hidden xs:inline">Featured</span> Case Study
-          </Badge>
-        )}
+        <Badge className="bg-accent text-accent-foreground gap-1 px-2 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm">
+          <Star className="w-3 h-3 fill-current" />
+          <span className="hidden xs:inline">Featured</span> Case Study
+        </Badge>
       </div>
 
       <CardContent className="p-4 pt-12 sm:p-6 sm:pt-14 md:p-6 lg:p-8">
@@ -152,8 +142,8 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
           {/* Left: Content */}
           <div className="flex-1">
             <h3 
-              onClick={isComingSoon ? undefined : onClick}
-              className={`text-xl sm:text-2xl font-bold mb-2 transition-colors ${isComingSoon ? '' : 'cursor-pointer group-hover:text-accent'}`}
+              onClick={onClick}
+              className="text-xl sm:text-2xl font-bold mb-2 transition-colors cursor-pointer group-hover:text-accent"
             >
               {project.title}
             </h3>
@@ -162,21 +152,14 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
             <p className="text-sm sm:text-base text-foreground/80 leading-relaxed mb-4 sm:mb-6">{project.description}</p>
             
             <div className="flex flex-wrap gap-2 sm:gap-3">
-              {isComingSoon ? (
-                <Badge variant="secondary" className="gap-1 px-3 py-1.5 text-xs sm:text-sm">
-                  <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
-                  Case Study Coming Soon
-                </Badge>
-              ) : (
-                <Button
-                  onClick={onClick}
-                  size="sm"
-                  className="bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
-                >
-                  View Case Study
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
-                </Button>
-              )}
+              <Button
+                onClick={onClick}
+                size="sm"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4"
+              >
+                View Case Study
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" />
+              </Button>
               {project.wireframeUrl && (
                 <Button
                   asChild
@@ -207,24 +190,22 @@ const FeaturedProjectCard = ({ project, onClick }: { project: typeof featuredPro
           </div>
 
           {/* Right: Hover Preview */}
-          {!isComingSoon && (
-            <div 
-              onClick={onClick}
-              className="hidden lg:flex items-center justify-center w-64 cursor-pointer"
-            >
-              <div className="relative w-full h-40 bg-secondary/30 rounded-lg overflow-hidden border border-border group-hover:border-accent/50 transition-all">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-2 group-hover:bg-accent/30 transition-colors">
-                      <ArrowRight className="w-5 h-5 text-accent" />
-                    </div>
-                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Click to explore</p>
+          <div 
+            onClick={onClick}
+            className="hidden lg:flex items-center justify-center w-64 cursor-pointer"
+          >
+            <div className="relative w-full h-40 bg-secondary/30 rounded-lg overflow-hidden border border-border group-hover:border-accent/50 transition-all">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent"></div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-2 group-hover:bg-accent/30 transition-colors">
+                    <ArrowRight className="w-5 h-5 text-accent" />
                   </div>
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">Click to explore</p>
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </CardContent>
 
