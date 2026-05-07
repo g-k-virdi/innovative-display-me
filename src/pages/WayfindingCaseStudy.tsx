@@ -53,7 +53,6 @@ const WayfindingCaseStudy = () => {
               {[
                 ["Client", "TTC / Metrolinx — Cedarvale Station"],
                 ["Role", "Human Factors Engineer (Team of 4)"],
-                ["Timeline", "6 weeks"],
               ].map(([label, value]) => (
                 <div key={label}>
                   <span className="text-muted-foreground">{label}:</span>{" "}

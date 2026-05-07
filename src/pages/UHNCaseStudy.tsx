@@ -53,7 +53,6 @@ const UHNCaseStudy = () => {
               {[
                 ["Client", "University Health Network (UHN) — Interventional Radiology"],
                 ["Role", "Industrial Engineering Student (Team of 4)"],
-                ["Timeline", "8 weeks"],
               ].map(([label, value]) => (
                 <div key={label}>
                   <span className="text-muted-foreground">{label}:</span>{" "}
