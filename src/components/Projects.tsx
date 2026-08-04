@@ -105,7 +105,6 @@ const uxProjectsData = [
 const dataProjectsData = [
   {
     title: "Pollution Forecasting Using Time-Series Analysis",
-    team: "",
     inProgress: false,
     team: "Independent Project | Python, Pandas, statsmodels",
     description: "Built and compared Holt-Winters and SARIMA forecasting models on seasonal pollution data, benchmarking both with MAE. Holt-Winters delivered higher prediction stability, showing that data structure should drive model choice.",
@@ -116,7 +115,6 @@ const dataProjectsData = [
   },
   {
     title: "NHL Draft Prediction Using Machine Learning",
-    team: "",
     inProgress: false,
     team: "Independent Project | Python, Pandas, scikit-learn",
     description: "Cleaned 10 years of NHL data and engineered features to predict standings and simulate draft outcomes. Ridge regression outperformed other models with an R² above 0.85.",
