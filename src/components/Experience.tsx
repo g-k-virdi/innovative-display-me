@@ -21,15 +21,6 @@ const workExperienceData = [
     ],
   },
   {
-    title: "Digital Innovation Assistant, CASSA (Council of Agencies Supporting South Asians)",
-    company: "Toronto",
-    period: "July 2026 – August 2026",
-    responsibilities: [
-      "Conduct current-state assessments of organizational channels and processes, applying structured analysis to identify gaps and improvement opportunities.",
-      "Build and maintain an Excel-based research database evaluating prospective partner organizations, requiring strong attention to detail and data accuracy to support network expansion recommendations.",
-    ],
-  },
-  {
     title: "Intern, Data Joins",
     company: "Remote",
     period: "June 2025 – December 2025",

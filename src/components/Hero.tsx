@@ -14,10 +14,11 @@ const Hero = () => {
           </h1>
           <div className="w-20 h-1 bg-accent mb-6"></div>
           <p className="text-xl lg:text-2xl text-muted-foreground font-light mb-8">
-            Structured Problem Solver | UX Research · Business Analysis · Data-Driven Design
+            Human-Centered Engineer
           </p>
           <p className="text-base text-muted-foreground mb-12 leading-relaxed max-w-xl">
-            Turning ambiguous problems into structured, evidence-based recommendations, for people, processes, and products.
+            Blending user research, design, and data analytics to craft intuitive, 
+            evidence-based experiences that put people first.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
@@ -58,7 +59,7 @@ const Hero = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/in/gurleen-v-a918a12ab"
+              href="https://www.linkedin.com/in/gurleen-kaur-virdi-a918a12ab/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-accent transition-colors"
@@ -67,7 +68,7 @@ const Hero = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:virdigurleenkaur3@gmail.com"
+              href="mailto:gurleen.ux@gmail.com"
               className="text-muted-foreground hover:text-accent transition-colors"
               aria-label="Email"
             >
