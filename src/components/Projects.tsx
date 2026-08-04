@@ -39,11 +39,11 @@ const uxProjectsData = [
     title: "BIA Tool Redesign for William Osler Health System",
     team: "Team of 4 | Capstone Project",
     inProgress: false,
-    description: "Collaborated on redesigning a Business Impact Analysis (BIA) system using HCI principles.",
+    description: "Redesigned a Business Impact Analysis (BIA) system for the Business Continuity Management team, adding a dependency mapping tool, a searchable dashboard, and a streamlined intake form to replace a manual, spreadsheet-driven process.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop",
-    links: [
-      { label: "Case Study available upon request", url: "#", locked: true },
-    ],
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/bia-tool",
+    links: [],
   },
   {
     title: "UTESCA Portal Wireframe",
@@ -105,19 +105,56 @@ const uxProjectsData = [
 const dataProjectsData = [
   {
     title: "Pollution Forecasting Using Time-Series Analysis",
-    team: "",
     inProgress: false,
-    description: "Developed and compared Holt-Winters and SARIMA models to predict pollution levels with seasonal analysis.",
+    team: "Independent Project | Python, Pandas, statsmodels",
+    description: "Built and compared Holt-Winters and SARIMA forecasting models on seasonal pollution data, benchmarking both with MAE. Holt-Winters delivered higher prediction stability, showing that data structure should drive model choice.",
     image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/pollution-forecasting",
     links: [{ label: "Notebook available upon request", url: "#", locked: true }],
   },
   {
     title: "NHL Draft Prediction Using Machine Learning",
-    team: "",
     inProgress: false,
-    description: "Built regression and classification models to predict NHL standings and simulate draft outcomes.",
+    team: "Independent Project | Python, Pandas, scikit-learn",
+    description: "Cleaned 10 years of NHL data and engineered features to predict standings and simulate draft outcomes. Ridge regression outperformed other models with an R² above 0.85.",
     image: "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/nhl-draft-prediction",
     links: [{ label: "Notebook available upon request", url: "#", locked: true }],
+  },
+];
+
+const businessProjectsData = [
+  {
+    title: "BIA Tool Redesign for William Osler Health System",
+    team: "Systems & UX Design | Team of 4 | Capstone Project",
+    inProgress: false,
+    description: "Redesigned a Business Impact Analysis tool for the Business Continuity Management team, replacing manual form reviews and interviews with a searchable dashboard, structured intake form, and a new dependency mapping tool.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/bia-tool",
+    links: [],
+  },
+  {
+    title: "UHN Inventory Optimization",
+    team: "Industrial Engineering Student | Team of 4 | University Project",
+    inProgress: false,
+    description: "Mapped clinical inventory workflows, ran root cause analysis, and used a weighted decision matrix to recommend an RFID-based tracking system with an 18-week implementation plan.",
+    image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/uhn-inventory",
+    links: [],
+  },
+  {
+    title: "Wayfinding Optimization",
+    team: "Human Factors Engineer | Team of 4 | University Project",
+    inProgress: false,
+    description: "Conducted field research and human error analysis at a TTC station to identify systematic wayfinding failures, then proposed system-level signage and navigation improvements.",
+    image: "https://images.unsplash.com/photo-1519003300449-424ad0405076?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/wayfinding",
+    links: [],
   },
 ];
 
@@ -299,6 +336,7 @@ const Projects = () => {
   const navigate = useNavigate();
   const [uxPage, setUxPage] = useState(0);
   const [dataPage, setDataPage] = useState(0);
+  const [bizPage, setBizPage] = useState(0);
   const [activeTab, setActiveTab] = useState("ux");
   const projectsListRef = useRef<HTMLDivElement>(null);
   const previousTabRef = useRef(activeTab);
@@ -306,6 +344,7 @@ const Projects = () => {
 
   const uxTotalPages = Math.ceil(uxProjectsData.length / PROJECTS_PER_PAGE);
   const dataTotalPages = Math.ceil(dataProjectsData.length / PROJECTS_PER_PAGE);
+  const bizTotalPages = Math.ceil(businessProjectsData.length / PROJECTS_PER_PAGE);
 
   const paginateProjects = (projects: any[], page: number) => {
     const start = page * PROJECTS_PER_PAGE;
@@ -336,7 +375,7 @@ const Projects = () => {
       const y = projectsListRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
-  }, [uxPage, dataPage]);
+  }, [uxPage, dataPage, bizPage]);
 
   return (
     <section id="projects" className="pt-20 pb-12 sm:pt-24 sm:pb-16 lg:pt-28 lg:pb-20 bg-secondary/30">
@@ -352,7 +391,7 @@ const Projects = () => {
         </div>
 
         <Tabs defaultValue="ux" className="max-w-6xl mx-auto" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-2 mb-6 sm:mb-8 md:mb-12 h-auto">
+          <TabsList className="grid w-full max-w-3xl mx-auto grid-cols-3 mb-6 sm:mb-8 md:mb-12 h-auto">
             <TabsTrigger value="ux" className="text-xs sm:text-sm py-3 sm:py-2 px-3 sm:px-4 leading-snug whitespace-normal text-center">
               <span className="sm:hidden">Human Factors<br />& UX Design</span>
               <span className="hidden sm:inline">Human Factors & UX Design</span>
@@ -360,6 +399,10 @@ const Projects = () => {
             <TabsTrigger value="data" className="text-xs sm:text-sm py-3 sm:py-2 px-3 sm:px-4 leading-snug whitespace-normal text-center">
               <span className="sm:hidden">Data Analytics<br />& Machine Learning</span>
               <span className="hidden sm:inline">Data Analytics & Machine Learning</span>
+            </TabsTrigger>
+            <TabsTrigger value="business" className="text-xs sm:text-sm py-3 sm:py-2 px-3 sm:px-4 leading-snug whitespace-normal text-center">
+              <span className="sm:hidden">Business Analysis<br />& Process Improvement</span>
+              <span className="hidden sm:inline">Business Analysis & Process Improvement</span>
             </TabsTrigger>
           </TabsList>
 
@@ -460,6 +503,53 @@ const Projects = () => {
                 <Button
                   onClick={() => setDataPage(Math.min(dataTotalPages - 1, dataPage + 1))}
                   disabled={dataPage === dataTotalPages - 1}
+                  variant="outline"
+                  size="sm"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed h-9 sm:h-10 px-2 sm:px-4 text-xs sm:text-sm"
+                >
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="w-4 h-4 sm:ml-1" />
+                </Button>
+              </div>
+            )}
+          </TabsContent>
+          <TabsContent value="business" className="space-y-4 min-h-[600px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+              {paginateProjects(businessProjectsData, bizPage).map((project, index) => (
+                <ProjectCard key={index} project={project} index={index} />
+              ))}
+            </div>
+
+            {bizTotalPages > 1 && (
+              <div className="flex justify-center items-center gap-3 sm:gap-6 mt-6 sm:mt-8">
+                <Button
+                  onClick={() => setBizPage(Math.max(0, bizPage - 1))}
+                  disabled={bizPage === 0}
+                  variant="outline"
+                  size="sm"
+                  className="disabled:opacity-50 disabled:cursor-not-allowed h-9 sm:h-10 px-2 sm:px-4 text-xs sm:text-sm"
+                >
+                  <ChevronLeft className="w-4 h-4 sm:mr-1" />
+                  <span className="hidden sm:inline">Previous</span>
+                </Button>
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  {Array.from({ length: bizTotalPages }, (_, i) => i).map((page) => (
+                    <button
+                      key={page}
+                      onClick={() => setBizPage(page)}
+                      className={`w-8 h-8 sm:w-9 sm:h-9 rounded-md text-xs sm:text-sm transition-all ${
+                        bizPage === page
+                          ? "bg-accent text-accent-foreground font-semibold"
+                          : "bg-secondary text-secondary-foreground hover:bg-accent/20"
+                      }`}
+                    >
+                      {page + 1}
+                    </button>
+                  ))}
+                </div>
+                <Button
+                  onClick={() => setBizPage(Math.min(bizTotalPages - 1, bizPage + 1))}
+                  disabled={bizPage === bizTotalPages - 1}
                   variant="outline"
                   size="sm"
                   className="disabled:opacity-50 disabled:cursor-not-allowed h-9 sm:h-10 px-2 sm:px-4 text-xs sm:text-sm"

@@ -28,7 +28,7 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-accent">Design Approach</h3>
             <p className="text-foreground/90 leading-relaxed">
-              Empathy and evidence guide my design. I start by understanding people — their motivations, needs, and contexts — then iterate through ideation, prototyping, and testing. My background in Industrial Engineering helps me combine psychology, design principles, and data-driven insights to create human-centered experiences.
+              Empathy and evidence guide how I work. I start by understanding a problem from the ground up, root causes, stakeholder needs, and data, then structure a path to a solution, whether that means a decision framework, an implementation roadmap, or a redesigned interface. My background in Industrial Engineering trained me to treat almost anything as a system: I look for where it breaks, and I design or recommend a fix that actually holds up for the people using it.
             </p>
           </div>
 
