@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col items-center justify-center space-y-4">
           <div className="flex items-center gap-6">
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/gurleen-v-a918a12ab"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm hover:text-accent transition-colors"
@@ -31,7 +31,7 @@ const Footer = () => {
               GitHub
             </a>
             <a
-              href="mailto:gurleen.ux@gmail.com"
+              href="mailto:virdigurleenkaur3@gmail.com"
               className="flex items-center gap-2 text-sm hover:text-accent transition-colors"
               aria-label="Email"
             >
@@ -43,7 +43,7 @@ const Footer = () => {
           <div className="text-center">
             <p className="text-sm">© 2025 Gurleen Kaur Virdi</p>
             <p className="text-sm opacity-90 mt-1">
-              Human-Centered Engineer | UX · Research · Data-Driven Design
+              Structured Problem Solver | UX Research · Business Analysis · Data-Driven Design
             </p>
           </div>
 
