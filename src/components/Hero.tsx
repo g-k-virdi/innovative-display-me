@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, ArrowRight, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -14,11 +14,11 @@ const Hero = () => {
           </h1>
           <div className="w-20 h-1 bg-accent mb-6"></div>
           <p className="text-xl lg:text-2xl text-muted-foreground font-light mb-8">
-            Human-Centered Engineer
+            Structured Problem Solver | UX Research · Business Analysis · Data-Driven Design
           </p>
           <p className="text-base text-muted-foreground mb-12 leading-relaxed max-w-xl">
-            Blending user research, design, and data analytics to craft intuitive, 
-            evidence-based experiences that put people first.
+            Turning ambiguous problems into structured, evidence-based recommendations,
+            for people, processes, and products.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
@@ -39,14 +39,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Featured Case Study Link */}
-          <button
-            onClick={() => navigate("/case-study/urgent-care-pal")}
-            className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors mb-12"
-          >
-            <span>Featured: Urgent Care Pal Case Study</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
 
           <div className="flex gap-6">
             <a

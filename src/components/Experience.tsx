@@ -11,16 +11,6 @@ const workExperienceData = [
     ],
   },
   {
-    title: "Director of Design & Marketing, UTESCA",
-    company: "Toronto",
-    period: "September 2025 – Present",
-    responsibilities: [
-      "Wireframe and design the UTESCA member portal using Figma and UX principles.",
-      "Collaborate with a team to create visual content for events, including posters.",
-      "Design short video content to enhance engagement and reach on social media.",
-    ],
-  },
-  {
     title: "Intern, Data Joins",
     company: "Remote",
     period: "June 2025 – December 2025",
@@ -33,6 +23,14 @@ const workExperienceData = [
 ];
 
 const extracurricularsData = [
+  {
+    title: "Director of Design & Marketing, UTESCA",
+    role: "",
+    organization: "Toronto",
+    period: "September 2025 – Present",
+    description:
+      "Wireframe and design the UTESCA member portal using Figma and UX principles. Collaborate with a team to create visual content for events, including posters, and design short video content to enhance engagement and reach on social media.",
+  },
   {
     title: "Philosophical Literature Reading Group (PLRG)",
     role: "General Member",
@@ -113,7 +111,7 @@ const Experience = () => {
         {/* Extracurriculars */}
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-8">
-            Extracurriculars
+            Leadership and Activities
           </h3>
 
           <div className="space-y-0">
