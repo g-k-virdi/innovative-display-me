@@ -421,11 +421,30 @@ const Projects = () => {
                 ref={tabIdx === 0 ? projectsListRef : undefined}
                 className="space-y-4 min-h-[600px]"
               >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  {paginateProjects(data, page).map((project, index) => (
-                    <ProjectCard key={index} project={project} index={index} />
-                  ))}
-                </div>
+                {(() => {
+                  const items = paginateProjects(data, page);
+                  const featured = items.filter((p) => p.hasCaseStudy);
+                  const rest = items.filter((p) => !p.hasCaseStudy);
+                  return (
+                    <div className="space-y-4 sm:space-y-6">
+                      {featured.length > 0 && (
+                        <div className="space-y-4">
+                          {featured.map((project, index) => (
+                            <CaseStudyCard key={index} project={project} index={index} />
+                          ))}
+                        </div>
+                      )}
+                      {rest.length > 0 && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                          {rest.map((project, index) => (
+                            <ProjectCard key={index} project={project} index={index} />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
+
                 <Pagination page={page} totalPages={totalPages} setPage={setPage} />
               </TabsContent>
             );
