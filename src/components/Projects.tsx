@@ -5,6 +5,20 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, ChevronLeft, ChevronRight, ArrowRight, Target, MousePointer2, BarChart3 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import wayfindingImage from "@/assets/wayfinding-station.jpg";
+
+const wayfindingProject = {
+  title: "Wayfinding Optimization",
+  team: "Human Factors Engineer | Team of 4 | University Project",
+  inProgress: false,
+  description:
+    "Conducted field research and human error analysis to identify systematic wayfinding failures at a TTC station, then proposed system-level signage and navigation improvements.",
+  image: wayfindingImage,
+  hasCaseStudy: true,
+  caseStudyUrl: "/case-study/wayfinding",
+  links: [],
+};
+
 
 // Tab 1 — Business & Process Analysis
 const businessProjectsData = [
