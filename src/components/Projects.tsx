@@ -186,84 +186,118 @@ const tabConfig = [
   },
 ];
 
-// Project card
-const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+// Links row
+const ProjectLinks = ({ project }: { project: any }) => {
   const navigate = useNavigate();
-
   return (
-    <Card
-      key={index}
-      className="border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50 overflow-hidden"
-      style={{ animationDelay: `${index * 50}ms` }}
-    >
+    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+      {project.hasCaseStudy && (
+        <Button
+          onClick={() => navigate(project.caseStudyUrl)}
+          size="sm"
+          className="h-8 text-xs px-3 bg-accent text-accent-foreground hover:bg-accent/90"
+        >
+          <ArrowRight className="w-3 h-3 mr-1" />
+          View Case Study
+        </Button>
+      )}
+      {project.links.map((link: any, idx: number) =>
+        link.locked ? (
+          <Button
+            key={idx}
+            variant="ghost"
+            size="sm"
+            className="h-8 text-[10px] sm:text-xs text-muted-foreground cursor-not-allowed opacity-60 px-2"
+            disabled
+          >
+            {link.label}
+          </Button>
+        ) : (
+          <Button
+            key={idx}
+            asChild
+            variant="outline"
+            size="sm"
+            className="h-8 text-[10px] sm:text-xs px-2 sm:px-3 hover:bg-accent hover:text-accent-foreground"
+          >
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="w-3 h-3 mr-1" />
+              {link.label}
+            </a>
+          </Button>
+        )
+      )}
+    </div>
+  );
+};
+
+const ProjectHeading = ({ project, large }: { project: any; large?: boolean }) => (
+  <>
+    <div className="flex items-start gap-2 mb-2 flex-wrap">
+      <h3 className={`font-semibold leading-tight ${large ? "text-lg sm:text-xl" : "text-base"}`}>
+        {project.title}
+      </h3>
+      {project.inProgress && (
+        <Badge variant="secondary" className="text-[10px] sm:text-xs shrink-0">
+          In Progress
+        </Badge>
+      )}
+    </div>
+    {project.team && (
+      <p className="text-[11px] sm:text-xs text-muted-foreground mb-2">{project.team}</p>
+    )}
+    <p className="text-xs sm:text-sm text-foreground/80 mb-4 leading-relaxed">{project.description}</p>
+  </>
+);
+
+// Wide, horizontal card for case studies
+const CaseStudyCard = ({ project, index }: { project: any; index: number }) => (
+  <Card
+    className="group border border-border hover:border-accent/60 hover:shadow-lg transition-all duration-300 animate-fade-in bg-card overflow-hidden"
+    style={{ animationDelay: `${index * 60}ms` }}
+  >
+    <div className="flex flex-col sm:flex-row">
       {project.image && (
-        <div className="h-32 sm:h-36 overflow-hidden">
+        <div className="sm:w-2/5 lg:w-1/3 h-40 sm:h-auto overflow-hidden shrink-0">
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
       )}
-      <CardContent className="p-4 sm:p-5">
-        <div className="flex items-start justify-between gap-3 sm:gap-4">
-          <div className="flex-1">
-            <div className="flex items-start gap-2 mb-2 flex-wrap">
-              <h3 className="text-base sm:text-lg font-semibold leading-tight">{project.title}</h3>
-              {project.inProgress && (
-                <Badge variant="secondary" className="text-[10px] sm:text-xs shrink-0">
-                  In Progress
-                </Badge>
-              )}
-            </div>
-            {project.team && (
-              <p className="text-[11px] sm:text-xs text-muted-foreground mb-2">{project.team}</p>
-            )}
-            <p className="text-xs sm:text-sm text-foreground/80 mb-3">{project.description}</p>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              {project.hasCaseStudy && (
-                <Button
-                  onClick={() => navigate(project.caseStudyUrl)}
-                  size="sm"
-                  className="h-8 sm:h-7 text-[10px] sm:text-xs px-2 sm:px-3 bg-accent text-accent-foreground hover:bg-accent/90"
-                >
-                  <ArrowRight className="w-3 h-3 mr-1" />
-                  View Case Study
-                </Button>
-              )}
-              {project.links.map((link: any, idx: number) =>
-                link.locked ? (
-                  <Button
-                    key={idx}
-                    variant="ghost"
-                    size="sm"
-                    className="h-8 sm:h-7 text-[10px] sm:text-xs text-muted-foreground cursor-not-allowed opacity-60 px-2"
-                    disabled
-                  >
-                    {link.label}
-                  </Button>
-                ) : (
-                  <Button
-                    key={idx}
-                    asChild
-                    variant="outline"
-                    size="sm"
-                    className="h-8 sm:h-7 text-[10px] sm:text-xs px-2 sm:px-3 hover:bg-accent hover:text-accent-foreground"
-                  >
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      {link.label}
-                    </a>
-                  </Button>
-                )
-              )}
-            </div>
-          </div>
-        </div>
+      <CardContent className="flex-1 p-5 sm:p-6 flex flex-col justify-center">
+        <ProjectHeading project={project} large />
+        <ProjectLinks project={project} />
       </CardContent>
-    </Card>
-  );
-};
+    </div>
+  </Card>
+);
+
+// Compact, near-square card for other projects
+const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+  <Card
+    className="group border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50 overflow-hidden flex flex-col"
+    style={{ animationDelay: `${index * 50}ms` }}
+  >
+    {project.image && (
+      <div className="h-32 sm:h-36 overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+    )}
+    <CardContent className="p-4 sm:p-5 flex flex-col flex-1">
+      <ProjectHeading project={project} />
+      <div className="mt-auto">
+        <ProjectLinks project={project} />
+      </div>
+    </CardContent>
+  </Card>
+);
+
 
 const Pagination = ({
   page,
