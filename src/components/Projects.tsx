@@ -70,17 +70,7 @@ const uxProjectsData = [
       },
     ],
   },
-  {
-    title: "Wayfinding Optimization",
-    team: "Human Factors Engineer | Team of 4 | University Project",
-    inProgress: false,
-    description:
-      "Conducted field research and human error analysis to identify systematic wayfinding failures at a TTC station, then proposed system-level signage and navigation improvements.",
-    image: "https://images.unsplash.com/photo-1517940310602-26535839fe84?w=400&h=250&fit=crop",
-    hasCaseStudy: true,
-    caseStudyUrl: "/case-study/wayfinding",
-    links: [],
-  },
+  wayfindingProject,
   {
     title: "UTESCA Portal Wireframe",
     team: "UX Designer | Club Project",
