@@ -11,15 +11,17 @@ const workExperienceData = [
     ],
   },
   {
-    title: "Intern, Data Joins",
+    title: "Intern, Datajoins",
     company: "Remote",
     period: "June 2025 – December 2025",
     responsibilities: [
-      "Perform data cleaning, exploratory analysis, and dashboard design on datasets.",
-      "Wireframe and prototype web and app experiences in Figma, applying HCI and UX principles to improve usability.",
-      "Collaborate on front-end web and app development.",
+      "Built KPI dashboards that made complex data accessible to non-technical users, supporting day-to-day, data-driven decisions.",
+      "Conducted data cleaning and exploratory data analysis, communicating findings through clear data storytelling tailored to non-technical, client-facing audiences.",
+      "Wireframed and prototyped web and app experiences in Figma, applying HCI and UX principles to improve usability.",
+      "Designed and built the Datajoins company website, using Figma to prototype and Cursor to develop it, iterating on AI-generated outputs to reach the final website.",
     ],
   },
+
 ];
 
 const extracurricularsData = [

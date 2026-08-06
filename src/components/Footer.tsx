@@ -43,7 +43,7 @@ const Footer = () => {
           <div className="text-center">
             <p className="text-sm">© 2025 Gurleen Kaur Virdi</p>
             <p className="text-sm opacity-90 mt-1">
-              Structured Problem Solver | UX Research · Business Analysis · Data-Driven Design
+              UX · Business Analysis · Data Analytics
             </p>
           </div>
 
