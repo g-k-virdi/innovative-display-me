@@ -14,7 +14,7 @@ const Hero = () => {
           </h1>
           <div className="w-20 h-1 bg-accent mb-6"></div>
           <p className="text-xl lg:text-2xl text-muted-foreground font-light mb-8">
-            Structured Problem Solver | UX Research · Business Analysis · Data-Driven Design
+            UX · Business Analysis · Data Analytics
           </p>
           <p className="text-base text-muted-foreground mb-12 leading-relaxed max-w-xl">
             Turning ambiguous problems into structured, evidence-based recommendations,
