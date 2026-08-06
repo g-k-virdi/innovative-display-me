@@ -11,15 +11,17 @@ const workExperienceData = [
     ],
   },
   {
-    title: "Intern, Data Joins",
+    title: "Intern, Datajoins",
     company: "Remote",
     period: "June 2025 – December 2025",
     responsibilities: [
-      "Perform data cleaning, exploratory analysis, and dashboard design on datasets.",
-      "Wireframe and prototype web and app experiences in Figma, applying HCI and UX principles to improve usability.",
-      "Collaborate on front-end web and app development.",
+      "Built KPI dashboards that made complex data accessible to non-technical users, supporting day-to-day, data-driven decisions.",
+      "Conducted data cleaning and exploratory data analysis, communicating findings through clear data storytelling tailored to non-technical, client-facing audiences.",
+      "Wireframed and prototyped web and app experiences in Figma, applying HCI and UX principles to improve usability.",
+      "Designed and built the Datajoins company website, using Figma to prototype and Cursor to develop it, iterating on AI-generated outputs to reach the final website.",
     ],
   },
+
 ];
 
 const extracurricularsData = [
@@ -27,9 +29,9 @@ const extracurricularsData = [
     title: "Director of Design & Marketing, UTESCA",
     role: "",
     organization: "Toronto",
-    period: "September 2025 – Present",
+    period: "September 2024 – April 2025",
     description:
-      "Wireframe and design the UTESCA member portal using Figma and UX principles. Collaborate with a team to create visual content for events, including posters, and design short video content to enhance engagement and reach on social media.",
+      "Wireframed and designed the UTESCA member portal using Figma and UX principles. Collaborated with a team to create visual content for events, including posters, and designed short video content to enhance engagement and reach on social media.",
   },
   {
     title: "Philosophical Literature Reading Group (PLRG)",
