@@ -6,48 +6,68 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "UX Design & Research",
-      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&auto=format&fit=crop&q=80",
-      preview: ["Wireframing", "Prototyping", "UX Research", "Journey Mapping"],
-      allSkills: [
-        "Wireframing", "Prototyping", "UX Research", "Journey Mapping",
-        "Usability Testing", "Heuristic Evaluation", "Task Analysis",
-        "HCI Principles", "Information Architecture", "Information Theory",
-        "UML Diagrams", "Storyboarding", "Persona Development",
-      ],
-    },
-    {
-      title: "Data Analytics",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80",
-      preview: ["Exploratory Data Analysis", "Predictive Modelling"],
-      allSkills: [
-        "Exploratory Data Analysis", "Predictive Modelling",
-        "Time-Series Forecasting", "Data Visualization", "Storytelling with Data",
-      ],
-    },
-    {
-      title: "Project & Product Management",
+      title: "Business Analysis & Consulting",
       image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&auto=format&fit=crop&q=80",
-      preview: ["Agile Workflow", "Team Collaboration"],
-      allSkills: ["Agile Workflow", "Team Collaboration", "Stakeholder Communication"],
+      preview: ["Requirements Gathering", "Stakeholder Interviews", "Process Mapping", "Gap Analysis"],
+      allSkills: [
+        "Requirements Gathering", "Stakeholder Interviews", "Process Mapping",
+        "Workflow Analysis", "Task Analysis", "Gap Analysis",
+        "Business Process Improvement", "Root Cause Analysis",
+        "Use Case Documentation", "Decision Frameworks",
+        "Agile Methodologies", "Stakeholder Communication", "Miro",
+      ],
     },
     {
-      title: "Tools",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=80",
-      preview: ["Figma", "Tableau", "Jupyter Notebook", "GitHub"],
-      allSkills: ["Figma", "Miro", "Canva", "Tableau", "Jupyter Notebook", "GitHub", "Excel", "Jira", "Google Suite"],
+      title: "Data & Analytics",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80",
+      preview: ["SQL", "Python (Pandas, Jupyter Notebook)", "KPI Dashboards", "Tableau"],
+      allSkills: [
+        "SQL", "Python (Pandas, Jupyter Notebook)", "Excel",
+        "Statistical Analysis", "Exploratory Data Analysis",
+        "Predictive Modelling", "Time-Series Forecasting",
+        "KPI Dashboards", "Tableau", "Data Visualization", "Storytelling with Data",
+      ],
     },
     {
-      title: "Programming Languages",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&auto=format&fit=crop&q=80",
-      preview: ["Python", "R", "Java", "MATLAB"],
-      allSkills: ["Python", "R", "Java", "MATLAB"],
+      title: "Human Factors & UX",
+      image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&auto=format&fit=crop&q=80",
+      preview: ["Human-Centered Design", "User Research", "Usability Testing", "Figma"],
+      allSkills: [
+        "Human-Centered Design", "User Research", "Usability Testing",
+        "Heuristic Evaluation", "Task Analysis", "User Journey Mapping",
+        "Information Architecture", "Wireframing", "Prototyping",
+        "Persona Development", "Storyboarding", "HCI Principles",
+        "UML Diagrams", "Figma",
+      ],
     },
     {
-      title: "Core Competencies",
+      title: "Communication",
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80",
-      preview: ["Teamwork", "Communication", "Report Writing"],
-      allSkills: ["Teamwork", "Communication", "Report Writing", "Presentation", "Critical Thinking"],
+      preview: ["Translating Technical Concepts", "Documentation", "Presentations"],
+      allSkills: [
+        "Translating Technical Concepts for Non-Technical Stakeholders",
+        "Documentation", "Presentations", "Stakeholder Alignment",
+        "Rationale Delivery", "Report Writing", "Critical Thinking", "Teamwork",
+      ],
+    },
+    {
+      title: "AI & Automation",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=80",
+      preview: ["AI-Assisted Development (Cursor, Figma Make)", "Prompt Engineering", "Context Engineering"],
+      allSkills: [
+        "AI-Assisted Development (Cursor, Figma Make)",
+        "Prompt Engineering", "Context Engineering",
+      ],
+    },
+    {
+      title: "Tools & Technologies",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&auto=format&fit=crop&q=80",
+      preview: ["Figma", "Miro", "Tableau", "SQL"],
+      allSkills: [
+        "Figma", "Miro", "Canva", "Tableau", "SQL", "Python", "R",
+        "Java", "MATLAB", "Jupyter Notebook", "Excel", "Jira",
+        "GitHub", "Cursor", "Google Suite",
+      ],
     },
   ];
 
@@ -63,7 +83,7 @@ const Skills = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {skillCategories.map((category, index) => {
           const isExpanded = expandedIndex === index;
-          const hasMore = category.allSkills.length > 5;
+          const hasMore = category.allSkills.length > category.preview.length;
 
           return (
             <Card
@@ -76,7 +96,7 @@ const Skills = () => {
                 <img
                   src={category.image}
                   alt={category.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <CardContent className="p-4 sm:p-6">
