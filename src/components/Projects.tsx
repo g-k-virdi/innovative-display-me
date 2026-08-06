@@ -44,6 +44,7 @@ const businessProjectsData = [
     caseStudyUrl: "/case-study/bia-tool-redesign",
     links: [],
   },
+  wayfindingProject,
 ];
 
 // Tab 2 — UX Research & Design
