@@ -2,8 +2,8 @@ import { Circle, MapPin, Calendar, Building2 } from "lucide-react";
 
 const workExperienceData = [
   {
-    title: "UX Designer, 65square",
-    company: "Remote",
+    title: "UX Designer (Volunteer), 65square",
+    company: "Remote · Part-time",
     period: "August 2025 – Present",
     responsibilities: [
       "Research and wireframe app features for a non-profit organization using Figma.",
@@ -12,7 +12,7 @@ const workExperienceData = [
   },
   {
     title: "Intern, Datajoins",
-    company: "Remote",
+    company: "Remote · Full-time",
     period: "June 2025 – December 2025",
     responsibilities: [
       "Built KPI dashboards that made complex data accessible to non-technical users, supporting day-to-day, data-driven decisions.",

@@ -5,6 +5,20 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, ChevronLeft, ChevronRight, ArrowRight, Target, MousePointer2, BarChart3 } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import wayfindingImage from "@/assets/wayfinding-station.jpg";
+
+const wayfindingProject = {
+  title: "Wayfinding Optimization",
+  team: "Human Factors Engineer | Team of 4 | University Project",
+  inProgress: false,
+  description:
+    "Conducted field research and human error analysis to identify systematic wayfinding failures at a TTC station, then proposed system-level signage and navigation improvements.",
+  image: wayfindingImage,
+  hasCaseStudy: true,
+  caseStudyUrl: "/case-study/wayfinding",
+  links: [],
+};
+
 
 // Tab 1 — Business & Process Analysis
 const businessProjectsData = [
@@ -30,6 +44,7 @@ const businessProjectsData = [
     caseStudyUrl: "/case-study/bia-tool-redesign",
     links: [],
   },
+  wayfindingProject,
 ];
 
 // Tab 2 — UX Research & Design
@@ -56,17 +71,7 @@ const uxProjectsData = [
       },
     ],
   },
-  {
-    title: "Wayfinding Optimization",
-    team: "Human Factors Engineer | Team of 4 | University Project",
-    inProgress: false,
-    description:
-      "Conducted field research and human error analysis to identify systematic wayfinding failures at a TTC station, then proposed system-level signage and navigation improvements.",
-    image: "https://images.unsplash.com/photo-1517940310602-26535839fe84?w=400&h=250&fit=crop",
-    hasCaseStudy: true,
-    caseStudyUrl: "/case-study/wayfinding",
-    links: [],
-  },
+  wayfindingProject,
   {
     title: "UTESCA Portal Wireframe",
     team: "UX Designer | Club Project",
@@ -119,14 +124,6 @@ const uxProjectsData = [
     links: [{ label: "Project Report and Design available upon request", url: "#", locked: true }],
   },
   {
-    title: "65square Calendar and Events Feature",
-    team: "UX Designer | Non-Profit Project",
-    inProgress: true,
-    description: "Wireframed a new feature for managing calendar and community events with iterative design.",
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=250&fit=crop",
-    links: [{ label: "Private project", url: "#", locked: true }],
-  },
-  {
     title: "Electric Vehicle Recommendation System Design",
     team: "Back-end Developer | Team of 5 | University Project",
     inProgress: false,
@@ -163,7 +160,7 @@ const dataProjectsData = [
   },
 ];
 
-const PROJECTS_PER_PAGE = 6;
+const PROJECTS_PER_PAGE = 8;
 
 const tabConfig = [
   {

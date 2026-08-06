@@ -13,7 +13,7 @@ const Skills = () => {
         "Requirements Gathering", "Stakeholder Interviews", "Process Mapping",
         "Workflow Analysis", "Task Analysis", "Gap Analysis",
         "Business Process Improvement", "Root Cause Analysis",
-        "Use Case Documentation", "Decision Frameworks",
+        "Use Case Documentation", "UML Diagrams", "Decision Frameworks",
         "Agile Methodologies", "Stakeholder Communication", "Miro",
       ],
     },
@@ -43,19 +43,19 @@ const Skills = () => {
     {
       title: "Communication",
       image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80",
-      preview: ["Translating Technical Concepts", "Documentation", "Presentations"],
+      preview: ["Documentation", "Presentations", "Stakeholder Management", "Rationale Delivery"],
       allSkills: [
-        "Translating Technical Concepts for Non-Technical Stakeholders",
-        "Documentation", "Presentations", "Stakeholder Alignment",
+        "Documentation", "Presentations", "Stakeholder Management",
         "Rationale Delivery", "Report Writing", "Critical Thinking", "Teamwork",
+        "Translating Technical Concepts for Non-Technical Stakeholders",
       ],
     },
     {
       title: "AI & Automation",
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=80",
-      preview: ["AI-Assisted Development (Cursor, Figma Make)", "Prompt Engineering", "Context Engineering"],
+      preview: ["AI-Assisted Development (Cursor, Figma Make, Magic Patterns)", "Prompt Engineering", "Context Engineering"],
       allSkills: [
-        "AI-Assisted Development (Cursor, Figma Make)",
+        "AI-Assisted Development (Cursor, Figma Make, Magic Patterns)",
         "Prompt Engineering", "Context Engineering",
       ],
     },
