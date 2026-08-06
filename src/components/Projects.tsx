@@ -133,14 +133,6 @@ const uxProjectsData = [
     links: [{ label: "Project Report and Design available upon request", url: "#", locked: true }],
   },
   {
-    title: "65square Calendar and Events Feature",
-    team: "UX Designer | Non-Profit Project",
-    inProgress: true,
-    description: "Wireframed a new feature for managing calendar and community events with iterative design.",
-    image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=250&fit=crop",
-    links: [{ label: "Private project", url: "#", locked: true }],
-  },
-  {
     title: "Electric Vehicle Recommendation System Design",
     team: "Back-end Developer | Team of 5 | University Project",
     inProgress: false,
