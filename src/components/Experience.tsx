@@ -29,9 +29,9 @@ const extracurricularsData = [
     title: "Director of Design & Marketing, UTESCA",
     role: "",
     organization: "Toronto",
-    period: "September 2025 – Present",
+    period: "September 2024 – April 2025",
     description:
-      "Wireframe and design the UTESCA member portal using Figma and UX principles. Collaborate with a team to create visual content for events, including posters, and design short video content to enhance engagement and reach on social media.",
+      "Wireframed and designed the UTESCA member portal using Figma and UX principles. Collaborated with a team to create visual content for events, including posters, and designed short video content to enhance engagement and reach on social media.",
   },
   {
     title: "Philosophical Literature Reading Group (PLRG)",
