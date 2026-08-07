@@ -15,6 +15,8 @@ import WayfindingCaseStudy from "./pages/WayfindingCaseStudy";
 import BIACaseStudy from "./pages/BIACaseStudy";
 import NHLCaseStudy from "./pages/NHLCaseStudy";
 import PollutionCaseStudy from "./pages/PollutionCaseStudy";
+import HospitalSimulationCaseStudy from "./pages/HospitalSimulationCaseStudy";
+import MoreProjects from "./pages/MoreProjects";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -48,6 +50,8 @@ const App = () => (
           <Route path="/case-study/bia-tool-redesign" element={<BIACaseStudy />} />
           <Route path="/case-study/nhl-draft-prediction" element={<NHLCaseStudy />} />
           <Route path="/case-study/pollution-forecasting" element={<PollutionCaseStudy />} />
+          <Route path="/case-study/hospital-simulation" element={<HospitalSimulationCaseStudy />} />
+          <Route path="/more-projects" element={<MoreProjects />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

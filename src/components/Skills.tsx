@@ -14,7 +14,7 @@ const Skills = () => {
         "Workflow Analysis", "Task Analysis", "Gap Analysis",
         "Business Process Improvement", "Root Cause Analysis",
         "Use Case Documentation", "UML Diagrams", "Decision Frameworks",
-        "Agile Methodologies", "Stakeholder Communication", "Miro",
+        "Agile Methodologies", "Stakeholder Communication", "Miro", "Jira",
       ],
     },
     {
@@ -22,7 +22,7 @@ const Skills = () => {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&auto=format&fit=crop&q=80",
       preview: ["SQL", "Python (Pandas, Jupyter Notebook)", "KPI Dashboards", "Tableau"],
       allSkills: [
-        "SQL", "Python (Pandas, Jupyter Notebook)", "Excel",
+        "SQL", "Python (Pandas, Jupyter Notebook)", "Excel", "R", "MATLAB",
         "Statistical Analysis", "Exploratory Data Analysis",
         "Predictive Modelling", "Time-Series Forecasting",
         "KPI Dashboards", "Tableau", "Data Visualization", "Storytelling with Data",
@@ -34,10 +34,10 @@ const Skills = () => {
       preview: ["Human-Centered Design", "User Research", "Usability Testing", "Figma"],
       allSkills: [
         "Human-Centered Design", "User Research", "Usability Testing",
-        "Heuristic Evaluation", "Task Analysis", "User Journey Mapping",
+        "Heuristic Evaluation", "User Journey Mapping",
         "Information Architecture", "Wireframing", "Prototyping",
         "Persona Development", "Storyboarding", "HCI Principles",
-        "UML Diagrams", "Figma",
+        "Figma", "Canva",
       ],
     },
     {
@@ -47,6 +47,7 @@ const Skills = () => {
       allSkills: [
         "Documentation", "Presentations", "Stakeholder Management",
         "Rationale Delivery", "Report Writing", "Critical Thinking", "Teamwork",
+        "Google Suite",
         "Translating Technical Concepts for Non-Technical Stakeholders",
       ],
     },
@@ -57,16 +58,6 @@ const Skills = () => {
       allSkills: [
         "AI-Assisted Development (Cursor, Figma Make, Magic Patterns)",
         "Prompt Engineering", "Context Engineering",
-      ],
-    },
-    {
-      title: "Tools & Technologies",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&auto=format&fit=crop&q=80",
-      preview: ["Figma", "Miro", "Tableau", "SQL"],
-      allSkills: [
-        "Figma", "Miro", "Canva", "Tableau", "SQL", "Python", "R",
-        "Java", "MATLAB", "Jupyter Notebook", "Excel", "Jira",
-        "GitHub", "Cursor", "Google Suite",
       ],
     },
   ];

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
@@ -14,7 +14,7 @@ const Hero = () => {
           </h1>
           <div className="w-20 h-1 bg-accent mb-6"></div>
           <p className="text-xl lg:text-2xl text-muted-foreground font-light mb-8">
-            UX · Business Analysis · Data Analytics
+            Business Analysis · Data · UX
           </p>
           <p className="text-base text-muted-foreground mb-12 leading-relaxed max-w-xl">
             Turning ambiguous problems into structured, evidence-based recommendations,
@@ -41,15 +41,6 @@ const Hero = () => {
 
 
           <div className="flex gap-6">
-            <a
-              href="https://github.com/g-k-virdi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-accent transition-colors"
-              aria-label="GitHub Profile"
-            >
-              <Github className="w-5 h-5" />
-            </a>
             <a
               href="https://www.linkedin.com/in/gurleen-kaur-virdi-a918a12ab/"
               target="_blank"

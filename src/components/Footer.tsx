@@ -1,4 +1,4 @@
-import { ArrowUp, Linkedin, Github, Mail } from "lucide-react";
+import { ArrowUp, Linkedin, Mail } from "lucide-react";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -21,16 +21,6 @@ const Footer = () => {
               LinkedIn
             </a>
             <a
-              href="https://github.com/g-k-virdi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm hover:text-accent transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="w-4 h-4" />
-              GitHub
-            </a>
-            <a
               href="mailto:gurleen.ux@gmail.com"
               className="flex items-center gap-2 text-sm hover:text-accent transition-colors"
               aria-label="Email"
@@ -41,9 +31,9 @@ const Footer = () => {
           </div>
 
           <div className="text-center">
-            <p className="text-sm">© 2025 Gurleen Kaur Virdi</p>
+            <p className="text-sm">© 2026 Gurleen Kaur Virdi</p>
             <p className="text-sm opacity-90 mt-1">
-              UX · Business Analysis · Data Analytics
+              Business Analysis · Data · UX
             </p>
           </div>
 

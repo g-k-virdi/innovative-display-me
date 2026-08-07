@@ -29,7 +29,7 @@ const Contact = () => {
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
           <p className="text-lg text-foreground">
-            I'm always open to connecting, collaborating, or just chatting about design and ideas.
+            I'm always open to connecting, collaborating, and discussing ideas.
           </p>
         </div>
 
