@@ -19,9 +19,31 @@ const wayfindingProject = {
   links: [],
 };
 
+const biaProject = {
+  title: "BIA Tool Redesign for William Osler Health System",
+  team: "Systems & UX Design | Team of 4 | Capstone Project",
+  inProgress: false,
+  description:
+    "Redesigned a Business Impact Analysis tool for a hospital's Business Continuity Management team — making cross-departmental dependencies visible and replacing a manual, interview-driven data process.",
+  image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop",
+  hasCaseStudy: true,
+  caseStudyUrl: "/case-study/bia-tool-redesign",
+  links: [],
+};
 
 // Tab 1 — Business & Process Analysis
 const businessProjectsData = [
+  {
+    title: "Hospital Workflow Simulation for Process Optimization",
+    team: "Process Analyst | Team of 3 | University Project",
+    inProgress: false,
+    description:
+      "Built a discrete event simulation of a hospital's full patient journey in Simio, diagnosed the real capacity bottleneck, and cut system-wide time by ~5% through patient sequencing alone — no added beds or staff.",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/hospital-simulation",
+    links: [],
+  },
   {
     title: "UHN Inventory Optimization",
     team: "Industrial Engineering Student | Team of 4 | University Project",
@@ -33,21 +55,37 @@ const businessProjectsData = [
     caseStudyUrl: "/case-study/uhn-inventory",
     links: [],
   },
-  {
-    title: "BIA Tool Redesign for William Osler Health System",
-    team: "Systems & UX Design | Team of 4 | Capstone Project",
-    inProgress: false,
-    description:
-      "Redesigned a Business Impact Analysis tool for a hospital's Business Continuity Management team — making cross-departmental dependencies visible and replacing a manual, interview-driven data process.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=250&fit=crop",
-    hasCaseStudy: true,
-    caseStudyUrl: "/case-study/bia-tool-redesign",
-    links: [],
-  },
+  biaProject,
   wayfindingProject,
 ];
 
-// Tab 2 — UX Research & Design
+// Tab 2 — Data & Predictive Analytics
+const dataProjectsData = [
+  {
+    title: "NHL Draft Prediction Using Machine Learning",
+    team: "Data Analyst | Team of 3 | University Project",
+    inProgress: false,
+    description:
+      "Predicted the NHL's bottom-16 standings from 10 seasons of team data, compared 15 models, and simulated the weighted draft lottery — correctly calling the 1st, 2nd, and 4th overall picks.",
+    image: "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/nhl-draft-prediction",
+    links: [],
+  },
+  {
+    title: "Pollution Forecasting Using Time-Series Analysis",
+    team: "Independent Project | Python, Pandas, statsmodels",
+    inProgress: false,
+    description:
+      "Built, tuned, and stress-tested Holt-Winters and SARIMA forecasts on real climate data, benchmarked with MAE. Holt-Winters won at 124.78 ppm — and both models revealed a shared blind spot.",
+    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=250&fit=crop",
+    hasCaseStudy: true,
+    caseStudyUrl: "/case-study/pollution-forecasting",
+    links: [],
+  },
+];
+
+// Tab 3 — UX Research & Design
 const uxProjectsData = [
   {
     title: "Urgent Care Pal",
@@ -71,7 +109,29 @@ const uxProjectsData = [
       },
     ],
   },
+  biaProject,
   wayfindingProject,
+  {
+    title: "Datajoins Website Design and Development",
+    team: "UX Designer & Developer | Internship Project",
+    inProgress: false,
+    description: "Designed and developed the company's website using Figma prototyping and front-end implementation.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
+    links: [{ label: "View Website", url: "https://www.datajoins.com", locked: false }],
+  },
+  {
+    title: "Electric Vehicle Recommendation System Design",
+    team: "Back-end Developer | Team of 5 | University Project",
+    inProgress: false,
+    description:
+      "Designed a user-centric web application for recommending electric vehicles with UML diagrams and use cases.",
+    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&h=250&fit=crop",
+    links: [{ label: "Project Report and code available upon request", url: "#", locked: true }],
+  },
+];
+
+// Additional projects, surfaced on the /more-projects page
+export const additionalProjectsData = [
   {
     title: "UTESCA Portal Wireframe",
     team: "UX Designer | Club Project",
@@ -86,14 +146,6 @@ const uxProjectsData = [
         locked: false,
       },
     ],
-  },
-  {
-    title: "Datajoins Website Design and Development",
-    team: "UX Designer & Developer | Internship Project",
-    inProgress: false,
-    description: "Designed and developed the company's website using Figma prototyping and front-end implementation.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop",
-    links: [{ label: "View Website", url: "https://www.datajoins.com", locked: false }],
   },
   {
     title: "TraceVitals",
@@ -123,64 +175,16 @@ const uxProjectsData = [
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=250&fit=crop",
     links: [{ label: "Project Report and Design available upon request", url: "#", locked: true }],
   },
-  {
-    title: "Electric Vehicle Recommendation System Design",
-    team: "Back-end Developer | Team of 5 | University Project",
-    inProgress: false,
-    description:
-      "Designed a user-centric web application for recommending electric vehicles with UML diagrams and use cases.",
-    image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=400&h=250&fit=crop",
-    links: [{ label: "Project Report and code available upon request", url: "#", locked: true }],
-  },
-];
-
-// Tab 3 — Data & Predictive Analytics
-const dataProjectsData = [
-  {
-    title: "NHL Draft Prediction Using Machine Learning",
-    team: "Independent Project | Python, Pandas, scikit-learn",
-    inProgress: false,
-    description:
-      "Cleaned and engineered features from 10 years of NHL data, then compared regression and classification models. Ridge regression achieved an R² above 0.85 in predicting standings.",
-    image: "https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=400&h=250&fit=crop",
-    hasCaseStudy: true,
-    caseStudyUrl: "/case-study/nhl-draft-prediction",
-    links: [],
-  },
-  {
-    title: "Pollution Forecasting Using Time-Series Analysis",
-    team: "Independent Project | Python, Pandas, statsmodels",
-    inProgress: false,
-    description:
-      "Built and compared Holt-Winters and SARIMA forecasting models on seasonal pollution data, benchmarked with MAE. Holt-Winters delivered higher prediction stability.",
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=400&h=250&fit=crop",
-    hasCaseStudy: true,
-    caseStudyUrl: "/case-study/pollution-forecasting",
-    links: [],
-  },
 ];
 
 const PROJECTS_PER_PAGE = 8;
 
+export const PROJECTS_TAB_KEY = "projectsActiveTab";
+
 const tabConfig = [
-  {
-    value: "business",
-    icon: Target,
-    label: "Business & Process Analysis",
-    subtitle: "Root cause analysis, decision frameworks, stakeholder-driven design",
-  },
-  {
-    value: "ux",
-    icon: MousePointer2,
-    label: "UX Research & Design",
-    subtitle: "User research, wireframing, and human-centered prototyping",
-  },
-  {
-    value: "data",
-    icon: BarChart3,
-    label: "Data & Predictive Analytics",
-    subtitle: "Forecasting, modeling, and data-driven evaluation",
-  },
+  { value: "business", icon: Target, label: "Business & Process Analysis" },
+  { value: "data", icon: BarChart3, label: "Data & Predictive Analytics" },
+  { value: "ux", icon: MousePointer2, label: "UX Research & Design" },
 ];
 
 // Links row
@@ -272,7 +276,7 @@ const CaseStudyCard = ({ project, index }: { project: any; index: number }) => (
 );
 
 // Compact, near-square card for other projects
-const ProjectCard = ({ project, index }: { project: any; index: number }) => (
+export const ProjectCard = ({ project, index }: { project: any; index: number }) => (
   <Card
     className="group border border-border hover:border-accent/50 hover:shadow-md transition-all duration-300 animate-scale-in bg-card/50 overflow-hidden flex flex-col"
     style={{ animationDelay: `${index * 50}ms` }}
@@ -348,11 +352,23 @@ const Pagination = ({
 };
 
 const Projects = () => {
+  const navigate = useNavigate();
   const [businessPage, setBusinessPage] = useState(0);
   const [uxPage, setUxPage] = useState(0);
   const [dataPage, setDataPage] = useState(0);
   const projectsListRef = useRef<HTMLDivElement>(null);
   const hasPaginatedRef = useRef(false);
+
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    if (typeof window === "undefined") return "business";
+    const saved = window.sessionStorage.getItem(PROJECTS_TAB_KEY);
+    return saved && tabConfig.some((t) => t.value === saved) ? saved : "business";
+  });
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    window.sessionStorage.setItem(PROJECTS_TAB_KEY, value);
+  };
 
   const paginateProjects = (projects: any[], page: number) => {
     const start = page * PROJECTS_PER_PAGE;
@@ -374,8 +390,8 @@ const Projects = () => {
 
   const tabs: Record<string, { data: any[]; page: number; setPage: (p: number) => void }> = {
     business: { data: businessProjectsData, page: businessPage, setPage: setBusinessPage },
-    ux: { data: uxProjectsData, page: uxPage, setPage: setUxPage },
     data: { data: dataProjectsData, page: dataPage, setPage: setDataPage },
+    ux: { data: uxProjectsData, page: uxPage, setPage: setUxPage },
   };
 
   return (
@@ -391,19 +407,16 @@ const Projects = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="business" className="max-w-6xl mx-auto">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="max-w-6xl mx-auto">
           <TabsList className="grid w-full max-w-4xl mx-auto grid-cols-1 sm:grid-cols-3 gap-2 mb-6 sm:mb-8 md:mb-12 h-auto bg-transparent p-0">
-            {tabConfig.map(({ value, icon: Icon, label, subtitle }) => (
+            {tabConfig.map(({ value, icon: Icon, label }) => (
               <TabsTrigger
                 key={value}
                 value={value}
-                className="flex flex-col items-center gap-1 text-center py-3 px-3 h-auto rounded-lg border border-border bg-card/50 whitespace-normal data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:border-accent data-[state=active]:shadow-md transition-colors"
+                className="flex items-center justify-center gap-1.5 text-center py-3 px-3 h-auto rounded-lg border border-border bg-card/50 whitespace-normal data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:border-accent data-[state=active]:shadow-md transition-colors"
               >
-                <span className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold leading-snug">
-                  <Icon className="w-4 h-4 shrink-0" />
-                  {label}
-                </span>
-                <span className="text-[10px] sm:text-[11px] leading-snug opacity-80">{subtitle}</span>
+                <Icon className="w-4 h-4 shrink-0" />
+                <span className="text-xs sm:text-sm font-semibold leading-snug">{label}</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -447,6 +460,17 @@ const Projects = () => {
             );
           })}
         </Tabs>
+
+        <div className="flex justify-center mt-10">
+          <Button
+            variant="outline"
+            onClick={() => navigate("/more-projects")}
+            className="border-border hover:bg-accent hover:text-accent-foreground"
+          >
+            More Projects
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+        </div>
       </div>
     </section>
   );

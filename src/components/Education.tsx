@@ -12,18 +12,16 @@ import {
 
 const Education = () => {
   const coursework = [
-    "Human Factors Engineering",
-    "Engineering Psychology",
-    "Cognitive Psychology",
-    "Ergonomic Design of Information Systems",
-    "Workplace Ergonomics",
-    "Design & Analysis of Information Systems",
     "Statistics",
     "Probability",
     "Data Science",
+    "Data Modelling",
+    "Analytics in Action",
     "Introduction to Machine Learning",
-    "Case Studies in Human Factors",
-    "Case Studies in Healthcare",
+    "Design & Analysis of Information Systems",
+    "Engineering Economics",
+    "Human Factors Engineering",
+    "Engineering Psychology",
   ];
 
   return (

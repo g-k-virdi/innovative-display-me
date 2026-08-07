@@ -11,15 +11,20 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
   </section>
 );
 
-const Bullets = ({ items }: { items: string[] }) => (
-  <ul className="space-y-2">
+const Steps = ({ items }: { items: { title: string; body: string }[] }) => (
+  <ol className="space-y-5">
     {items.map((item, i) => (
-      <li key={i} className="flex items-start gap-3 text-foreground/80 leading-relaxed">
-        <span className="text-accent mt-1.5 text-xs">●</span>
-        <span>{item}</span>
+      <li key={i} className="flex items-start gap-4">
+        <span className="shrink-0 w-7 h-7 rounded-full bg-accent/10 border border-accent text-accent text-xs font-semibold flex items-center justify-center mt-0.5">
+          {i + 1}
+        </span>
+        <div>
+          <h3 className="font-semibold mb-1">{item.title}</h3>
+          <p className="text-foreground/80 leading-relaxed">{item.body}</p>
+        </div>
       </li>
     ))}
-  </ul>
+  </ol>
 );
 
 const PollutionCaseStudy = () => {
@@ -46,13 +51,17 @@ const PollutionCaseStudy = () => {
               Pollution Forecasting Using Time-Series Analysis
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground mb-6">
-              Comparing Forecasting Methods to Predict Seasonal Pollution Trends
+              Comparing Holt-Winters and SARIMA — and Finding Their Shared Blind Spot
             </p>
 
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm mb-8">
               {[
                 ["Role", "Independent Project"],
-                ["Tools", "Python, Pandas, statsmodels"],
+                ["Type", "University Project"],
+                [
+                  "Tools",
+                  "Python, Pandas, statsmodels, Holt-Winters (Triple Exponential Smoothing), SARIMA",
+                ],
               ].map(([label, value]) => (
                 <div key={label}>
                   <span className="text-muted-foreground">{label}:</span>{" "}
@@ -63,42 +72,64 @@ const PollutionCaseStudy = () => {
           </header>
 
           <article className="space-y-14 animate-fade-in">
-            <Section title="Problem">
+            <Section title="The Problem">
               <p className="text-foreground/80 leading-relaxed">
-                Air pollution levels follow seasonal and historical patterns, but different forecasting methods handle
-                that seasonality differently. The goal was to build and compare two established time-series approaches
-                to determine which produced more reliable forecasts.
+                Forecasting pollution levels matters for public health planning and policy — but pollution data is
+                notoriously messy: it trends, it moves seasonally, and it's prone to sudden spikes that have nothing to
+                do with historical patterns. I set out to build and rigorously compare two classical time-series
+                forecasting approaches on real climate data, to determine which one held up better and understand why.
               </p>
             </Section>
 
-            <Section title="Approach">
-              <Bullets
+            <Section title="My Approach">
+              <Steps
                 items={[
-                  "Developed forecasting models using both Holt-Winters exponential smoothing and SARIMA methods",
-                  "Analyzed seasonal trends, outliers, and historical patterns in the data to inform model design and identify where each method might struggle",
-                  "Evaluated both models using Mean Absolute Error (MAE) as the benchmark",
+                  {
+                    title: "Diagnosed the series before modeling it",
+                    body:
+                      "Before choosing a method, I confirmed what the data actually contained: a rolling mean and seasonal decomposition plot showed a clear upward trend, and a repeating 7-day pattern in the seasonal component confirmed weekly seasonality. I also flagged major outliers in the raw data early — spikes large enough to distort a model if left unexamined — and made a deliberate call to keep them in the analysis rather than remove them, since they appeared to reflect real events rather than data errors.",
+                  },
+                  {
+                    title: "Selected two methods suited to trend + seasonality",
+                    body:
+                      "Given a series with both a trend and a 7-day seasonal cycle, I selected Holt-Winters (Triple Exponential Smoothing) and SARIMA — two of the few classical methods built to handle both components simultaneously, rather than defaulting to a single technique.",
+                  },
+                  {
+                    title: "Ran a sensitivity analysis before trusting either model",
+                    body:
+                      "Rather than fitting each model once and moving on, I deliberately perturbed each model's parameters and measured how much the forecast shifted. Adjusting Holt-Winters' smoothing parameters (level, trend, and seasonal smoothing) dropped the average forecast difference from 24.82 to 18.93 — meaning the tuned model was meaningfully more stable. SARIMA was already highly stable by comparison, showing only a 2.59 average difference under the same test — evidence it was less sensitive to parameter choice on this data.",
+                  },
+                  {
+                    title: "Chose an error metric deliberately, not by default",
+                    body:
+                      "I evaluated both models using Mean Absolute Error rather than Mean Squared Error, specifically because MSE over-penalizes the outlier spikes I'd already decided to keep in the dataset — MAE gave a truer read on typical-day accuracy without letting a handful of extreme days dominate the comparison.",
+                  },
                 ]}
               />
             </Section>
 
-            <Section title="Findings">
+            <Section title="Outcome">
               <div className="bg-accent/5 border-l-4 border-accent rounded-r-lg p-5">
-                <Bullets
-                  items={[
-                    "Holt-Winters achieved higher prediction stability than SARIMA on this dataset",
-                    "Seasonal patterns were strong enough that a simpler, seasonally-aware smoothing method outperformed the more complex SARIMA approach",
-                  ]}
-                />
+                <p className="text-foreground/80 leading-relaxed">
+                  On held-out test data, Holt-Winters achieved a Mean Absolute Error of 124.78 ppm versus SARIMA's
+                  133.88 ppm — making Holt-Winters the more accurate model overall, consistent with its stronger
+                  showing in the earlier sensitivity analysis. Both models, however, badly missed a real December
+                  pollution spike (actual: ~650 ppm; both models predicted ~300 ppm), which I attributed to
+                  holiday-season demand and increased industrial activity — factors no purely historical time-series
+                  model can anticipate without external data.
+                </p>
               </div>
             </Section>
 
-            <Section title="Key Takeaways">
-              <Bullets
-                items={[
-                  "Model choice should be driven by the actual structure of the data (strong seasonality, in this case) rather than defaulting to the more sophisticated-sounding method",
-                  "Comparing methods head-to-head on the same error metric is what makes a forecasting result defensible rather than just plausible",
-                ]}
-              />
+            <Section title="Reflection">
+              <p className="text-foreground/80 leading-relaxed">
+                The gap between the two models' accuracy was real but modest — the more important finding was why
+                Holt-Winters won: it handles seasonal and trend components more flexibly, while SARIMA's more rigid
+                structure struggled with a series this irregular. Equally important was recognizing what neither model
+                could do: without external variables like weather, industrial activity, or policy data, any purely
+                historical model will be blind to the kind of one-off event that actually matters most for public
+                health response. Knowing a model's blind spot is as valuable as knowing its accuracy number.
+              </p>
             </Section>
           </article>
 
