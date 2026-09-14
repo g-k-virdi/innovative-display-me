@@ -2,6 +2,17 @@ import { Circle, MapPin, Calendar, Building2 } from "lucide-react";
 
 const workExperienceData = [
   {
+    title: "Digital Innovation Assistant, Council of Agencies Serving South Asians (CASSA)",
+    company: "Remote",
+    period: "July 2026 – August 2026",
+    responsibilities: [
+      "Conducted a social media review across Facebook, Instagram, and LinkedIn to identify engagement gaps and content opportunities.",
+      "Designed social media content in Canva for campaigns across CASSA's platforms, applying visual hierarchy and brand consistency principles.",
+      "Built and structured an Excel-based research database for prospective partner organizations using Claude, adding filtering and search features to support network expansion and content planning.",
+      "Developed skit concepts for community programs and researched guests to build a podcast outline.",
+    ],
+  },
+  {
     title: "UX Designer (Volunteer), 65square",
     company: "Remote · Part-time",
     period: "August 2025 – Present",
