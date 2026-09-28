@@ -1,4 +1,4 @@
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, BadgeCheck } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +9,15 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+
+const certifications = [
+  {
+    name: "SEO: Mastering Generative Engine Optimization (GEO)",
+    issuer: "Coursera",
+    period: "September 2026",
+  },
+];
+
 
 const Education = () => {
   const coursework = [
