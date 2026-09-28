@@ -94,10 +94,42 @@ const Education = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Certifications */}
+          <div className="mt-10">
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground mb-6 text-center">
+              Certifications
+            </h3>
+            <div className="space-y-4">
+              {certifications.map((cert, idx) => (
+                <Card
+                  key={idx}
+                  className="border-2 border-border hover:shadow-xl transition-all duration-300 bg-card"
+                >
+                  <CardContent className="p-5 sm:p-6">
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="p-2 sm:p-3 bg-accent/10 border-2 border-accent rounded shrink-0">
+                        <BadgeCheck className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="text-base sm:text-lg font-bold mb-1">
+                          {cert.name}
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {cert.issuer} · {cert.period}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
+
 };
 
 export default Education;
